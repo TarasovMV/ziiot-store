@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="header">
+            <div class="icon">
+                <img *ngIf="product.icon" [src]="product.icon | imageUrl" />
+            </div>
+            <div class="title">
+                <div class="company">{{product.providerName}}</div>
+                <div class="main">{{product.name}}</div>
+            </div>
+        </div>
+        <div class="content">{{product.description}}</div>
+        <div class="footer">
+            <div *ngFor="let filter of product.filters" class="chips">{{filter.name}}</div>
+        </div>
+    </div>
+</div>

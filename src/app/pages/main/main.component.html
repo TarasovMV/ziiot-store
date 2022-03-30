@@ -1,0 +1,43 @@
+<div class="wrapper">
+    <div *ngIf="!(isMobile$ | async)" class="column column_left">
+        <app-filters></app-filters>
+    </div>
+    <div class="column column_right">
+        <div class="categories">
+            <app-category-card
+                *ngIf="!(isMobile$ | async)"
+                class="all"
+                [type]="'all'"
+                [isActive]="isActiveCategory(undefined)"
+                (click)="categoryClick(undefined)"
+            ></app-category-card>
+            <app-category-card
+                *ngFor="let category of categories$ | async"
+                [data]="category"
+                [isActive]="isActiveCategory(category.id)"
+                (click)="categoryClick(category.id)"
+            ></app-category-card>
+        </div>
+        <div class="search">
+            <app-search (filterToggle)="toggleFilter()"></app-search>
+        </div>
+        <div class="filters" *ngIf="(isMobile$ | async) && isMobileFilter">
+            <div class="wrapper">
+                <app-filters></app-filters>
+            </div>
+            <div class="close-wrapper">
+                <div class="close" (click)="toggleFilter()">
+                    <span>Закрыть</span>
+                </div>
+            </div>
+        </div>
+        <div class="products">
+            <app-product-card
+                *ngFor="let product of (products$ | async)"
+                [product]="product"
+                (click)="productClick(product)"
+            ></app-product-card>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,136 @@
+@import "src/styles/media-variables";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    .title {
+        font-size: 14px;
+        font-weight: bold;
+        color: #A1A5B7;
+    }
+
+    .reset {
+        color: #0089FF;
+        font-size: 12px;
+        cursor: pointer;
+
+        svg-icon {
+            width: 8px;
+            height: 8px;
+            margin-left: 10px;
+        }
+    }
+}
+
+.group-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+
+    span {
+        color: #A1A5B7;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .arrow {
+        margin-left: 2px;
+        color: #A1A5B7;
+        width: 12px;
+        height: 12px;
+        display: flex;
+        transform: rotate(-90deg);
+        transition: .3s;
+        cursor: pointer;
+
+        &_open {
+            transform: rotate(0);
+            transition: .3s;
+        }
+    }
+}
+
+.asutp-group {
+    margin-left: 54px;
+}
+
+.rest-group {
+    margin-left: 26px;
+}
+
+
+
+
+/* для элемента input c type="checkbox" */
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* для элемента label, связанного с .custom-checkbox */
+.custom-checkbox:checked+label {
+    color: #FFFFFF;
+}
+
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    color: #A1A5B7;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* создание в label псевдоэлемента before со следующими стилями */
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #50546B;
+    border-radius: 2px;
+    margin-right: 12px;
+    background: #20222B;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    box-sizing: border-box;
+}
+
+/* стили для чекбокса, находящегося в состоянии checked */
+.custom-checkbox:checked+label::before {
+    border-color: #0b76ef;
+    background-color: #0b76ef;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox:disabled+label::before {
+    background-color: #e9ecef;
+}
+
+body {
+    padding: 20px 50px;
+}
+
+.checkbox {
+    margin-bottom: 24px;
+}
+
+@media (max-width: $media-mobile-max) {
+    .custom-checkbox+label::before {
+        width: 16px;
+        height: 16px;
+    }
+
+    .custom-checkbox+label {
+        font-size: 12px;
+    }
+}

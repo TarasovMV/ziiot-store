@@ -1,0 +1,121 @@
+@import "src/styles/text-overflow";
+@import "src/styles/media-variables";
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 344px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    border: 1px solid #20222B;
+    background: #20222B;
+    transition: .3s;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+        border-color: #0089FF;
+        background: #262834;
+        transform: scale(1.01);
+        transition: .3s;
+    }
+
+    .container {
+        display: flex;
+        flex-flow: column;
+        position: absolute;
+        padding: 24px;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header {
+        display: flex;
+        width: 100%;
+        gap: 24px;
+        margin-bottom: 32px;
+
+        .icon {
+            width: 96px;
+            min-width: 96px;
+            height: 96px;
+            padding: 16px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            background: #303340;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .title {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            height: 96px;
+            gap: 16px;
+            overflow: hidden;
+
+            .company {
+                font-size: 12px;
+                color: #0F62FE;
+                font-weight: bold;
+            }
+
+            .main {
+                font-size: 18px;
+                line-height: 27px;
+                color: #F4F6FB;
+                font-weight: bold;
+                @include text-overflow;
+                -webkit-line-clamp: 2;
+            }
+        }
+    }
+
+    .content {
+        @include text-overflow;
+        -webkit-line-clamp: 4;
+        font-size: 16px;
+        line-height: 23.52px;
+        color: #A1A5B7;
+    }
+
+    .footer {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: auto;
+        max-height: 53px;
+        overflow: hidden;
+
+        .chips {
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+            color: #F4F6FB;
+            background: #303340;
+        }
+    }
+}
+
+
+@media (max-width: $media-mobile-max) {
+    .wrapper .header .title .company {
+        font-size: 10px;
+    }
+
+    .wrapper .header .title .main {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .wrapper .content {
+        font-size: 12px;
+        line-height: 14px;
+        -webkit-line-clamp: 5;
+    }
+}

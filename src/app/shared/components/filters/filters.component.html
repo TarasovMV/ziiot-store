@@ -1,0 +1,69 @@
+<div class="wrapper">
+    <div class="header">
+        <div class="title">Категории</div>
+        <div class="reset" (click)="reset()">
+            <span>Сбросить все</span>
+            <svg-icon src="assets/icons/close.svg"></svg-icon>
+        </div>
+    </div>
+
+    <div *ngFor="let filter of ungroupedFilters$ | async" class="checkbox">
+        <input
+            class="custom-checkbox"
+            type="checkbox"
+            [id]="filter.id"
+            [checked]="getCheckedItem(filter.id, filter.filterType)"
+            (click)="checkItem(filter.id, filter.filterType, $event.target)"
+        >
+        <label [for]="filter.id">{{filter.name}}</label>
+    </div>
+
+    <div class="group-header" (click)="toggleAsutp()">
+        <svg-icon
+            class="arrow"
+            src="assets/icons/arrow-simple.svg"
+            [class.arrow_open]="isAsutpOpen"
+        ></svg-icon>
+        <input
+            class="custom-checkbox"
+            type="checkbox"
+            id="АСУТП"
+            [checked]="getCheckedGroup()"
+            (click)="checkGroup($event.target)"
+        >
+        <label for="АСУТП">АСУТП</label>
+    </div>
+
+    <div class="asutp-group" *ngIf="isAsutpOpen">
+        <div *ngFor="let filter of groupedFilters$ | async" class="checkbox">
+            <input
+                class="custom-checkbox"
+                type="checkbox" [id]="filter.id"
+                [checked]="getCheckedItem(filter.id, filter.filterType)"
+                (click)="checkItem(filter.id, filter.filterType, $event.target)"
+            >
+            <label [for]="filter.id">{{filter.name}}</label>
+        </div>
+    </div>
+
+    <div class="group-header" (click)="toggleRest()">
+        <svg-icon
+            class="arrow"
+            src="assets/icons/arrow-simple.svg"
+            [class.arrow_open]="isRestOpen"
+        ></svg-icon>
+        <span>Фильтры</span>
+    </div>
+    <div class="rest-group" *ngIf="isRestOpen">
+        <div *ngFor="let filter of restFilters$ | async" class="checkbox">
+            <input
+                class="custom-checkbox"
+                type="checkbox" [id]="filter.id"
+                [checked]="getCheckedItem(filter.id, filter.filterType)"
+                (click)="checkItem(filter.id, filter.filterType, $event.target)"
+            >
+            <label [for]="filter.id">{{filter.name}}</label>
+        </div>
+    </div>
+
+</div>

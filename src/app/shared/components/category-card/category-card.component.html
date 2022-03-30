@@ -1,0 +1,12 @@
+<div *ngIf="!(isMobile$ | async)" class="wrapper" [class.wrapper_all]="type === 'all'" [class.wrapper_active]="isActive">
+    <svg-icon class="arrow" src="assets/icons/arrow-double.svg"></svg-icon>
+    <div class="content">
+        <div class="title">{{type === 'all' ? 'Все' : data.name}}</div>
+        <div class="count">[{{type === 'all' ? (allCount$ | async) : data?.count}}]</div>
+    </div>
+    <div class="icon"></div>
+</div>
+
+<div *ngIf="(isMobile$ | async)" class="mobile-wrapper" [class.mobile-wrapper_active]="isActive">
+    <div class="title">{{data.name}}</div>
+</div>

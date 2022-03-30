@@ -1,0 +1,65 @@
+[
+  {
+    "id": 3,
+    "name": "Нефть",
+    "filterType": 1,
+    "count": 2,
+    "parentId": null
+  },
+  {
+    "id": 4,
+    "name": "Переработка",
+    "filterType": 1,
+    "count": 3,
+    "parentId": null
+  },
+  {
+    "id": 5,
+    "name": "Логистика",
+    "filterType": 1,
+    "count": 1,
+    "parentId": null
+  },
+  {
+    "id": 6,
+    "name": "Сбыт",
+    "filterType": 1,
+    "count": 0,
+    "parentId": null
+  },
+  {
+    "id": 7,
+    "name": "Управление предприятием",
+    "filterType": 2,
+    "count": 0,
+    "parentId": null
+  },
+  {
+    "id": 8,
+    "name": "АСУТП",
+    "filterType": 2,
+    "count": 2,
+    "parentId": null
+  },
+  {
+    "id": 10,
+    "name": "Контрольно-измерительные приборы",
+    "filterType": 2,
+    "count": 0,
+    "parentId": 8
+  },
+    {
+        "id": 11,
+        "name": "Контрольно-измерительные приборы 2",
+        "filterType": 2,
+        "count": 0,
+        "parentId": 8
+    },
+  {
+    "id": 11,
+    "name": "Какой-то другой фильтрй123",
+    "filterType": 3,
+    "count": 0,
+    "parentId": null
+  }
+]
