@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="container">
+    <div *ngIf="!product.document" class="container">
         <div class="header">
             <div class="icon">
                 <img *ngIf="product.icon" [src]="product.icon | imageUrl" />
@@ -12,6 +12,20 @@
         <div class="content">{{product.description}}</div>
         <div class="footer">
             <div *ngFor="let filter of product.filters" class="chips">{{filter.name}}</div>
+        </div>
+    </div>
+
+    <div *ngIf="!!product.document" class="container asutp">
+        <div class="header">
+            <img src="assets/images/asutp.png" />
+        </div>
+        <div class="content">{{product.name}}</div>
+        <div class="footer">
+            <div *ngFor="let filter of product.filters" class="chips">{{filter.name}}</div>
+        </div>
+        <div class="button">
+            <span>Скачать</span>
+            <svg-icon src="assets/icons/download.svg"></svg-icon>
         </div>
     </div>
 </div>

@@ -22,19 +22,33 @@ export class DataService {
         this.chosenFilters$, this.products$, this.search$
     ]).pipe(
         map(([filters, products, search]) => {
+            let result: IProductCard[] = [];
             let filtered = [...products];
-            [1, 2, 3].forEach(filterType => {
-                const filter = filters.filter(x => x.filterType === filterType);
-                if (!!filter.length) {
-                    filter.forEach(f => {
-                        filtered = filtered.filter(p => p.filters.find(x => x.filterId === f.id && x.filterType === filterType));
-                    })
-                }
-            });
-            if (search?.length) {
-                filtered = filtered.filter(x => x.name.toLowerCase().search(search.toLowerCase()) !== -1);
+
+            const mainFilter = filters.filter(f => f.filterType === 1);
+            filtered = mainFilter.length
+                ? filtered.filter(x => x.filters.find(f => f.filterId === mainFilter[0].id && f.filterType === 1))
+                : filtered;
+
+            const restFilters = filters.filter(f => f.filterType === 2 || f.filterType === 3);
+
+            if (!!restFilters.length) {
+                filtered.forEach(x => {
+                    for (let filter of x.filters) {
+                        if (restFilters.find(f => f.id === filter.filterId && f.filterType === filter.filterType)) {
+                            result.push(x);
+                            return;
+                        }
+                    }
+                });
+            } else {
+                result = filtered;
             }
-            return filtered;
+
+            if (search?.length) {
+                result = result.filter(x => x.name.toLowerCase().search(search.toLowerCase()) !== -1);
+            }
+            return result;
         }),
     );
 

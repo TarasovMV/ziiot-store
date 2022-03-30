@@ -1,7 +1,7 @@
 <div *ngIf="!(isMobile$ | async)" class="wrapper">
     <div class="stats">
         <span style="color: #777B92;">Найдено: </span>
-        <span>{{ filteredCount$ | async }} проекта</span>
+        <span>{{ filteredCount$ | async }} проект(ов)</span>
     </div>
     <div class="input-wrapper">
         <input [formControl]="search" placeholder="Поиск" />

@@ -4,11 +4,13 @@ import {FrameMessageService} from '../../core/services/frame-message.service';
 import {IProductCard} from '../../core/interfaces/product-card.interface';
 import {PlatformService} from '../../core/services/platform.service';
 import {DataService} from '../../core/services/data.service';
+import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
 
 @Component({
     selector: 'app-main',
     templateUrl: './main.component.html',
     styleUrls: ['./main.component.scss'],
+    providers: [ImageUrlPipe],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainComponent implements OnInit {
@@ -22,6 +24,7 @@ export class MainComponent implements OnInit {
         private readonly viewDetector: ViewDetectorService,
         private readonly frameMessage: FrameMessageService,
         private readonly platformService: PlatformService,
+        private imgUrlPipe: ImageUrlPipe,
     ) {
     }
 
@@ -36,7 +39,11 @@ export class MainComponent implements OnInit {
     }
 
     productClick(product: IProductCard) {
-        this.frameMessage.sendCardUrl(product.url);
+        if (!product.document) {
+            this.frameMessage.sendCardUrl(product.url);
+        } else {
+            this.frameMessage.sendCardUrl(this.imgUrlPipe.transform(product.document));
+        }
     }
 
     categoryClick(id: number | undefined) {

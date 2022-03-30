@@ -3,6 +3,7 @@ export interface IProductCard {
     name: string;
     description: string;
     providerName: string;
+    document?: string;
     url: string;
     price: string;
     icon: string;

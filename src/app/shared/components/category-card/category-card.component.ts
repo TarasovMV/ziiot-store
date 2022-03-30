@@ -19,6 +19,12 @@ export class CategoryCardComponent implements OnInit {
     @Input() isActive: boolean = false;
     readonly allCount$ = this.dataService.products$.pipe(map(x => x.length));
     readonly isMobile$ = this.platformService.isMobile$;
+    readonly imageMap: {[key: string]: string} = {
+        ['Нефть']: 'assets/images/neft.png',
+        ['Переработка']: 'assets/images/pererabotka.png',
+        ['Логистика']: 'assets/images/logistika.png',
+        ['Сбыт']: 'assets/images/sbyt.png',
+    }
 
     constructor(
         private readonly dataService: DataService,

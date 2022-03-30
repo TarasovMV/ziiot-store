@@ -55,12 +55,18 @@
             color: #777B92;
         }
     }
+
+    .icon {
+        margin-left: auto;
+    }
 }
 
 .mobile-wrapper {
     display: flex;
+    flex-flow: column;
     height: 76px;
     width: 100%;
+    gap: 8px;
     justify-content: center;
     align-items: center;
     background: #20222B;
@@ -76,5 +82,11 @@
     .title {
         font-size: 10px;
         color: #F5F8FD;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
     }
 }

@@ -6,6 +6,7 @@ import {ProductCardModule} from '../../shared/components/product-card/product-ca
 import {CategoryCardModule} from '../../shared/components/category-card/category-card.module';
 import {FiltersModule} from '../../shared/components/filters/filters.module';
 import {SearchModule} from '../../shared/components/search/search.module';
+import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {SearchModule} from '../../shared/components/search/search.module';
         }]),
         CategoryCardModule,
         FiltersModule,
-        SearchModule
+        SearchModule,
+        ImageUrlPipeModule
     ]
 })
 export class MainModule {

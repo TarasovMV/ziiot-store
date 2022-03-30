@@ -30,6 +30,39 @@
         box-sizing: border-box;
     }
 
+    .asutp {
+        .header {
+            height: 64px;
+        }
+
+        .content {
+            font-size: 18px;
+            line-height: 27px;
+            color: #F4F6FB;
+            font-weight: bold;
+            @include text-overflow;
+            -webkit-line-clamp: 2;
+        }
+        .footer {
+            margin-top: 20px;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 24px;
+            background: #0F62FE;
+            color: #F4F6FB;
+            font-weight: bold;
+            margin-top: auto;
+            font-size: 14px;
+            width: fit-content;
+            border-radius: 2px;
+        }
+    }
+
     .header {
         display: flex;
         width: 100%;
