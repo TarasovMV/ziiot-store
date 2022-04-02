@@ -50,6 +50,7 @@ export class DataService {
             }
             return result;
         }),
+        map((products: IProductCard[]) => products.map(p => ({ ...p, sortId: Math.random() })).sort((a, b) => a.sortId - b.sortId)),
     );
 
     constructor(private readonly apiService: ApiService) {
@@ -62,7 +63,6 @@ export class DataService {
                 mergeMap(filters => this.apiService.getProducts().pipe(
                     map(products => {
                         products.forEach(p => p.filters.forEach(x => x.name = filters.find(f => f.id === x.filterId && f.filterType === x.filterType)?.name));
-                        products.forEach(p => p.filters = p.filters.filter(x => !!x.name));
                         return products;
                     }),
                     tap(products => this.products$.next(products)),

@@ -12,4 +12,5 @@ export interface IProductCard {
         filterId: number;
         name: string | undefined;
     }[];
+    sortId?: number;
 }

@@ -18,33 +18,33 @@
         <label [for]="filter.id">{{filter.name}}</label>
     </div>
 
-    <div class="group-header" (click)="toggleAsutp()">
-        <svg-icon
-            class="arrow"
-            src="assets/icons/arrow-simple.svg"
-            [class.arrow_open]="isAsutpOpen"
-        ></svg-icon>
-        <input
-            class="custom-checkbox"
-            type="checkbox"
-            id="АСУТП"
-            [checked]="getCheckedGroup()"
-            (click)="checkGroup($event.target)"
-        >
-        <label for="АСУТП">АСУТП</label>
-    </div>
+<!--    <div class="group-header" (click)="toggleAsutp()">-->
+<!--        <svg-icon-->
+<!--            class="arrow"-->
+<!--            src="assets/icons/arrow-simple.svg"-->
+<!--            [class.arrow_open]="isAsutpOpen"-->
+<!--        ></svg-icon>-->
+<!--        <input-->
+<!--            class="custom-checkbox"-->
+<!--            type="checkbox"-->
+<!--            id="АСУТП"-->
+<!--            [checked]="getCheckedGroup()"-->
+<!--            (click)="checkGroup($event.target)"-->
+<!--        >-->
+<!--        <label for="АСУТП">АСУТП</label>-->
+<!--    </div>-->
 
-    <div class="asutp-group" *ngIf="isAsutpOpen">
-        <div *ngFor="let filter of groupedFilters$ | async" class="checkbox">
-            <input
-                class="custom-checkbox"
-                type="checkbox" [id]="filter.id"
-                [checked]="getCheckedItem(filter.id, filter.filterType)"
-                (click)="checkItem(filter.id, filter.filterType, $event.target)"
-            >
-            <label [for]="filter.id">{{filter.name}}</label>
-        </div>
-    </div>
+<!--    <div class="asutp-group" *ngIf="isAsutpOpen">-->
+<!--        <div *ngFor="let filter of groupedFilters$ | async" class="checkbox">-->
+<!--            <input-->
+<!--                class="custom-checkbox"-->
+<!--                type="checkbox" [id]="filter.id"-->
+<!--                [checked]="getCheckedItem(filter.id, filter.filterType)"-->
+<!--                (click)="checkItem(filter.id, filter.filterType, $event.target)"-->
+<!--            >-->
+<!--            <label [for]="filter.id">{{filter.name}}</label>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="group-header" (click)="toggleRest()">
         <svg-icon

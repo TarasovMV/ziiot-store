@@ -1,3 +1,5 @@
+@import "src/styles/media-variables";
+
 :host {
     cursor: pointer;
 }
@@ -10,8 +12,15 @@
     height: 104px;
     box-sizing: border-box;
     background: #20222B;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), inset 3px 3px 2px rgba(87, 92, 115, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
+    border: 2px solid #20222B;
+    transition: .3s;
+
+    &:hover {
+        transform: scale(1.05);
+        transition: .3s;
+    }
 
     &_all {
         width: 92px;
@@ -70,9 +79,10 @@
     justify-content: center;
     align-items: center;
     background: #20222B;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 3px 3px 2px rgba(87, 92, 115, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
     box-sizing: border-box;
+    border: 2px solid #20222B;
 
     &_active {
         border: 2px solid #0089FF;
@@ -88,5 +98,16 @@
         width: 40px;
         height: 40px;
         overflow: hidden;
+    }
+}
+
+
+@media (max-width: $media-tab-max) {
+    .wrapper .arrow {
+        display: none;
+    }
+
+    .wrapper .content .title {
+        font-size: 16px;
     }
 }

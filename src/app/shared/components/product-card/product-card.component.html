@@ -5,26 +5,31 @@
                 <img *ngIf="product.icon" [src]="product.icon | imageUrl" />
             </div>
             <div class="title">
-                <div class="company">{{product.providerName}}</div>
+                <div *ngIf="!!product.providerName" class="company">{{product.providerName}}</div>
                 <div class="main">{{product.name}}</div>
             </div>
         </div>
         <div class="content">{{product.description}}</div>
         <div class="footer">
-            <div *ngFor="let filter of product.filters" class="chips">{{filter.name}}</div>
+            <ng-container *ngFor="let filter of product.filters">
+                <div *ngIf="filter.filterType === 1 || filter.filterType === 2" class="chips">{{filter.name}}</div>
+            </ng-container>
         </div>
     </div>
 
     <div *ngIf="!!product.document" class="container asutp">
+        <svg-icon class="background" src="assets/icons/plant-back.svg"></svg-icon>
         <div class="header">
-            <img src="assets/images/asutp.png" />
+            <div class="title">
+                <div class="main">{{product.name}}</div>
+            </div>
         </div>
-        <div class="content">{{product.name}}</div>
-        <div class="footer">
-            <div *ngFor="let filter of product.filters" class="chips">{{filter.name}}</div>
-        </div>
+        <div class="content">{{product.description}}</div>
+<!--        <div class="footer">-->
+<!--            <div *ngFor="let filter of product.filters" class="chips">{{filter.name}}</div>-->
+<!--        </div>-->
         <div class="button">
-            <span>Скачать</span>
+            <span>Скачать каталог</span>
             <svg-icon src="assets/icons/download.svg"></svg-icon>
         </div>
     </div>

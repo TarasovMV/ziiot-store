@@ -20,6 +20,15 @@
         transition: .3s;
     }
 
+    .background {
+        position: absolute;
+        display: flex;
+        right: -4px;
+        bottom: -4px;
+        width: 150px;
+        color: #606580;
+    }
+
     .container {
         display: flex;
         flex-flow: column;
@@ -32,17 +41,23 @@
 
     .asutp {
         .header {
-            height: 64px;
+            height: 52px;
+            margin-bottom: 10px;
+
+            .title {
+                height: 100%;
+                justify-content: flex-start;
+            }
         }
 
-        .content {
-            font-size: 18px;
-            line-height: 27px;
-            color: #F4F6FB;
-            font-weight: bold;
-            @include text-overflow;
-            -webkit-line-clamp: 2;
-        }
+        //.content {
+        //    font-size: 18px;
+        //    line-height: 27px;
+        //    color: #F4F6FB;
+        //    font-weight: bold;
+        //    @include text-overflow;
+        //    -webkit-line-clamp: 2;
+        //}
         .footer {
             margin-top: 20px;
         }
@@ -52,7 +67,7 @@
             justify-content: center;
             align-items: center;
             gap: 6px;
-            padding: 8px 24px;
+            padding: 8px 18px;
             background: #0F62FE;
             color: #F4F6FB;
             font-weight: bold;
@@ -137,6 +152,24 @@
 
 
 @media (max-width: $media-mobile-max) {
+    .wrapper {
+        height: 320px;
+    }
+
+    .wrapper .header .icon {
+        width: 80px;
+        height: 80px;
+        min-width: 80px;
+    }
+
+    .wrapper .header {
+        gap: 12px;
+    }
+
+    .wrapper .header .title {
+        height: 80px;
+    }
+
     .wrapper .header .title .company {
         font-size: 10px;
     }
@@ -148,7 +181,7 @@
 
     .wrapper .content {
         font-size: 12px;
-        line-height: 14px;
+        line-height: 17px;
         -webkit-line-clamp: 5;
     }
 }
