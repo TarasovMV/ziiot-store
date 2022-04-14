@@ -1,0 +1,12 @@
+<div class="title">Контактная информация</div>
+<div class="info">
+    <div *ngIf="tel" class="item">
+        <svg-icon src="assets/icons/phone.svg"></svg-icon>
+        <a [href]="'tel:'+ tel">{{tel}}</a>
+    </div>
+
+    <div *ngIf="email" class="item">
+        <svg-icon src="assets/icons/mail.svg"></svg-icon>
+        <a [href]="'mailto:' + email">{{email}}</a>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="title">{{ name }}</div>
+
+<div class="item" *ngFor="let item of items; let idx = index">
+    <div class="bullet">
+        <div *ngIf="type === 'bullet'" class="dot"></div>
+        <div *ngIf="type === 'check'" class="check">
+            <svg-icon src="assets/icons/check.svg"></svg-icon>
+        </div>
+        <div *ngIf="type === 'digit'" class="digit">{{idx + 1}}</div>
+    </div>
+    <span [innerHTML]="item | dompurify"></span>
+</div>

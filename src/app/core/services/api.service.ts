@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {catchError, Observable} from 'rxjs';
+import {catchError, Observable, of} from 'rxjs';
 import {IProductCard} from '../interfaces/product-card.interface';
 import {IFilter} from '../interfaces/filter.interface';
+import {IProduct} from '../interfaces/product.inteface';
 
 @Injectable({
     providedIn: 'root'
@@ -24,6 +25,14 @@ export class ApiService {
         // return this.http.get<IFilter[]>(`assets/mock/filters.json`).pipe(
         return this.http.get<IFilter[]>(`${this.apiUrl}/api/StoreFilters/all`).pipe(
             catchError(() => [])
+        );
+    }
+
+    getProduct(id: number): Observable<IProduct | null> {
+        // return this.http.get<IProduct>(`assets/mock/product.json`).pipe(
+        return this.http.get<IProduct>(`${this.apiUrl}/api/products/${id}`).pipe(
+            catchError(() => of(null))
+
         );
     }
 }

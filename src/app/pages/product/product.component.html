@@ -1,0 +1,107 @@
+<ng-container *ngIf="product$ | async as product">
+    <div *ngIf="(pageSize$ | async) === 'l'" class="wrapper">
+        <app-product-control
+            (presentation)="loadPresentation()"
+            (back)="back()"
+            (cost)="getCost()"
+        ></app-product-control>
+        <app-product-header [data]="product"></app-product-header>
+        <div class="body">
+            <div class="column column_left">
+                <app-product-gallery [gallery]="product.gallery" (click)="openGallery(0)"></app-product-gallery>
+                <div class="images">
+                    <app-product-image *ngIf="product.gallery[1]" (click)="openGallery(1)" [img]="product.gallery[1] | imageUrl"></app-product-image>
+                    <app-product-image *ngIf="product.gallery[2]" (click)="openGallery(2)" [img]="product.gallery[2] | imageUrl"></app-product-image>
+                </div>
+                <app-product-contacts
+                    *ngIf="!!product?.provider?.email || !!product?.provider?.phoneNumber"
+                    [email]="product?.provider?.email"
+                    [tel]="product?.provider?.phoneNumber"
+                ></app-product-contacts>
+            </div>
+            <div class="column column_right">
+                <app-product-description [description]="product.description"></app-product-description>
+                <app-product-bullet
+                    *ngIf="!!product.functions"
+                    type="digit"
+                    name="Функции"
+                    [data]="product.functions"
+                ></app-product-bullet>
+                <app-product-bullet
+                    *ngIf="!!product.effects"
+                    type="check"
+                    name="Эффекты"
+                    [data]="product.effects"
+                ></app-product-bullet>
+                <app-product-bullet
+                    *ngIf="!!product.principles"
+                    name="Принцип работы"
+                    [data]="product.principles"
+                ></app-product-bullet>
+                <app-product-bullet
+                    *ngIf="!!product.industries?.trim()"
+                    type="digit"
+                    name="Отрасли"
+                    [data]="product.industries"
+                ></app-product-bullet>
+                <app-product-bullet
+                    *ngIf="!!product.reference"
+                    name="Референс"
+                    [data]="product.reference"
+                ></app-product-bullet>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="(pageSize$ | async) === 's' || (pageSize$ | async) === 'm'" class="wrapper-ms">
+        <app-product-control
+            (presentation)="loadPresentation()"
+            (back)="back()"
+            (cost)="getCost()"
+        ></app-product-control>
+        <app-product-header [data]="product"></app-product-header>
+        <button class="presentation" (click)="loadPresentation()">
+            <svg-icon src="assets/icons/file.svg"></svg-icon>
+            <span>Скачать презентацию</span>
+        </button>
+        <app-product-description [description]="product.description"></app-product-description>
+        <app-product-gallery [gallery]="product.gallery" (click)="openGallery(0)"></app-product-gallery>
+        <div class="images">
+            <app-product-image *ngIf="product.gallery[1]" (click)="openGallery(1)" [img]="product.gallery[1] | imageUrl"></app-product-image>
+            <app-product-image *ngIf="product.gallery[2]" (click)="openGallery(2)" [img]="product.gallery[2] | imageUrl"></app-product-image>
+        </div>
+        <app-product-bullet
+            *ngIf="!!product.functions"
+            type="digit"
+            name="Функции"
+            [data]="product.functions"
+        ></app-product-bullet>
+        <app-product-bullet
+            *ngIf="!!product.effects"
+            type="check"
+            name="Эффекты"
+            [data]="product.effects"
+        ></app-product-bullet>
+        <app-product-bullet
+            *ngIf="!!product.principles"
+            name="Принцип работы"
+            [data]="product.principles"
+        ></app-product-bullet>
+        <app-product-bullet
+            *ngIf="!!product.industries?.trim()"
+            type="digit"
+            name="Отрасли"
+            [data]="product.industries"
+        ></app-product-bullet>
+        <app-product-bullet
+            *ngIf="!!product.reference"
+            name="Референс"
+            [data]="product.reference"
+        ></app-product-bullet>
+        <app-product-contacts
+            *ngIf="!!product?.provider?.email || !!product?.provider?.phoneNumber"
+            [email]="product?.provider?.email"
+            [tel]="product?.provider?.phoneNumber"
+        ></app-product-contacts>
+    </div>
+</ng-container>

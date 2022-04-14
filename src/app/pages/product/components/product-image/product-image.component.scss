@@ -1,0 +1,24 @@
+@import "src/styles/media-variables";
+
+
+img {
+    width: 266px;
+    height: 150px;
+    border: 1px solid #303340;
+    box-sizing: border-box;
+}
+
+@media (max-width: $media-m) {
+    img {
+        width: 294px;
+        height: 166px;
+    }
+}
+
+@media (max-width: $media-s) {
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}

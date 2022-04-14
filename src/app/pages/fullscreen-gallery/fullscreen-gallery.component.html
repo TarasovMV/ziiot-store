@@ -1,0 +1,15 @@
+<app-dialog-wrapper (load)="onLoad($event)">
+
+    <div class="swiper-wrapper">
+        <swiper [navigation]="true" [pagination]="{ clickable: true }" class="slider">
+            <ng-container *ngFor="let img of images$ | async">
+                <ng-template swiperSlide>
+                    <div class="img-wrapper">
+                        <img [src]="img">
+                    </div>
+                </ng-template>
+            </ng-container>
+        </swiper>
+    </div>
+
+</app-dialog-wrapper>

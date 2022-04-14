@@ -1,4 +1,4 @@
-<div class="wrapper">
+<a (click)="$event.preventDefault()" [href]="product.url | imageUrl" class="wrapper">
     <div *ngIf="!product.document" class="container">
         <div class="header">
             <div class="icon">
@@ -25,12 +25,9 @@
             </div>
         </div>
         <div class="content">{{product.description}}</div>
-<!--        <div class="footer">-->
-<!--            <div *ngFor="let filter of product.filters" class="chips">{{filter.name}}</div>-->
-<!--        </div>-->
         <div class="button">
             <span>Скачать каталог</span>
             <svg-icon src="assets/icons/download.svg"></svg-icon>
         </div>
     </div>
-</div>
+</a>

@@ -1,0 +1,131 @@
+@import "src/styles/media-variables";
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    padding: 32px;
+    gap: 32px;
+    border: 1px solid #303340;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .logo {
+        display: flex;
+        width: 128px;
+        min-width: 128px;
+        height: 128px;
+        background: #303340;
+        border-radius: 8px;
+        border: none;
+
+        img {
+            width: 70%;
+            height: 70%;
+            margin: auto;
+        }
+    }
+
+    .header {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        min-height: 128px;
+        height: auto;
+        gap: 16px;
+    }
+
+    .title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+        color: #F4F6FB;
+    }
+
+    .underline {
+        color: #d7e2f2;
+        font-size: 14px;
+    }
+
+    .chips-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .chips {
+        background: #303340;
+        border-radius: 4px;
+        padding: 4px 8px;
+        color: #8C99B2;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+@media (max-width: $media-m) {
+    .wrapper {
+        //padding: 24px;
+        gap: 24px;
+
+        padding: 0;
+        border: none;
+        flex-flow: column;
+
+        .logo {
+            width: 112px;
+            min-width: 112px;
+            height: 112px;
+        }
+
+        .header {
+            min-height: 112px;
+        }
+
+        .title {
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+        .underline {
+            line-height: 20px;
+        }
+    }
+}
+
+@media (max-width: $media-s) {
+    .wrapper {
+        gap: 18px;
+        //padding: 12px;
+
+        .logo {
+            width: 64px;
+            min-width: 64px;
+            height: 64px;
+        }
+
+        .header {
+            min-height: 64px;
+            gap: 8px;
+        }
+
+        .title {
+            font-size: 18px;
+            line-height: 24px;
+        }
+
+        .chips {
+            border-radius: 2px;
+            padding: 4px 6px;
+            font-size: 12px;
+            line-height: 12px;
+        }
+
+        .underline {
+            font-size: 14px;
+        }
+    }
+}
+
+
+

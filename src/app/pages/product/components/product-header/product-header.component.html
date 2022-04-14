@@ -1,0 +1,13 @@
+<div *ngIf="!!data" class="wrapper">
+    <div class="logo">
+        <img [src]="data.icon | imageUrl" />
+    </div>
+
+    <div class="header">
+        <div class="title">{{ data.name }}</div>
+        <div class="underline">{{ data.interlinear }}</div>
+        <div class="chips-wrapper">
+            <div *ngFor="let filter of data.filters" class="chips">{{filter.name}}</div>
+        </div>
+    </div>
+</div>
