@@ -19,14 +19,6 @@ export class FrameMessageService {
         this.sendMessage(JSON.stringify(messageObj));
     }
 
-    sendInit() {
-        const messageObj = {
-            type: 'init',
-        }
-
-        this.sendMessage(JSON.stringify(messageObj));
-    }
-
     sendDialog<T>(url: string, data: T) {
         const messageObj = {
             type: 'dialog',

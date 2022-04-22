@@ -6,6 +6,9 @@ import {ApiService} from '../../core/services/api.service';
 import {PlatformService} from '../../core/services/platform.service';
 import {ViewDetectorService} from '../../core/services/view-detector.service';
 import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
+import {ActivatedRoute} from '@angular/router';
+
+const DEFAULT_PATH = '1cnad';
 
 @Component({
     selector: 'app-product',
@@ -18,19 +21,13 @@ export class ProductComponent implements OnInit, DoCheck {
     readonly product$ = new BehaviorSubject<IProduct | null>(null);
     readonly pageSize$ = this.platformService.pageProductSize$;
 
-    // private readonly productUrl$ = new BehaviorSubject('1cnad');
-
-    private readonly productUrl$ = this.frameMessage.data$.pipe(
-        filter((x: any) => x.type === 'product-url'),
-        map((x: any) => x.data.url),
-    );
-
     private get presentationUrl(): string | undefined {
         const product = this.product$.getValue();
         return product?.files.find(f => f.fileType === 3)?.path;
     }
 
     constructor(
+        private readonly activatedRoute: ActivatedRoute,
         private readonly platformService: PlatformService,
         private readonly viewDetector: ViewDetectorService,
         private readonly frameMessage: FrameMessageService,
@@ -40,13 +37,11 @@ export class ProductComponent implements OnInit, DoCheck {
     }
 
     ngOnInit() {
-        this.frameMessage.sendInit();
-
-        this.getPageUrl();
-
-        this.productUrl$.pipe(
-            tap(x => console.log('product url', x)),
-            switchMap((productUrl: string) => this.api.getProducts().pipe(map((products) => products.filter(({url}) => !!url).find(({url}) => url.search(productUrl) !== -1)?.id ?? 6))),
+        this.activatedRoute.paramMap.pipe(
+            map(x => x.get('path') ?? DEFAULT_PATH),
+            switchMap((productUrl: string) => this.api
+                .getProducts()
+                .pipe(map((products) => products.filter(({url}) => !!url).find(({url}) => url.search(productUrl) !== -1)?.id ?? 6))),
             switchMap((productId) => this.getProduct(productId))
         ).subscribe((x: any) => this.product$.next(x));
     }
@@ -89,14 +84,6 @@ export class ProductComponent implements OnInit, DoCheck {
     back() {
         const payload = {
             type: 'product-back',
-            body: {}
-        }
-        this.frameMessage.sendMessage(JSON.stringify(payload));
-    }
-
-    private getPageUrl() {
-        const payload = {
-            type: 'product-url',
             body: {}
         }
         this.frameMessage.sendMessage(JSON.stringify(payload));
