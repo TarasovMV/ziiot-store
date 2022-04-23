@@ -7,6 +7,9 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+import * as https from "https";
+import * as fs from "fs";
+import * as http from "http";
 
 const MockBrowser = require('mock-browser').mocks.MockBrowser;
 const mock = new MockBrowser();
@@ -14,13 +17,19 @@ const mock = new MockBrowser();
 global['document'] = mock.getDocument();
 global['window'] = mock.getWindow();
 
-// The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
+    server.all('*', function(req, res, next){
+        console.log('req start: ',req.secure, req.hostname, req.originalUrl, server.get('port'));
+        if (req.secure) {
+            return next();
+        }
+
+        res.redirect('https://'+req.hostname + req.originalUrl);
+    });
   const distFolder = join(process.cwd(), 'dist/ziot-store/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
-  // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({
     bootstrap: AppServerModule,
   }));
@@ -28,14 +37,10 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
-  // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
   }));
 
-  // All regular routes use the Universal engine
   server.get('*', (req, res) => {
       console.log("Get");
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
@@ -45,13 +50,23 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4000;
-
-  // Start up the Node server
+  const port = 443;
   const server = app();
-  server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
+
+    https
+        .createServer(
+            {
+                key: fs.readFileSync("/etc/letsencrypt/live/hrchatbot.space/privkey.pem"),
+                cert: fs.readFileSync("/etc/letsencrypt/live/hrchatbot.space/fullchain.pem"),
+            },
+            server
+        )
+        .listen(port, function () {
+            console.log(
+                `app listening on port ${port}! Go to https://localhost:${port}/`
+            );
+        });
+	http.createServer(server).listen(80);
 }
 
 // Webpack will replace 'require' with '__webpack_require__'
