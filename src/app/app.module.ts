@@ -4,6 +4,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AngularSvgIconModule} from 'angular-svg-icon';
+import {TransferHttpCacheModule} from '@nguniversal/common';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        TransferHttpCacheModule,
         AppRoutingModule,
         HttpClientModule,
         AngularSvgIconModule.forRoot()

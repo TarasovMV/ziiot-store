@@ -8,10 +8,7 @@ import {isPlatformServer} from "@angular/common";
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-    title = 'ziot-store';
-    isServer: boolean;
+    readonly isServer = isPlatformServer(this.platformId);
 
-    constructor(@Inject(PLATFORM_ID) private platformId: any) {
-        this.isServer = isPlatformServer(platformId);
-    }
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 }

@@ -1,4 +1,4 @@
-<div [class.hide]="isServer">
+<div *ngIf="!isServer">
     <router-outlet></router-outlet>
 </div>
 
