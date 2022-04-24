@@ -11,7 +11,7 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
         AppComponent,
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         AppRoutingModule,
         HttpClientModule,
         AngularSvgIconModule.forRoot()
