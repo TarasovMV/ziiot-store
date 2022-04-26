@@ -4,12 +4,15 @@ import {DataService} from '../../core/services/data.service';
 import {ProductDirection} from '../../core/enums';
 import {IProductCard} from '../../core/interfaces/product-card.interface';
 import {BehaviorSubject, filter, map} from 'rxjs';
+import {FrameMessageService} from '../../core/services/frame-message.service';
+import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
 
 
 @Component({
     selector: 'app-gantt-map',
     templateUrl: './gantt-map.component.html',
     styleUrls: ['./gantt-map.component.scss'],
+    providers: [ImageUrlPipe],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GanttMapComponent implements OnInit {
@@ -45,6 +48,8 @@ export class GanttMapComponent implements OnInit {
 
     constructor(
         private readonly dataService: DataService,
+        private readonly frameMessage: FrameMessageService,
+        private readonly imgUrlPipe: ImageUrlPipe,
     ) {}
 
     ngOnInit() {
@@ -70,6 +75,25 @@ export class GanttMapComponent implements OnInit {
             behavior: 'smooth',
             block: 'center'
         });
+    }
+
+    productClick(product: IProductCard | undefined) {
+        if (!product) {
+            return;
+        }
+        if (!product.document) {
+            this.frameMessage.sendCardUrl(product.url);
+        } else {
+            this.frameMessage.sendCardUrl(this.imgUrlPipe.transform(product.document));
+        }
+    }
+
+    connect() {
+        const payload = {
+            type: 'form-connect',
+            body: {}
+        }
+        this.frameMessage.sendMessage(JSON.stringify(payload));
     }
 
     private processGroup = (preprocess: {product: IProductCard, group: ProductDirection[]}[]) => {

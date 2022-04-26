@@ -1,9 +1,16 @@
 @import "src/styles/media-variables";
+@import "src/styles/text-overflow";
 
 .wrapper {
     width: 100%;
     height: 100%;
     padding: 0 16px;
+    transition: .3s;
+    overflow: hidden;
+
+    &:hover {
+        filter: brightness(1.15);
+    }
 
     .content {
         height: max-content;
@@ -13,6 +20,7 @@
         border-radius: 4px;
         padding: 12px 16px;
         box-sizing: border-box;
+        cursor: pointer;
 
         .title {
             margin-bottom: 16px;
@@ -38,7 +46,7 @@
                 height: 100%;
                 &::ng-deep {
                     path {
-                        stroke-width: 4 !important;
+                        stroke-width: 7 !important;
                     }
                 }
             }
@@ -61,6 +69,8 @@
             li {
                 display: flex;
                 margin-bottom: 4px;
+                @include text-overflow;
+                -webkit-line-clamp: 4;
             }
         }
     }

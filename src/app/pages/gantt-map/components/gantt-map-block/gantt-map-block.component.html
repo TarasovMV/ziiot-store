@@ -4,10 +4,8 @@
         <div class="circle">
             <svg-icon src="assets/icons/arrow-down-right.svg"></svg-icon>
         </div>
-        <ul>
-            <li><svg-icon src="assets/icons/rount-function.svg"></svg-icon> Оптимизационное планирование</li>
-            <li><svg-icon src="assets/icons/rount-function.svg"></svg-icon> Календарное планирование логистики</li>
-            <li><svg-icon src="assets/icons/rount-function.svg"></svg-icon> Оценка эффективности</li>
+        <ul *ngIf="!!description">
+            <li><svg-icon src="assets/icons/rount-function.svg"></svg-icon>{{description}}</li>
         </ul>
     </div>
 </div>
