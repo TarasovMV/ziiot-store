@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {IProductCard} from '../../../core/interfaces/product-card.interface';
+import {IProductCard} from '../../../../core/interfaces/product-card.interface';
 
 @Component({
     selector: 'app-product-card',

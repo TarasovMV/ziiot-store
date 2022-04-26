@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component} from '@angular/core';
+import {PlatformService} from './core/services/platform.service';
 
 @Component({
     selector: 'app-root',
@@ -6,14 +7,12 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
     styleUrls: ['./app.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
-    public ngOnInit() {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
+export class AppComponent implements AfterViewInit {
+    constructor(
+        private readonly platform: PlatformService
+    ) {}
 
-        // window.addEventListener('resize', () => {
-        //     let vh = window.innerHeight * 0.01;
-        //     document.documentElement.style.setProperty('--vh', `${vh}px`);
-        // });
+    public ngAfterViewInit() {
+        this.platform.viewChange();
     }
 }

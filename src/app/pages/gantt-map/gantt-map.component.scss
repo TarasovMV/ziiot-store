@@ -9,12 +9,12 @@ $col-sizes: 1, 2, 3, 4;
 }
 
 .wrapper {
-    position: relative;
+    //position: relative;
     width: 100%;
 }
 
 .banner {
-    height: 100%;
+    height: var(--page-h);
     width: 100%;
     box-sizing: border-box;
     background: rgba(0,0,0,0);
@@ -159,7 +159,7 @@ $col-sizes: 1, 2, 3, 4;
 
 @media (max-width: $media-gantt-m) {
     .banner {
-        height: calc(var(--vh, 1vh) * 100);
+        //height: calc(var(--vh, 1vh) * 100);
     }
     .table-wrapper {
         .header {

@@ -1,4 +1,12 @@
 .app-wrapper {
+    display: flex;
+    flex-flow: column;
     height: 100%;
-    overflow-y: scroll;
+    overflow: hidden;
+
+    .page-wrapper {
+        position: relative;
+        flex: 1;
+        overflow-y: scroll;
+    }
 }

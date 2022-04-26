@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ProductType} from '../../core/enums';
 import {DataService} from '../../core/services/data.service';
-import {ProductDirection} from '../../core/enums/product-direction.enum';
+import {ProductDirection} from '../../core/enums';
 import {IProductCard} from '../../core/interfaces/product-card.interface';
 import {BehaviorSubject, filter, map} from 'rxjs';
 

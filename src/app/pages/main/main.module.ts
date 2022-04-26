@@ -2,10 +2,10 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MainComponent} from './main.component';
 import {RouterModule} from '@angular/router';
-import {ProductCardModule} from '../../shared/components/product-card/product-card.module';
-import {CategoryCardModule} from '../../shared/components/category-card/category-card.module';
+import {ProductCardModule} from './components/product-card/product-card.module';
+import {CategoryCardModule} from './components/category-card/category-card.module';
 import {FiltersModule} from '../../shared/components/filters/filters.module';
-import {SearchModule} from '../../shared/components/search/search.module';
+import {SearchModule} from './components/search/search.module';
 import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
 
 
@@ -16,7 +16,6 @@ import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
     imports: [
         CommonModule,
         ProductCardModule,
-
         RouterModule.forChild([{
             path: '',
             component: MainComponent,
@@ -24,7 +23,7 @@ import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
         CategoryCardModule,
         FiltersModule,
         SearchModule,
-        ImageUrlPipeModule
+        ImageUrlPipeModule,
     ]
 })
 export class MainModule {

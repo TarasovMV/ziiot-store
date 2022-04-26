@@ -1,0 +1,16 @@
+@import "src/styles/breakpoints/header-breakpoints";
+
+.wrapper {
+    height: 88px;
+    width: 100%;
+    background: #13151C;
+    border-bottom: solid 1px #272A38;
+    box-shadow: 0 9px 6px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: $media-header-m) {
+    .wrapper {
+        height: 40px;
+        box-shadow: 0 9px 6px rgba(0, 0, 0, 0.15);
+    }
+}

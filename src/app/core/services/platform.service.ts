@@ -21,11 +21,15 @@ export class PlatformService {
     private readonly windowResize$ = fromEvent(window, 'resize');
 
     constructor() {
-        this.windowResize$.subscribe(x => {
-            this.isMobile$.next(this.isMobile);
-            this.isTab$.next(this.isTab);
-            this.pageProductSize$.next(this.pageProductSize);
-        });
+        this.windowResize$.subscribe(() => this.viewChange());
+    }
+
+    viewChange() {
+        this.isMobile$.next(this.isMobile);
+        this.isTab$.next(this.isTab);
+        this.pageProductSize$.next(this.pageProductSize);
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        document.documentElement.style.setProperty('--page-h', `${document.getElementById('page-wrapper')?.getBoundingClientRect().height ?? 0}px`);
     }
 
     private get isMobile(): boolean {

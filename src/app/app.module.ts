@@ -4,6 +4,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AngularSvgIconModule} from 'angular-svg-icon';
+import {HeaderModule} from './shared/components/header/header.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        AngularSvgIconModule.forRoot()
+        AngularSvgIconModule.forRoot(),
+        HeaderModule
     ],
     providers: [],
     bootstrap: [AppComponent]
