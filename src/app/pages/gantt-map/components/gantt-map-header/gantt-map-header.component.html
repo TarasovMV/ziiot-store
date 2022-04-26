@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <div class="content">
+        <div class="title"><span style="color: #46FF77;">все</span> уровни систем<br/>управления<br/>нефтепереработкой</div>
+        <div class="description"><span style="color: #46FF77;">55+ продуктов</span> для автоматизации<br/>нефтепереработки и нефтехимии</div>
+        <button>Связаться</button>
+    </div>
+    <div class="levels-wrapper">
+        <div class="levels">
+            <img
+                (click)="select.emit(productType.SCM)"
+                style="z-index: 5"
+                src="assets/images/gantt-levels/scm.png"
+            >
+            <img
+                (click)="select.emit(productType.MES)"
+                style="z-index: 4"
+                src="assets/images/gantt-levels/mes.png"
+            >
+            <img
+                (click)="select.emit(productType.ZIIoT)"
+                style="z-index: 3"
+                class="ziiot"
+                src="assets/images/gantt-levels/ziiot.png"
+            >
+            <img
+                style="z-index: 1"
+                class="tower"
+                src="assets/images/gantt-levels/green-tower.png"
+            >
+            <img
+                (click)="select.emit(productType.KIPiA)"
+                style="z-index: 2"
+                class="kipia"
+                src="assets/images/gantt-levels/kipia.png"
+            >
+        </div>
+    </div>
+</div>

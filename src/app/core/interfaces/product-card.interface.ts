@@ -1,8 +1,11 @@
+import {ProductType} from '../enums';
+
 export interface IProductCard {
     id: number;
     name: string;
     description: string;
     providerName: string;
+    productType: ProductType;
     document?: string;
     url: string;
     price: string;

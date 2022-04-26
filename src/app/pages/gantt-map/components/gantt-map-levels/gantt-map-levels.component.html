@@ -1,0 +1,6 @@
+<div class="wrapper">
+    <div class="element" *ngFor="let level of levels; let idx = index">
+        <img [src]="activeIdx === idx ? 'assets/images/level-active.png' : 'assets/images/level-inactive.png'"/>
+        <div class="title" [class.title__active]="activeIdx === idx">{{level}}</div>
+    </div>
+</div>

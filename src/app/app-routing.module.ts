@@ -14,6 +14,10 @@ const routes: Routes = [
         path: 'fullscreen-gallery',
         loadChildren: () => import('./pages/fullscreen-gallery/fullscreen-gallery.module').then(x => x.FullscreenGalleryModule),
     },
+    {
+        path: 'gantt-map',
+        loadChildren: () => import('./pages/gantt-map/gantt-map.module').then(x => x.GanttMapModule),
+    },
 ];
 
 @NgModule({

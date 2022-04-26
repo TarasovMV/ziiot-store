@@ -1,0 +1,16 @@
+<div *ngIf="!!data" class="wrapper">
+    <div class="content">
+        <div class="ornament"></div>
+        <div class="title">{{data.type}}</div>
+        <div class="description" [innerHTML]="data.descriptionHtml"></div>
+        <div class="buttons">
+            <ng-container *ngIf="data.buttons === 0">
+                <button class="details">Подробнее</button>
+                <button class="filter">Фильтр</button>
+            </ng-container>
+            <ng-container *ngIf="data.buttons === 1">
+                <button class="download">Скачать буклет</button>
+            </ng-container>
+        </div>
+    </div>
+</div>

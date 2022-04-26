@@ -1,0 +1,232 @@
+@import "src/styles/media-variables";
+
+$col-width: 285px;
+$col-sizes: 1, 2, 3, 4;
+
+
+:host {
+    color: white;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.banner {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0);
+
+    &:before {
+        content: '';
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: url("../../../assets/images/gantt-map-banner.jpg");
+        background-size: cover;
+    }
+}
+
+.background {
+    background: #13151C;
+    padding-bottom: 24px;
+}
+
+.table-wrapper {
+    width: 100%;
+    position: relative;
+
+    .header {
+        display: flex;
+        justify-content: center;
+        position: sticky;
+        position: -webkit-sticky;
+        top: -1px;
+        width: 100%;
+        height: 180px;
+        z-index: 999;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        background: #1C1F2B;
+
+        .th {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: $col-width;
+            min-width: $col-width;
+            max-width: $col-width;
+            height: 180px;
+            box-sizing: border-box;
+            border-right: dashed 2px #303549;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            color: #F5F8FD;
+
+            &:first-child {
+                border-left: dashed 2px #303549;
+            }
+        }
+    }
+
+    .body {
+        position: relative;
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        padding: 60px 0;
+
+        .left, .right {
+            flex: 1;
+            overflow: hidden;
+            padding-left: 20px;
+        }
+
+        .grid_x {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-bottom: solid 2px #303549;
+        }
+
+        .grid_y {
+            position: absolute;
+            border-left: dashed 2px #303549;
+            top: -58px;
+            bottom: -60px;
+        }
+
+        @each $size in $col-sizes {
+            .grid_y-#{$size} {
+                left: calc(#{$size} * #{$col-width} - 2px);
+            }
+        }
+
+        .grid_y-0 {
+            left: 0;
+        }
+
+        .tbody {
+            position: relative;
+            display: flex;
+            flex-flow: column;
+            gap: 20px;
+
+            @each $col-size in $col-sizes {
+                .td-#{$col-size} {
+                    width: calc(#{$col-size} * #{$col-width});
+                    min-width: calc(#{$col-size} * #{$col-width});
+                    max-width: calc(#{$col-size} * #{$col-width});
+                }
+            }
+
+            .tr {
+                display: flex;
+            }
+
+            .td {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .td {
+
+        }
+    }
+}
+
+@media (max-width: $media-gantt-l) {
+    .table-wrapper {
+        .header {
+            justify-content: end;
+        }
+
+        .body {
+            .right {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: $media-gantt-m) {
+    .banner {
+        height: calc(var(--vh, 1vh) * 100);
+    }
+    .table-wrapper {
+        .header {
+            height: 90px;
+
+            .th {
+                flex-flow: column;
+                gap: 4px;
+                height: 90px;
+                width: 25%;
+                min-width: 25%;
+                max-width: 25%;
+                font-size: 10px;
+                line-height: 12px;
+
+                img {
+                    width: 40px;
+                }
+
+                &:first-child {
+                    border-left: none;
+                }
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+
+        .body {
+            padding: 16px 0;
+
+            .left, .right {
+                display: none;
+            }
+
+            .tbody {
+                width: 100%;
+
+                @each $col-size in $col-sizes {
+                    .td-#{$col-size} {
+                        width: calc(#{$col-size} * 25%);
+                        min-width: calc(#{$col-size} * 25%);
+                        max-width: calc(#{$col-size} * 25%);
+                    }
+                }
+            }
+
+            @each $size in $col-sizes {
+                .grid_y-#{$size} {
+                    left: calc(#{$size} * 25% - 2px);
+                }
+            }
+        }
+
+        .grid_y-0, .grid_y-4 {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: $media-gantt-s) {
+    .table-wrapper .body {
+        padding: 12px 0;
+
+        .tbody {
+            gap: 8px;
+        }
+    }
+}

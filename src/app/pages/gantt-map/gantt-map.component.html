@@ -1,0 +1,63 @@
+<div class="wrapper">
+    <div class="banner">
+        <app-gantt-map-header
+            (select)="scrollToProduct($event)"
+        ></app-gantt-map-header>
+    </div>
+    <div class="background">
+        <div class="table-wrapper">
+            <div class="header">
+                <div class="th">
+                    <img src="assets/images/neft.png" />
+                    <div>Нефть</div>
+                </div>
+                <div class="th">
+                    <img src="assets/images/pererabotka.png" />
+                    <div>Переработка<br/>Нефтехимия</div>
+                </div>
+                <div class="th">
+                    <img src="assets/images/logistika.png" />
+                    <div>Логистика</div>
+                </div>
+                <div class="th">
+                    <img src="assets/images/sbyt.png" />
+                    <div>Сбыт</div>
+                </div>
+            </div>
+            <div *ngFor="let block of data$ | async; let idx = index" class="body">
+                <div class="grid_x"></div>
+                <div class="left">
+                    <app-gantt-map-levels [activeIdx]="idx"></app-gantt-map-levels>
+                </div>
+                <div class="tbody">
+                    <div class="grid_y grid_y-0"></div>
+                    <div class="grid_y grid_y-1"></div>
+                    <div class="grid_y grid_y-2"></div>
+                    <div class="grid_y grid_y-3"></div>
+                    <div class="grid_y grid_y-4"></div>
+
+                    <div class="tr">
+                        <app-gantt-map-thead
+                            [id]="'gantt-head-' + block.type"
+                            class="td td-4"
+                            [type]="block.title"
+                        ></app-gantt-map-thead>
+                    </div>
+
+                    <div *ngFor="let row of block.table" class="tr">
+                        <ng-container *ngFor="let col of row">
+                            <div *ngIf="col.type === 'empty'" [class]="'td td-' + col.size"></div>
+                            <app-gantt-map-block
+                                *ngIf="col.type === 'fill'"
+                                [data]="col.product!"
+                                [class]="'td td-' + col.size"
+                            ></app-gantt-map-block>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="right"></div>
+            </div>
+        </div>
+        <app-gantt-map-button></app-gantt-map-button>
+    </div>
+</div>

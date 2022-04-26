@@ -1,0 +1,107 @@
+@import "src/styles/media-variables";
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 0 16px;
+
+    .content {
+        height: max-content;
+        width: 100%;
+        background: #272A38;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
+        padding: 12px 16px;
+        box-sizing: border-box;
+
+        .title {
+            margin-bottom: 16px;
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 22px;
+            color: #FFFFFF;
+        }
+
+        .circle {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #0F62FE;
+            padding: 3px;
+            overflow: hidden;
+            box-sizing: border-box;
+
+            svg-icon {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                &::ng-deep {
+                    path {
+                        stroke-width: 4 !important;
+                    }
+                }
+            }
+        }
+
+        svg-icon {
+            display: inline-flex;
+            margin-right: 6px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 18px;
+            color: #D7E2F2;
+
+            li {
+                display: flex;
+                margin-bottom: 4px;
+            }
+        }
+    }
+}
+
+@media (max-width: $media-gantt-m) {
+    .wrapper {
+        padding: 0 6px;
+    }
+
+    ul {
+        display: none;
+    }
+
+    .wrapper .content {
+        align-items: flex-start;
+        flex-flow: column;
+        padding: 8px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+
+        .circle {
+            display: block;
+        }
+
+        .title {
+            font-size: 12px;
+            line-height: 10px;
+            word-break: break-all;
+            margin-bottom: 14px;
+        }
+    }
+}
+
+@media (max-width: $media-gantt-s) {
+    .wrapper .content {
+        padding: 6px 6px 8px 6px;
+
+        .title {
+            font-size: 11px;
+            line-height: 10px;
+            margin-bottom: 6px;
+        }
+    }
+}
