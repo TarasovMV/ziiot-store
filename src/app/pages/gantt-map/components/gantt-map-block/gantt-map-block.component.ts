@@ -10,9 +10,11 @@ import {IProductCard} from '../../../../core/interfaces/product-card.interface';
 export class GanttMapBlockComponent {
     @Input() set data(value: IProductCard) {
         this.title = value?.name;
+        this.description = value?.description;
     }
 
     title = '';
+    description = '';
 
     constructor() {
     }

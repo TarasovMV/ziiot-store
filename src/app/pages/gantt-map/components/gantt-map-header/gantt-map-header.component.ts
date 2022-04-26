@@ -9,6 +9,7 @@ import {ProductType} from '../../../../core/enums';
 })
 export class GanttMapHeaderComponent implements OnInit {
     @Output() select = new EventEmitter<ProductType>();
+    @Output() connect = new EventEmitter();
     readonly productType = ProductType;
 
     constructor() {
