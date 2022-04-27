@@ -1,5 +1,21 @@
 <div class="wrapper">
-    <div class="logo"></div>
-    <ul class="menu"></ul>
-    <div class="auth"></div>
+    <a class="logo">
+        <img src="assets/images/logo.svg">
+    </a>
+    <ul class="menu">
+        <li class="item item_active">Карта решений</li>
+        <li class="item">Каталог решений</li>
+        <li class="item">Стартапы</li>
+        <li class="item">Партнерам</li>
+        <li class="item">Задачи для партнеров</li>
+        <li class="item">Новости</li>
+    </ul>
+    <button class="auth">Войти</button>
+    <div (click)="isMenu = !isMenu" id="nav-icon1" [class.open]="isMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </div>
+
+<div class="mobile-menu"></div>
