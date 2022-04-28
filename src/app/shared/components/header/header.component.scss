@@ -69,12 +69,12 @@ button {
 
 .mobile-menu {
     position: absolute;
-    top: 44px;
+    top: 42px;
     bottom: 0px;
     left: 0;
     right: 0;
-    background: red;
-    z-index: 999;
+    background: #13151C;
+    z-index: 99999;
 }
 
 @media (max-width: $media-header-m) {

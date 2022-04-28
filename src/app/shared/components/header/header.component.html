@@ -18,4 +18,4 @@
     </div>
 </div>
 
-<div class="mobile-menu"></div>
+<div *ngIf="isMenu" class="mobile-menu" [@inOutAnimation]="isMenu"></div>
