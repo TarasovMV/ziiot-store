@@ -6,10 +6,13 @@
         <div class="buttons">
             <ng-container *ngIf="data.buttons === 0">
                 <button class="details">Подробнее</button>
-                <button class="filter">Фильтр</button>
+<!--                <button class="filter">Фильтр</button>-->
             </ng-container>
             <ng-container *ngIf="data.buttons === 1">
-                <button class="download">Скачать буклет</button>
+                <button class="download" (click)="ziiotClick()">Скачать буклет</button>
+            </ng-container>
+            <ng-container *ngIf="data.buttons === 2">
+                <button class="details" (click)="kipiaClick()">Скачать каталог</button>
             </ng-container>
         </div>
     </div>

@@ -77,7 +77,8 @@ export class GanttMapComponent implements OnInit {
         });
     }
 
-    productClick(product: IProductCard | undefined) {
+    productClick(event: MouseEvent, product: IProductCard | undefined) {
+        event.preventDefault();
         if (!product) {
             return;
         }

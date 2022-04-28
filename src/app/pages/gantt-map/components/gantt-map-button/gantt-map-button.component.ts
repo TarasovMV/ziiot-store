@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {FrameMessageService} from '../../../../core/services/frame-message.service';
 
 @Component({
-  selector: 'app-gantt-map-button',
-  templateUrl: './gantt-map-button.component.html',
-  styleUrls: ['./gantt-map-button.component.scss']
+    selector: 'app-gantt-map-button',
+    templateUrl: './gantt-map-button.component.html',
+    styleUrls: ['./gantt-map-button.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GanttMapButtonComponent implements OnInit {
+export class GanttMapButtonComponent {
 
-  constructor() { }
+    constructor(private readonly frameMessage: FrameMessageService) {
+    }
 
-  ngOnInit(): void {
-  }
-
+    mainRedirect() {
+        const payload = {
+            type: 'main-redirect',
+            body: {}
+        }
+        this.frameMessage.sendMessage(JSON.stringify(payload));
+    }
 }

@@ -1,11 +1,14 @@
-<div class="wrapper">
+<a (click)="$event.preventDefault()" [href]="url" class="wrapper">
     <div class="content">
         <div class="title">{{title || 'Название продукта'}}</div>
         <div class="circle">
             <svg-icon src="assets/icons/arrow-down-right.svg"></svg-icon>
         </div>
         <ul *ngIf="!!description">
-            <li><svg-icon src="assets/icons/rount-function.svg"></svg-icon>{{description}}</li>
+            <li>
+<!--                <svg-icon src="assets/icons/rount-function.svg"></svg-icon>-->
+                {{description}}
+            </li>
         </ul>
     </div>
-</div>
+</a>

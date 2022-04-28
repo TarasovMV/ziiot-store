@@ -2,6 +2,7 @@
     <div class="banner">
         <app-gantt-map-header
             (select)="scrollToProduct($event)"
+            (connect)="connect()"
         ></app-gantt-map-header>
     </div>
     <div class="background">
@@ -51,7 +52,7 @@
                                 *ngIf="col.type === 'fill'"
                                 [data]="col.product!"
                                 [class]="'td td-' + col.size"
-                                (click)="productClick(col.product)"
+                                (click)="productClick($event, col.product)"
                             ></app-gantt-map-block>
                         </ng-container>
                     </div>

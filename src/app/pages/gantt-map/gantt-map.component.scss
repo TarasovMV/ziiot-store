@@ -160,6 +160,10 @@ $col-sizes: 1, 2, 3, 4;
 @media (max-width: $media-gantt-m) {
     .banner {
         //height: calc(var(--vh, 1vh) * 100);
+
+        &:before {
+            background: url("../../../assets/images/gantt-map-banner-mobile.jpg");
+        }
     }
     .table-wrapper {
         .header {

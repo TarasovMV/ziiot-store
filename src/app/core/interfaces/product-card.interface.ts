@@ -5,6 +5,7 @@ export interface IProductCard {
     name: string;
     description: string;
     providerName: string;
+    interlinear: string;
     productType: ProductType;
     document?: string;
     url: string;
