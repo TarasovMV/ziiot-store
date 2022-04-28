@@ -10,11 +10,13 @@ import {IProductCard} from '../../../../core/interfaces/product-card.interface';
 export class GanttMapBlockComponent {
     @Input() set data(value: IProductCard) {
         this.title = value?.name;
-        this.description = value?.description;
+        this.description = value?.interlinear;
+        this.url = value?.url;
     }
 
     title = '';
     description = '';
+    url = '';
 
     constructor() {
     }

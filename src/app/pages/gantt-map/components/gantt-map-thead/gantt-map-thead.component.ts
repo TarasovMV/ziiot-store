@@ -1,8 +1,10 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {FrameMessageService} from '../../../../core/services/frame-message.service';
 
 enum Buttons {
     Default,
-    ZIIoT
+    ZIIoT,
+    KIPiA
 }
 
 @Component({
@@ -11,7 +13,7 @@ enum Buttons {
     styleUrls: ['./gantt-map-thead.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GanttMapTheadComponent implements OnInit {
+export class GanttMapTheadComponent {
     @Input() set type(value: string) {
         this.data = this.mocks.find(x => x.type === value);
     };
@@ -35,14 +37,25 @@ export class GanttMapTheadComponent implements OnInit {
         {
             type: 'КИПиА',
             descriptionHtml: '<span class="description__blue">Управление</span><br>технологическим процессом',
-            buttons: Buttons.Default
+            buttons: Buttons.KIPiA
         },
     ]
 
-    constructor() {
+    constructor(private readonly frameMessage: FrameMessageService) {}
+
+    ziiotClick() {
+        const payload = {
+            type: 'ziiot-download',
+            body: {}
+        }
+        this.frameMessage.sendMessage(JSON.stringify(payload));
     }
 
-    ngOnInit(): void {
+    kipiaClick() {
+        const payload = {
+            type: 'kipia-download',
+            body: {}
+        }
+        this.frameMessage.sendMessage(JSON.stringify(payload));
     }
-
 }
