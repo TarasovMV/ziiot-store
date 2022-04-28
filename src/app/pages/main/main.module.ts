@@ -7,6 +7,7 @@ import {CategoryCardModule} from './components/category-card/category-card.modul
 import {FiltersModule} from '../../shared/components/filters/filters.module';
 import {SearchModule} from './components/search/search.module';
 import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
+import {FooterModule} from '../../shared/components/footer/footer.module';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
         FiltersModule,
         SearchModule,
         ImageUrlPipeModule,
+        FooterModule,
     ]
 })
 export class MainModule {

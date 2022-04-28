@@ -3,19 +3,31 @@
         <img src="assets/images/logo.svg">
     </a>
     <ul class="menu">
-        <li class="item item_active">Карта решений</li>
-        <li class="item">Каталог решений</li>
-        <li class="item">Стартапы</li>
-        <li class="item">Партнерам</li>
-        <li class="item">Задачи для партнеров</li>
-        <li class="item">Новости</li>
+        <li
+            *ngFor="let item of menu$ | async"
+            class="item"
+            [class.item_active]="item.active"
+        >
+            <a [routerLink]="'/' + item.route">{{item.title}}</a>
+        </li>
     </ul>
-    <button class="auth">Войти</button>
-    <div (click)="isMenu = !isMenu" id="nav-icon1" [class.open]="isMenu">
+<!--    <button class="auth">Войти</button>-->
+
+    <div
+        class="mobile-menu-btn"
+        [class.mobile-menu-btn_open]="isMenu"
+        (click)="isMenu = !isMenu"
+    >
         <span></span>
         <span></span>
         <span></span>
     </div>
 </div>
 
-<div *ngIf="isMenu" class="mobile-menu" [@inOutAnimation]="isMenu"></div>
+<div *ngIf="isMenu" class="mobile-menu" [@inOutAnimation]>
+    <div
+        *ngFor="let item of menu$ | async"
+        class="item"
+        (click)="mobileLink(item.route)"
+    >{{item.title}}</div>
+</div>

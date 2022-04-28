@@ -1,13 +1,14 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AppRoutes} from './core/enums';
 
 const routes: Routes = [
     {
-        path: '',
+        path: AppRoutes.Catalog,
         loadChildren: () => import('./pages/main/main.module').then(x => x.MainModule),
     },
     {
-        path: 'product/:path',
+        path: `${AppRoutes.Product}/:path`,
         loadChildren: () => import('./pages/product/product.module').then(x => x.ProductModule),
     },
     {
@@ -15,9 +16,13 @@ const routes: Routes = [
         loadChildren: () => import('./pages/fullscreen-gallery/fullscreen-gallery.module').then(x => x.FullscreenGalleryModule),
     },
     {
-        path: 'gantt-map',
+        path: AppRoutes.Map,
         loadChildren: () => import('./pages/gantt-map/gantt-map.module').then(x => x.GanttMapModule),
     },
+    {
+        path: '**',
+        redirectTo: AppRoutes.Map
+    }
 ];
 
 @NgModule({

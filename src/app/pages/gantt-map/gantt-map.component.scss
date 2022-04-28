@@ -163,6 +163,7 @@ $col-sizes: 1, 2, 3, 4;
 
         &:before {
             background: url("../../../assets/images/gantt-map-banner-mobile.jpg");
+            background-size: cover;
         }
     }
     .table-wrapper {

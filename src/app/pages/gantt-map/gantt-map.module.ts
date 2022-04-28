@@ -10,6 +10,7 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
 import {StickyPolifillModule} from '../../core/directives/sticky-polifill.module';
 import { GanttMapHeaderComponent } from './components/gantt-map-header/gantt-map-header.component';
 import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
+import {FooterModule} from '../../shared/components/footer/footer.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
         AngularSvgIconModule,
         StickyPolifillModule,
         ImageUrlPipeModule,
+        FooterModule,
     ]
 })
 export class GanttMapModule {
