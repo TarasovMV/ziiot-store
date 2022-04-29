@@ -19,18 +19,16 @@ global['window'] = mock.getWindow();
 
 const prod = false;
 const sslPort = 443;
-const port = process.env['PORT'] || 4000;
+const port = process.env['PORT'] || (prod ? 80 : 4000);
 
 export function app(): express.Express {
     const server = express();
-    if (prod) {
-        server.all('*', function (req, res, next) {
-            console.log('req start: ', req.secure, req.hostname, req.originalUrl, server.get('port'));
-            if (req.secure) {
-                return next();
-            }
+    process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
-            res.redirect('https://' + req.hostname + req.originalUrl);
+    if (prod) {
+        // @ts-ignore
+        server.all('*', (req, res, next) => {
+            req.secure ? next() : res.redirect(`https://${req.headers.host}${req.url}`)
         });
     }
 
