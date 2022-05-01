@@ -6,6 +6,8 @@ import {IProductCard} from '../../core/interfaces/product-card.interface';
 import {BehaviorSubject, filter, map} from 'rxjs';
 import {FrameMessageService} from '../../core/services/frame-message.service';
 import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
+import {DialogService} from '../../core/services/dialog.service';
+import {ConnectFormComponent} from '../../shared/dialogs/connect-form/connect-form.component';
 
 
 @Component({
@@ -50,6 +52,7 @@ export class GanttMapComponent implements OnInit {
         private readonly dataService: DataService,
         private readonly frameMessage: FrameMessageService,
         private readonly imgUrlPipe: ImageUrlPipe,
+        private readonly dialog: DialogService,
     ) {}
 
     ngOnInit() {
@@ -90,6 +93,7 @@ export class GanttMapComponent implements OnInit {
     }
 
     connect() {
+        this.dialog.open(ConnectFormComponent, 'hello from gantt').subscribe(x => console.log(x));
         const payload = {
             type: 'form-connect',
             body: {}

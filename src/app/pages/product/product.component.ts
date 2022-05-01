@@ -7,6 +7,7 @@ import {PlatformService} from '../../core/services/platform.service';
 import {ViewDetectorService} from '../../core/services/view-detector.service';
 import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
 import {ActivatedRoute} from '@angular/router';
+import {DialogService} from '../../core/services/dialog.service';
 
 const DEFAULT_PATH = '1cnad';
 
@@ -27,6 +28,7 @@ export class ProductComponent implements OnInit, DoCheck {
     }
 
     constructor(
+        private readonly dialog: DialogService,
         private readonly activatedRoute: ActivatedRoute,
         private readonly platformService: PlatformService,
         private readonly viewDetector: ViewDetectorService,

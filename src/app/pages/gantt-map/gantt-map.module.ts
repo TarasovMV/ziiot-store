@@ -11,6 +11,7 @@ import {StickyPolifillModule} from '../../core/directives/sticky-polifill.module
 import { GanttMapHeaderComponent } from './components/gantt-map-header/gantt-map-header.component';
 import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
 import {FooterModule} from '../../shared/components/footer/footer.module';
+import {ConnectFormModule} from '../../shared/dialogs/connect-form/connect-form.module';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {FooterModule} from '../../shared/components/footer/footer.module';
         StickyPolifillModule,
         ImageUrlPipeModule,
         FooterModule,
+        ConnectFormModule,
     ]
 })
 export class GanttMapModule {
