@@ -1,6 +1,6 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
 import {PlatformService} from './core/services/platform.service';
-
+import {isPlatformServer} from "@angular/common";
 
 @Component({
     selector: 'app-root',
@@ -9,8 +9,11 @@ import {PlatformService} from './core/services/platform.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements AfterViewInit {
+    readonly isServer = isPlatformServer(this.platformId);
+
     constructor(
-        private readonly platform: PlatformService
+        @Inject(PLATFORM_ID) private readonly platformId: Object,
+        private readonly platform: PlatformService,
     ) {}
 
     ngAfterViewInit() {
