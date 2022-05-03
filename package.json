@@ -21,6 +21,7 @@
     "@tinkoff/ng-dompurify": "^3.0.0",
     "angular-svg-icon": "^13.0.0",
     "dompurify": "^2.3.6",
+    "ngx-mask": "^13.1.12",
     "rxjs": "~7.4.0",
     "stickyfilljs": "^2.1.0",
     "swiper": "^8.1.0",

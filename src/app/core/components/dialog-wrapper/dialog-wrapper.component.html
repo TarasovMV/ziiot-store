@@ -1,3 +1,5 @@
-<div class="wrapper">
-    <ng-template viewContainer></ng-template>
+<div class="wrapper" (click)="backdropClick()">
+    <div (click)="$event.stopPropagation()">
+        <ng-template viewContainer></ng-template>
+    </div>
 </div>

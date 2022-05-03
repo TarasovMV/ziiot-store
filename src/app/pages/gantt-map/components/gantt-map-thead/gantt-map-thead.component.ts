@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {FrameMessageService} from '../../../../core/services/frame-message.service';
 
 enum Buttons {
@@ -44,6 +44,7 @@ export class GanttMapTheadComponent {
     constructor(private readonly frameMessage: FrameMessageService) {}
 
     ziiotClick() {
+        window.open('https://www.dropbox.com/s/t5337c33rb0n4f4/%D0%9F%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0.pdf?dl=1');
         const payload = {
             type: 'ziiot-download',
             body: {}
@@ -52,6 +53,7 @@ export class GanttMapTheadComponent {
     }
 
     kipiaClick() {
+        window.open('https://www.dropbox.com/s/jzxjcga43kvbnbx/%D0%9A%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2.pdf?dl=1');
         const payload = {
             type: 'kipia-download',
             body: {}

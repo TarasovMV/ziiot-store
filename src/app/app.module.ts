@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {HeaderModule} from './shared/components/header/header.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxMaskModule} from 'ngx-mask';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        NgxMaskModule.forRoot(),
         AppRoutingModule,
         HttpClientModule,
         AngularSvgIconModule.forRoot(),

@@ -14,4 +14,8 @@ import {ViewContainerDirective} from '../../directives/view-container.directive'
 })
 export class DialogWrapperComponent {
     @ViewChild(ViewContainerDirective, {static: true}) host!: ViewContainerDirective;
+
+    backdropClick() {
+        console.log('click');
+    }
 }

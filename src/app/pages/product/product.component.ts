@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, DoCheck, OnInit} from '@angular/core';
 import {FrameMessageService} from '../../core/services/frame-message.service';
 import {IProduct} from '../../core/interfaces/product.inteface';
-import {BehaviorSubject, filter, map, Observable, switchMap, tap} from 'rxjs';
+import {BehaviorSubject, map, Observable, switchMap} from 'rxjs';
 import {ApiService} from '../../core/services/api.service';
 import {PlatformService} from '../../core/services/platform.service';
 import {ViewDetectorService} from '../../core/services/view-detector.service';
@@ -84,11 +84,7 @@ export class ProductComponent implements OnInit, DoCheck {
     }
 
     back() {
-        const payload = {
-            type: 'product-back',
-            body: {}
-        }
-        this.frameMessage.sendMessage(JSON.stringify(payload));
+        history.back();
     }
 
     private getProduct(id: number): Observable<IProduct> {
