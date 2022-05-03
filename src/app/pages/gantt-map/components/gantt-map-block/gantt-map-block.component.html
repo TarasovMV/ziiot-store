@@ -1,14 +1,23 @@
-<a (click)="$event.preventDefault()" [href]="url" class="wrapper">
+<a [href]="link" class="wrapper">
     <div class="content">
-        <div class="title">{{title || 'Название продукта'}}</div>
-        <div class="circle">
-            <svg-icon src="assets/icons/arrow-down-right.svg"></svg-icon>
-        </div>
-        <ul *ngIf="!!description">
-            <li>
-<!--                <svg-icon src="assets/icons/rount-function.svg"></svg-icon>-->
-                {{description}}
-            </li>
-        </ul>
+        <ng-container *ngIf="(pageSize$ | async) !== 'xs'">
+            <div class="title">{{title || 'Название продукта'}}</div>
+            <div class="circle">
+                <svg-icon src="assets/icons/arrow-down-right.svg"></svg-icon>
+            </div>
+            <ul *ngIf="!!description">
+                <li>
+                    <!--                <svg-icon src="assets/icons/rount-function.svg"></svg-icon>-->
+                    {{description}}
+                </li>
+            </ul>
+        </ng-container>
+        <ng-container *ngIf="(pageSize$ | async) === 'xs'">
+            <div class="mobile-header">
+                <img class="icon" *ngIf="icon" [src]="icon | imageUrl" />
+                <div class="title">{{title}}</div>
+            </div>
+            <div *ngIf="description" class="description">{{description}}</div>
+        </ng-container>
     </div>
 </a>

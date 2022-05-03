@@ -1,23 +1,26 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {ProductType} from '../../core/enums';
+import {ProductDirection, ProductType} from '../../core/enums';
 import {DataService} from '../../core/services/data.service';
-import {ProductDirection} from '../../core/enums';
 import {IProductCard} from '../../core/interfaces/product-card.interface';
-import {BehaviorSubject, filter, map} from 'rxjs';
+import {BehaviorSubject, combineLatest, filter, map, takeUntil} from 'rxjs';
 import {FrameMessageService} from '../../core/services/frame-message.service';
 import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
 import {DialogService} from '../../core/services/dialog.service';
 import {ConnectFormComponent} from '../../shared/dialogs/connect-form/connect-form.component';
+import {DestroyService} from '../../core/services/destroy.service';
+import {PlatformService} from '../../core/services/platform.service';
 
 
 @Component({
     selector: 'app-gantt-map',
     templateUrl: './gantt-map.component.html',
     styleUrls: ['./gantt-map.component.scss'],
-    providers: [ImageUrlPipe],
+    providers: [ImageUrlPipe, DestroyService],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GanttMapComponent implements OnInit {
+    readonly productDirection = ProductDirection;
+
     readonly data$ = new BehaviorSubject<{title: string, type: ProductType, table: {type: 'fill' | 'empty', size: number, product?: IProductCard}[][]}[]>([
         {
             title: 'SCM',
@@ -41,6 +44,8 @@ export class GanttMapComponent implements OnInit {
         },
     ]);
 
+    readonly mobileFilter$ = new BehaviorSubject<ProductDirection | undefined>(undefined);
+
     private readonly directionMap: {[key: string]: ProductDirection} = {
         ['Нефть']: ProductDirection.Oil,
         ['Переработка']: ProductDirection.Refinery,
@@ -53,12 +58,21 @@ export class GanttMapComponent implements OnInit {
         private readonly frameMessage: FrameMessageService,
         private readonly imgUrlPipe: ImageUrlPipe,
         private readonly dialog: DialogService,
+        private readonly platform: PlatformService,
+        private readonly destroy$: DestroyService,
     ) {}
 
     ngOnInit() {
-        this.dataService.products$.pipe(
-            filter(x => x.length > 0),
-            map(x => x.map(p => ({
+        this.dataService.getInitialData();
+
+        this.platform.pageMapSize$
+            .pipe(takeUntil(this.destroy$), filter(x => x !== 'xs'))
+            .subscribe(() => this.mobileFilter$.next(undefined));
+
+        combineLatest([this.dataService.products$, this.mobileFilter$]).pipe(
+            filter(([products]) => products.length > 0),
+            map(([products, filter]) => filter ? products.filter(p => !!p.filters.find(f => this.directionMap[f.name!] === filter)) : products),
+            map((products) => products.map(p => ({
                 group: p.filters
                     .filter(({filterType}) => filterType === 1)
                     .map(x => this.directionMap[x.name!])
@@ -68,8 +82,6 @@ export class GanttMapComponent implements OnInit {
         ).subscribe(preprocess => this.data$.next(this.data$.getValue().map(t => ({
             ...t, table: this.processGroup(preprocess.filter(p => p.product.productType === t.type)),
         }))));
-
-        this.dataService.getInitialData();
     }
 
     scrollToProduct(product: ProductType) {
@@ -80,25 +92,18 @@ export class GanttMapComponent implements OnInit {
         });
     }
 
-    productClick(event: MouseEvent, product: IProductCard | undefined) {
-        event.preventDefault();
-        if (!product) {
-            return;
-        }
-        if (!product.document) {
-            this.frameMessage.sendCardUrl(product.url);
-        } else {
-            this.frameMessage.sendCardUrl(this.imgUrlPipe.transform(product.document));
-        }
-    }
-
     connect() {
         this.dialog.open(ConnectFormComponent, 'hello from gantt').subscribe(x => console.log(x));
-        const payload = {
-            type: 'form-connect',
-            body: {}
+    }
+
+    selectFilter(filter: ProductDirection) {
+        if (this.platform.pageMapSize$.getValue() !== 'xs') {
+            return;
         }
-        this.frameMessage.sendMessage(JSON.stringify(payload));
+
+        this.mobileFilter$.getValue() === filter
+            ? this.mobileFilter$.next(undefined)
+            : this.mobileFilter$.next(filter);
     }
 
     private processGroup = (preprocess: {product: IProductCard, group: ProductDirection[]}[]) => {
@@ -119,7 +124,7 @@ export class GanttMapComponent implements OnInit {
                 const res: any[] = [];
                 raw = raw.sort((a, b) => a.group[0] - b.group[0]);
                 raw.forEach(r => {
-                    if (r.group[0] - res.length > 0) {
+                    if (r.group[0] - res.length > 1) {
                         res.push(emptyRaw(r.group[0] - res.length));
                     }
                     res.push(fillRaw(r.group.length, r.product));

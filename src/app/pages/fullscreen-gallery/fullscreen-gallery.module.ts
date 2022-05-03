@@ -4,6 +4,7 @@ import {FullscreenGalleryComponent} from './fullscreen-gallery.component';
 import {RouterModule} from '@angular/router';
 import {DialogWrapperModule} from '../../shared/components/dialog-wrapper/dialog-wrapper.module';
 import {SwiperModule} from 'swiper/angular';
+import {IframeModule} from '../../shared/components/iframe/iframe.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {SwiperModule} from 'swiper/angular';
         }]),
         DialogWrapperModule,
         SwiperModule,
+        IframeModule,
     ]
 })
 export class FullscreenGalleryModule {

@@ -1,6 +1,7 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component} from '@angular/core';
 import {PlatformService} from './core/services/platform.service';
 
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -12,7 +13,7 @@ export class AppComponent implements AfterViewInit {
         private readonly platform: PlatformService
     ) {}
 
-    public ngAfterViewInit() {
+    ngAfterViewInit() {
         this.platform.viewChange();
     }
 }

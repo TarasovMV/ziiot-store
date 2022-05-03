@@ -24,7 +24,7 @@
     </div>
 </div>
 
-<div *ngIf="isMenu" class="mobile-menu" [@inOutAnimation]>
+<div *ngIf="isMenu" class="mobile-menu" @inOutAnimation>
     <div
         *ngFor="let item of menu$ | async"
         class="item"

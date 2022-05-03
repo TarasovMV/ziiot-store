@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {inOutAnimation} from '../../animations/in-out.animation';
-import {BehaviorSubject, debounceTime, delay, filter, from, throttleTime, timeout} from 'rxjs';
+import {BehaviorSubject, delay, filter, from} from 'rxjs';
 import {AppRoutes} from '../../../core/enums';
 import {NavigationEnd, Router} from '@angular/router';
 
@@ -21,26 +21,26 @@ export class HeaderComponent implements OnInit {
         },
         {
             route: AppRoutes.Catalog,
-            title: 'Каталог решений',
+            title: 'Каталог',
             active: false,
         },
         {
-            route: AppRoutes.Catalog,
+            route: AppRoutes.Startups,
             title: 'Стартапы',
             active: false,
         },
         {
-            route: AppRoutes.Catalog,
+            route: AppRoutes.Partners,
             title: 'Партнерам',
             active: false,
         },
         {
-            route: AppRoutes.Catalog,
+            route: AppRoutes.Tasks,
             title: 'Задачи для партнеров',
             active: false,
         },
         {
-            route: AppRoutes.Catalog,
+            route: AppRoutes.News,
             title: 'Новости',
             active: false,
         },

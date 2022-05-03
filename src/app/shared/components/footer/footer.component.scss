@@ -6,12 +6,26 @@
     box-sizing: border-box;
     border-top: 1px solid #272A38;
     background: #13151C;
-    color: #777b92;
     font-size: 14px;
     font-weight: 400;
 
     a {
         cursor: pointer;
         text-decoration: none;
+        color: #777b92;
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .wrapper {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .wrapper {
+        padding: 20px;
+        font-size: 12px;
     }
 }

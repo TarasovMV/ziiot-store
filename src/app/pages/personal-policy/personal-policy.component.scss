@@ -1,0 +1,16 @@
+.text {
+    font-size: 20px;
+    line-height: 1.55;
+    color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-weight: 300;
+    padding: 60px;
+}
+
+@media (max-width: 690px) {
+    .text {
+        font-size: 16px;
+        padding: 20px 14px;
+    }
+}

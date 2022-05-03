@@ -227,11 +227,35 @@ $col-sizes: 1, 2, 3, 4;
 }
 
 @media (max-width: $media-gantt-s) {
+    .table-wrapper .header {
+        .th__active {
+            background: rgba(#0F62FE, .1);
+        }
+    }
+
     .table-wrapper .body {
         padding: 12px 0;
 
         .tbody {
             gap: 8px;
+
+            .tr {
+                flex-flow: column;
+
+                .td {
+                    width: 100%;
+                    max-width: 100%;
+                    margin-bottom: 8px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                div.td {
+                    margin-bottom: 0;
+                }
+            }
         }
     }
 }

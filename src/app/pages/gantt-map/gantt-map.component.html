@@ -8,19 +8,28 @@
     <div class="background">
         <div class="table-wrapper">
             <div class="header">
-                <div class="th">
+                <div class="th" [class.th__active]="(mobileFilter$ | async) === productDirection.Oil" (click)="selectFilter(productDirection.Oil)">
                     <img src="assets/images/neft.png" />
                     <div>Нефть</div>
                 </div>
-                <div class="th">
+                <div class="th"
+                     [class.th__active]="(mobileFilter$ | async) === productDirection.Refinery"
+                     (click)="selectFilter(productDirection.Refinery)"
+                >
                     <img src="assets/images/pererabotka.png" />
                     <div>Переработка<br/>Нефтехимия</div>
                 </div>
-                <div class="th">
+                <div class="th"
+                     [class.th__active]="(mobileFilter$ | async) === productDirection.Logistic"
+                     (click)="selectFilter(productDirection.Logistic)"
+                >
                     <img src="assets/images/logistika.png" />
                     <div>Логистика</div>
                 </div>
-                <div class="th">
+                <div class="th"
+                     [class.th__active]="(mobileFilter$ | async) === productDirection.Sales"
+                     (click)="selectFilter(productDirection.Sales)"
+                >
                     <img src="assets/images/sbyt.png" />
                     <div>Сбыт</div>
                 </div>
@@ -52,7 +61,6 @@
                                 *ngIf="col.type === 'fill'"
                                 [data]="col.product!"
                                 [class]="'td td-' + col.size"
-                                (click)="productClick($event, col.product)"
                             ></app-gantt-map-block>
                         </ng-container>
                     </div>

@@ -1,20 +1,22 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {PersonalPolicyComponent} from './personal-policy.component';
+import {NewsComponent} from './news.component';
+import {IframeModule} from '../../shared/components/iframe/iframe.module';
 import {RouterModule} from '@angular/router';
 
 
 @NgModule({
     declarations: [
-        PersonalPolicyComponent
+        NewsComponent
     ],
     imports: [
         CommonModule,
+        IframeModule,
         RouterModule.forChild([{
             path: '',
-            component: PersonalPolicyComponent,
+            component: NewsComponent,
         }]),
     ]
 })
-export class PersonalPolicyModule {
+export class NewsModule {
 }

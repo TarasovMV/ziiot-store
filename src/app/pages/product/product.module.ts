@@ -13,6 +13,7 @@ import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
 import {SwiperModule} from 'swiper/angular';
 import { ProductControlComponent } from './components/product-control/product-control.component';
 import {NgDompurifyModule} from '@tinkoff/ng-dompurify';
+import {FooterModule} from '../../shared/components/footer/footer.module';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {NgDompurifyModule} from '@tinkoff/ng-dompurify';
         AngularSvgIconModule,
         ImageUrlPipeModule,
         SwiperModule,
-        NgDompurifyModule
+        NgDompurifyModule,
+        FooterModule
     ]
 })
 export class ProductModule {

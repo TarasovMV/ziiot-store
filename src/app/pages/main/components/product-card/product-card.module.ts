@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ProductCardComponent} from './product-card.component';
 import {ImageUrlPipeModule} from '../../../../shared/pipes/image-url.module';
 import {AngularSvgIconModule} from 'angular-svg-icon';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
     imports: [
         CommonModule,
         ImageUrlPipeModule,
-        AngularSvgIconModule
+        AngularSvgIconModule,
+        RouterModule
     ]
 })
 export class ProductCardModule {

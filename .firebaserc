@@ -2,7 +2,8 @@
   "projects": {
     "default": "ziotstore",
     " ": "ziotstore",
-    "ziotstore": "ziotstore"
+    "ziotstore": "ziotstore",
+    "ziiotstore": "ziotstore"
   },
   "targets": {}
 }

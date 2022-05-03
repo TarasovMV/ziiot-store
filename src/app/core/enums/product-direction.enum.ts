@@ -1,5 +1,5 @@
 export enum ProductDirection {
-    Oil,
+    Oil = 1,
     Refinery,
     Logistic,
     Sales,

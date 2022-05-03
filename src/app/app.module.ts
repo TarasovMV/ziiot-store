@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {HeaderModule} from './shared/components/header/header.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import {HeaderModule} from './shared/components/header/header.module';
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         HttpClientModule,
         AngularSvgIconModule.forRoot(),
