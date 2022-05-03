@@ -20,11 +20,6 @@ export class HeaderComponent implements OnInit {
             active: false,
         },
         {
-            route: AppRoutes.Catalog,
-            title: 'Каталог',
-            active: false,
-        },
-        {
             route: AppRoutes.Startups,
             title: 'Стартапы',
             active: false,
@@ -42,6 +37,11 @@ export class HeaderComponent implements OnInit {
         {
             route: AppRoutes.News,
             title: 'Новости',
+            active: false,
+        },
+        {
+            route: AppRoutes.Catalog,
+            title: 'Каталог',
             active: false,
         },
     ]);
