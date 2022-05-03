@@ -1,5 +1,4 @@
-<!--<div *ngIf="!isServer" class="app-wrapper">-->
-<div class="app-wrapper">
+<div class="app-wrapper" [class.hide]="isServer">
     <app-header></app-header>
     <div id="page-wrapper" class="page-wrapper">
         <router-outlet #outlet="outlet"></router-outlet>
