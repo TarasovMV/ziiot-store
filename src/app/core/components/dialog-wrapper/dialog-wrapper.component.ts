@@ -1,6 +1,6 @@
 import {
     ChangeDetectionStrategy,
-    Component,
+    Component, HostListener,
     ViewChild,
 } from '@angular/core';
 import {ViewContainerDirective} from '../../directives/view-container.directive';
@@ -15,7 +15,8 @@ import {ViewContainerDirective} from '../../directives/view-container.directive'
 export class DialogWrapperComponent {
     @ViewChild(ViewContainerDirective, {static: true}) host!: ViewContainerDirective;
 
-    backdropClick() {
-        console.log('click');
-    }
+    // @HostListener('window:popstate', ['$event'])
+    // onPopState(event: Event) {
+    //     console.log('Back button pressed');
+    // }
 }
