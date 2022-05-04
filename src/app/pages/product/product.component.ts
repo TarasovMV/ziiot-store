@@ -8,6 +8,7 @@ import {ViewDetectorService} from '../../core/services/view-detector.service';
 import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
 import {ActivatedRoute} from '@angular/router';
 import {DialogService} from '../../core/services/dialog.service';
+import {ConnectFormComponent} from '../../shared/dialogs/connect-form/connect-form.component';
 
 const DEFAULT_PATH = '1cnad';
 
@@ -52,6 +53,7 @@ export class ProductComponent implements OnInit, DoCheck {
         this.viewDetector.setView();
     }
 
+    // TODO: use dialog
     openGallery(idx: number) {
         const dialogUrl = 'https://ziotstore.web.app/fullscreen-gallery';
         const data = {
@@ -66,21 +68,11 @@ export class ProductComponent implements OnInit, DoCheck {
         if (!this.presentationUrl) {
             return;
         }
-        const payload = {
-            type: 'load-presentation',
-            body: {
-                url: encodeURI(this.imageUrlPipe.transform(this.presentationUrl)),
-            }
-        }
-        this.frameMessage.sendMessage(JSON.stringify(payload));
+        window.open(encodeURI(this.imageUrlPipe.transform(this.presentationUrl)));
     }
 
     getCost() {
-        const payload = {
-            type: 'form-cost',
-            body: {}
-        }
-        this.frameMessage.sendMessage(JSON.stringify(payload));
+        this.dialog.open(ConnectFormComponent, {product: this.product$.getValue()?.name}).subscribe(x => console.log('close dialog', x));
     }
 
     back() {

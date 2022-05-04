@@ -66,8 +66,14 @@ export class GanttMapComponent implements OnInit {
         this.dataService.getInitialData();
 
         this.platform.pageMapSize$
-            .pipe(takeUntil(this.destroy$), filter(x => x !== 'xs'))
-            .subscribe(() => this.mobileFilter$.next(undefined));
+            .pipe(takeUntil(this.destroy$))
+            .subscribe((size) => {
+                if (size !== 'xs') {
+                    this.mobileFilter$.next(undefined);
+                    return;
+                }
+                this.mobileFilter$.next(ProductDirection.Oil);
+            });
 
         combineLatest([this.dataService.products$, this.mobileFilter$]).pipe(
             filter(([products]) => products.length > 0),
@@ -79,7 +85,8 @@ export class GanttMapComponent implements OnInit {
                     .map(x => this.directionMap[x.name!])
                     .sort((a, b) => a - b),
                 product: p
-            })).filter(p => !!p.group.length))
+            })).filter(p => !!p.group.length)),
+            takeUntil(this.destroy$)
         ).subscribe(preprocess => this.data$.next(this.data$.getValue().map(t => ({
             ...t, table: this.processGroup(preprocess.filter(p => p.product.productType === t.type)),
         }))));
@@ -108,7 +115,6 @@ export class GanttMapComponent implements OnInit {
     }
 
     private processGroup = (preprocess: {product: IProductCard, group: ProductDirection[]}[]) => {
-        console.log(preprocess);
         const addToRaw = <T extends {product: IProductCard, group: ProductDirection[]}>(raw: T[], product: T): boolean => {
             const group = raw.flatMap(r => r.group);
             if (group.length === 4 || product.group.some(x => group.includes(x))) {

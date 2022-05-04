@@ -14,6 +14,7 @@ import {SwiperModule} from 'swiper/angular';
 import { ProductControlComponent } from './components/product-control/product-control.component';
 import {NgDompurifyModule} from '@tinkoff/ng-dompurify';
 import {FooterModule} from '../../shared/components/footer/footer.module';
+import {ConnectFormModule} from '../../shared/dialogs/connect-form/connect-form.module';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {FooterModule} from '../../shared/components/footer/footer.module';
         ImageUrlPipeModule,
         SwiperModule,
         NgDompurifyModule,
-        FooterModule
+        FooterModule,
+        ConnectFormModule,
     ]
 })
 export class ProductModule {

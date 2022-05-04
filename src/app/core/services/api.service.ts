@@ -5,6 +5,7 @@ import {catchError, Observable, of} from 'rxjs';
 import {IProductCard} from '../interfaces/product-card.interface';
 import {IFilter} from '../interfaces/filter.interface';
 import {IProduct} from '../interfaces/product.inteface';
+import {IFormDto} from '../interfaces/form-dto.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -34,5 +35,9 @@ export class ApiService {
             catchError(() => of(null))
 
         );
+    }
+
+    sendForm(body: IFormDto): Observable<unknown> {
+        return this.http.post(`${this.apiUrl}/api/FormResponses`, body);
     }
 }

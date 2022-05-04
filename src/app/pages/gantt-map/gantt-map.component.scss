@@ -159,8 +159,6 @@ $col-sizes: 1, 2, 3, 4;
 
 @media (max-width: $media-gantt-m) {
     .banner {
-        //height: calc(var(--vh, 1vh) * 100);
-
         &:before {
             background: url("../../../assets/images/gantt-map-banner-mobile.jpg");
             background-size: cover;
@@ -228,13 +226,22 @@ $col-sizes: 1, 2, 3, 4;
 
 @media (max-width: $media-gantt-s) {
     .table-wrapper .header {
+        .th {
+            border-right: solid 1px #303549;
+        }
+
         .th__active {
-            background: rgba(#0F62FE, .1);
+            //background: rgba(#0F62FE, .1);
+            background: #13151C;
         }
     }
 
     .table-wrapper .body {
         padding: 12px 0;
+
+        .grid_y {
+            border-color: transparent;
+        }
 
         .tbody {
             gap: 8px;
