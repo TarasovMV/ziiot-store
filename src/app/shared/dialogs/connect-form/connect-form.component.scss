@@ -1,0 +1,159 @@
+:host {
+    margin: auto;
+}
+
+.close {
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
+    margin-bottom: -10px;
+    cursor: pointer;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: column;
+    gap: 25px;
+    padding: 40px 45px;
+    width: 560px;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #13151c;
+}
+
+.field {
+    .error {
+        display: none;
+        color: red;
+        margin-top: 5px;
+    }
+
+    &__error {
+        .error {
+            display: block;
+        }
+
+        input {
+            border-color: red !important;
+        }
+    }
+}
+
+.title {
+    color: #f4f6fb;
+    text-align: center;
+    font-size: 36px;
+    line-height: 1.23;
+    font-weight: bold;
+}
+
+.text-input {
+    .description {
+        color: #f4f6fb;
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 1.55;
+    }
+
+    input {
+        width: 100%;
+        height: 60px;
+        padding: 0 20px;
+        font-size: 16px;
+        line-height: 1.33;
+        color: #d7e2f2;
+        border: 1px solid #272a38;
+        border-radius: 4px;
+        background-color: transparent;
+        -webkit-appearance: none;
+        box-sizing: border-box;
+
+        &:focus-visible {
+            border-color: #1f5bff;
+            outline: none;
+        }
+
+        &::placeholder {
+            color: #d7e2f2;
+            opacity: .6;
+        }
+    }
+}
+
+/* для элемента input c type="checkbox" */
+.checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    color: #f4f6fb;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* создание в label псевдоэлемента before со следующими стилями */
+.checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #50546B;
+    border-radius: 2px;
+    margin-right: 12px;
+    background: #20222B;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    box-sizing: border-box;
+}
+
+/* стили для чекбокса, находящегося в состоянии checked */
+.checkbox:checked+label::before {
+    border-color: #0b76ef;
+    background-color: #0b76ef;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+button {
+    color: #ffffff;
+    background-color: #1f5bff;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 20px 0;
+    cursor: pointer;
+}
+
+@media (max-width: 605px) {
+    .wrapper {
+        min-height: 100%;
+        padding: 40px 16px;
+    }
+
+    .title {
+        font-size: 24px;
+        text-align: left;
+    }
+
+    .text-input {
+        .description {
+            font-size: 16px;
+        }
+    }
+
+    button {
+        margin-top: auto;
+    }
+
+    .field .error {
+            font-size: 12px;
+        }
+}

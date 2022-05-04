@@ -1,7 +1,7 @@
 import {ApplicationRef, createNgModuleRef, Injectable, Injector, Type, ViewContainerRef} from '@angular/core';
 import {DialogWrapperComponent} from '../components/dialog-wrapper/dialog-wrapper.component';
 import {DialogWrapperModule} from '../components/dialog-wrapper/dialog-wrapper.module';
-import {Observable, Subject} from 'rxjs';
+import {fromEvent, Observable, Subject, takeUntil} from 'rxjs';
 import {DIALOG} from '../tokens';
 import {Dialog} from '../interfaces/dialog.interface';
 
@@ -26,6 +26,8 @@ export class DialogService {
                     provide: DIALOG,
                     useValue: {
                         close: (res?: T) => {
+                            history.back();
+                            wrapper.destroy();
                             result$.next(res);
                             result$.complete();
                         },
@@ -34,6 +36,12 @@ export class DialogService {
                 }],
                 parent: injector ?? this.injector,
             })
+        });
+        history.pushState({state: 'fake'}, 'fake');
+        fromEvent(window, 'popstate').pipe(takeUntil(result$)).subscribe(() => {
+            wrapper.destroy();
+            result$.next(undefined);
+            result$.complete();
         });
         wrapper.instance.host.viewContainerRef.createComponent(componentType);
         return result$;

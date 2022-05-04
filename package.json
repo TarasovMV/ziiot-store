@@ -30,6 +30,7 @@
     "dompurify": "^2.3.6",
     "express": "^4.15.2",
     "mock-browser": "^0.92.14",
+    "ngx-mask": "^13.1.12",
     "rxjs": "~7.4.0",
     "stickyfilljs": "^2.1.0",
     "swiper": "^8.1.0",

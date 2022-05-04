@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ProductDirection, ProductType} from '../../core/enums';
 import {DataService} from '../../core/services/data.service';
 import {IProductCard} from '../../core/interfaces/product-card.interface';
-import {BehaviorSubject, combineLatest, filter, map, takeUntil} from 'rxjs';
+import {BehaviorSubject, combineLatest, filter, map, takeUntil, tap} from 'rxjs';
 import {FrameMessageService} from '../../core/services/frame-message.service';
 import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
 import {DialogService} from '../../core/services/dialog.service';
@@ -71,6 +71,7 @@ export class GanttMapComponent implements OnInit {
 
         combineLatest([this.dataService.products$, this.mobileFilter$]).pipe(
             filter(([products]) => products.length > 0),
+            tap(x => console.log(x)),
             map(([products, filter]) => filter ? products.filter(p => !!p.filters.find(f => this.directionMap[f.name!] === filter)) : products),
             map((products) => products.map(p => ({
                 group: p.filters
@@ -93,7 +94,7 @@ export class GanttMapComponent implements OnInit {
     }
 
     connect() {
-        this.dialog.open(ConnectFormComponent, 'hello from gantt').subscribe(x => console.log(x));
+        this.dialog.open(ConnectFormComponent, 'hello from gantt').subscribe(x => console.log('close dialog', x));
     }
 
     selectFilter(filter: ProductDirection) {
@@ -107,6 +108,7 @@ export class GanttMapComponent implements OnInit {
     }
 
     private processGroup = (preprocess: {product: IProductCard, group: ProductDirection[]}[]) => {
+        console.log(preprocess);
         const addToRaw = <T extends {product: IProductCard, group: ProductDirection[]}>(raw: T[], product: T): boolean => {
             const group = raw.flatMap(r => r.group);
             if (group.length === 4 || product.group.some(x => group.includes(x))) {
@@ -124,8 +126,9 @@ export class GanttMapComponent implements OnInit {
                 const res: any[] = [];
                 raw = raw.sort((a, b) => a.group[0] - b.group[0]);
                 raw.forEach(r => {
-                    if (r.group[0] - res.length > 1) {
-                        res.push(emptyRaw(r.group[0] - res.length));
+                    const length = res.reduce((acc, cur) => acc + cur.size, 0);
+                    if (r.group[0] - length > 1) {
+                        res.push(emptyRaw(r.group[0] - 1 - length));
                     }
                     res.push(fillRaw(r.group.length, r.product));
                 });

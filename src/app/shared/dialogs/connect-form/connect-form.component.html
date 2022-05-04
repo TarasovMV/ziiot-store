@@ -1,1 +1,41 @@
-<p>connect-form works!</p>
+<div class="wrapper" [formGroup]="form">
+    <svg-icon
+        class="close"
+        src="assets/icons/close.svg"
+        (click)="close()"
+    ></svg-icon>
+    <div class="title">
+        Оставьте, пожалуйста, контакты и мы с Вами свяжемся!
+    </div>
+    <div
+        class="text-input field"
+        [class.field__error]="!form.controls['fio'].valid && isChecked"
+    >
+        <div class="description">Как к Вам обращаться?</div>
+        <input formControlName="fio" placeholder="ФИО*"/>
+        <div class="error">Пожалуйста, заполните ФИО</div>
+    </div>
+    <div
+        class="text-input field"
+        [class.field__error]="!form.controls['phone'].valid && isChecked"
+    >
+        <div class="description">Как Вам позвонить?</div>
+        <input formControlName="phone" mask='+0(000) 000-0000' [validation]="true"/>
+        <div class="error">Пожалуйста, напишите номер телефона</div>
+    </div>
+    <div
+        class="text-input field"
+    >
+        <div class="description">Можно ли Вам написать?</div>
+        <input formControlName="email" placeholder="Почта"/>
+    </div>
+    <div
+        class="field"
+        [class.field__error]="!form.controls['agreement'].valid && isChecked"
+    >
+        <input class="checkbox" formControlName="agreement" type="checkbox" id="agreement"/>
+        <label for="agreement">Я согласен с политикой конфиденциальности</label>
+        <div class="error">Пожалуйста, подтвердите согласие</div>
+    </div>
+    <button (click)="sendData()">Отправить</button>
+</div>

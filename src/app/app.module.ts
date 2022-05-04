@@ -7,6 +7,7 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
 import {HeaderModule} from './shared/components/header/header.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TransferHttpCacheModule} from '@nguniversal/common';
+import {NgxMaskModule} from 'ngx-mask';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
         BrowserAnimationsModule,
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
         TransferHttpCacheModule,
+        NgxMaskModule.forRoot(),
         AppRoutingModule,
         HttpClientModule,
         AngularSvgIconModule.forRoot(),

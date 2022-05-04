@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {DIALOG} from '../../../core/tokens';
 import {Dialog} from '../../../core/interfaces/dialog.interface';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
     selector: 'app-connect-form',
@@ -9,13 +10,33 @@ import {Dialog} from '../../../core/interfaces/dialog.interface';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConnectFormComponent implements OnInit {
+    readonly form = new FormGroup({
+        fio: new FormControl('', [Validators.required]),
+        phone: new FormControl('7'),
+        email: new FormControl(''),
+        agreement: new FormControl(false, [Validators.requiredTrue])
+    });
 
-    constructor(@Inject(DIALOG) private readonly dialog: Dialog<any, any>) {
+    isChecked = false;
+
+    constructor(
+        @Inject(DIALOG) private readonly dialog: Dialog<any, any>,
+    ) {
     }
 
     ngOnInit() {
         console.log('dialog.data', this.dialog.data);
-        setTimeout(() => this.dialog.close('hello from dialog'));
     }
 
+    sendData() {
+        this.isChecked = true;
+
+        if (this.form.valid) {
+            console.log('send');
+        }
+    }
+
+    close() {
+        this.dialog.close();
+    }
 }
