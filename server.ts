@@ -61,8 +61,8 @@ function run(): void {
         https
             .createServer(
                 {
-                    key: fs.readFileSync("/etc/letsencrypt/live/hrchatbot.space/privkey.pem"),
-                    cert: fs.readFileSync("/etc/letsencrypt/live/hrchatbot.space/fullchain.pem")
+                    key: fs.readFileSync("/etc/letsencrypt/live/ziiotstore.ru/privkey.pem"),
+                    cert: fs.readFileSync("/etc/letsencrypt/live/ziiotstore.ru/fullchain.pem")
                 },
                 server
             )
