@@ -126,8 +126,9 @@ export class GanttMapComponent implements OnInit {
                 const res: any[] = [];
                 raw = raw.sort((a, b) => a.group[0] - b.group[0]);
                 raw.forEach(r => {
-                    if (r.group[0] - res.length > 1) {
-                        res.push(emptyRaw(r.group[0] - res.length - 1));
+                    const length = res.reduce((acc, cur) => acc + cur.size, 0);
+                    if (r.group[0] - length > 1) {
+                        res.push(emptyRaw(r.group[0] - 1 - length));
                     }
                     res.push(fillRaw(r.group.length, r.product));
                 });

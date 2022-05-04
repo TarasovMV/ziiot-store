@@ -26,6 +26,7 @@ export class DialogService {
                     provide: DIALOG,
                     useValue: {
                         close: (res?: T) => {
+                            history.back();
                             wrapper.destroy();
                             result$.next(res);
                             result$.complete();
