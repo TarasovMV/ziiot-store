@@ -5,7 +5,7 @@ import {AppRoutes} from './core/enums';
 const routes: Routes = [
     {
         path: AppRoutes.Catalog,
-        loadChildren: () => import('./pages/main/main.module').then(x => x.MainModule),
+        loadChildren: () => import('./pages/catalog/catalog.module').then(x => x.CatalogModule),
     },
     {
         path: AppRoutes.Map,
@@ -41,14 +41,14 @@ const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: AppRoutes.Map
+        redirectTo: AppRoutes.Catalog
     }
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
-})],
+        initialNavigation: 'enabledBlocking'
+    })],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

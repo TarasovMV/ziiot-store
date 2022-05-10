@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/ziot-store",
+    "public": "dist/ziot-store/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

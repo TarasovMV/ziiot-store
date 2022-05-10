@@ -14,9 +14,14 @@ import {NavigationEnd, Router} from '@angular/router';
 export class HeaderComponent implements OnInit {
     isMenu = false;
     menu$ = new BehaviorSubject([
+        // {
+        //     route: AppRoutes.Map,
+        //     title: 'Карта решений',
+        //     active: false,
+        // },
         {
-            route: AppRoutes.Map,
-            title: 'Карта решений',
+            route: AppRoutes.Catalog,
+            title: 'Каталог решений',
             active: false,
         },
         {
@@ -37,11 +42,6 @@ export class HeaderComponent implements OnInit {
         {
             route: AppRoutes.News,
             title: 'Новости',
-            active: false,
-        },
-        {
-            route: AppRoutes.Catalog,
-            title: 'Каталог',
             active: false,
         },
     ]);

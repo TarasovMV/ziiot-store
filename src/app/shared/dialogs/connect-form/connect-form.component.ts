@@ -22,7 +22,7 @@ export class ConnectFormComponent implements OnInit {
     isChecked = false;
 
     constructor(
-        @Inject(DIALOG) private readonly dialog: Dialog<{ product: string | undefined }, any>,
+        @Inject(DIALOG) private readonly dialog: Dialog<{ product: string | undefined, type: '1' | '2' | '3' }, any>,
         private readonly api: ApiService,
     ) {
     }
@@ -39,8 +39,9 @@ export class ConnectFormComponent implements OnInit {
         }
 
         const product = this.dialog.data.product;
+        const type = this.dialog.data.type;
         const body: IFormDto = {
-            type: !!product ? '2' : '1',
+            type: type ?? '1',
             description: !!product
                 ? 'Форма по продукту'
                 : 'Форма по каталогу',
@@ -63,7 +64,7 @@ export class ConnectFormComponent implements OnInit {
             ]
         };
 
-        if (product) {
+        if (!!product) {
             body.formData.push({
                 name: 'product',
                 value: product,

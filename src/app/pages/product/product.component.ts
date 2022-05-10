@@ -72,7 +72,7 @@ export class ProductComponent implements OnInit, DoCheck {
     }
 
     getCost() {
-        this.dialog.open(ConnectFormComponent, {product: this.product$.getValue()?.name}).subscribe(x => console.log('close dialog', x));
+        this.dialog.open(ConnectFormComponent, {product: this.product$.getValue()?.name, type: '2'}).subscribe(x => console.log('close dialog', x));
     }
 
     back() {

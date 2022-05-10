@@ -1,0 +1,50 @@
+<div class="wrapper">
+    <div class="banner">
+        <app-catalog-header
+            (connect)="openForm($event)"
+        ></app-catalog-header>
+    </div>
+    <div class="content">
+        <div *ngIf="!(isMobile$ | async)" class="column column_left">
+            <app-filters></app-filters>
+        </div>
+        <div class="column column_right">
+            <div class="categories">
+                <app-catalog-category
+                    *ngIf="!(isMobile$ | async)"
+                    class="all"
+                    [type]="'all'"
+                    [isActive]="isActiveCategory(undefined)"
+                    (click)="categoryClick(undefined)"
+                ></app-catalog-category>
+                <app-catalog-category
+                    *ngFor="let category of categories$ | async"
+                    [data]="category"
+                    [isActive]="isActiveCategory(category.id)"
+                    (click)="categoryClick(category.id)"
+                ></app-catalog-category>
+            </div>
+            <div class="search">
+                <app-catalog-search (filterToggle)="toggleFilter()"></app-catalog-search>
+            </div>
+            <div class="filters" *ngIf="(isMobile$ | async) && isMobileFilter">
+                <div class="wrapper">
+                    <app-filters></app-filters>
+                </div>
+                <div class="close-wrapper">
+                    <div class="close" (click)="toggleFilter()">
+                        <span>Закрыть</span>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <app-catalog-product
+                    *ngFor="let product of (products$ | async)"
+                    [product]="product"
+                ></app-catalog-product>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+

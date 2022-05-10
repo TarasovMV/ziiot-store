@@ -1,0 +1,21 @@
+<div *ngIf="!(isMobile$ | async)" class="wrapper">
+    <div class="stats">
+        <span style="color: #777B92;">Найдено: </span>
+        <span>{{ filteredCount$ | async }} проект(ов)</span>
+    </div>
+    <div class="input-wrapper">
+        <input [formControl]="search" placeholder="Поиск" />
+        <svg-icon class="icon" src="assets/icons/search.svg"></svg-icon>
+    </div>
+</div>
+
+<div *ngIf="(isMobile$ | async)" class="mobile-wrapper">
+    <div class="filter-toggle" (click)="toggleFilter()">
+        <svg-icon src="assets/icons/sliders.svg"></svg-icon>
+        <div class="counter" *ngIf="filtersCount$ | async"><span>{{filtersCount$ | async}}</span></div>
+    </div>
+    <div class="input-wrapper">
+        <input [formControl]="search" placeholder="Поиск" />
+        <svg-icon class="icon" src="assets/icons/search.svg"></svg-icon>
+    </div>
+</div>
