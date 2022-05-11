@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://ziotstoreapi.gnkdev.space/',
+    apiUrl: 'https://ziiotstoreapi.efficiencyacademy.space/',
 };

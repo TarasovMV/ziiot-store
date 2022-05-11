@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'https://ziotstoreapi.gnkdev.space/',
+    apiUrl: 'https://ziiotstoreapi.efficiencyacademy.space/',
 };
 
 /*

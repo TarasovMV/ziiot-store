@@ -7,6 +7,13 @@
         <div class="buttons">
             <button (click)="connect.emit('request')">Оставить запрос на решение</button>
             <button (click)="connect.emit('set')" class="border-button">Разместить свое решение</button>
+           <div class="no-selectable" (click)="scrollToCatalog()" style="display: flex; align-items: center; width: 100%; gap: 10px; cursor: pointer"
+                [ngStyle]="{'justify-content': (isMobile$ | async) ? 'center' : 'start'}">
+                <img [src]="(isMobile$ | async) ? 'assets/icons/arrow-down-mobile.svg' : 'assets/icons/arrow-down.svg'" />
+                <div style="text-transform: none; font-size: 12px; color: #A1A5B7;">
+                    В каталог продуктов
+                </div>
+            </div>
         </div>
     </div>
     <div class="levels-wrapper">
