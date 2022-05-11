@@ -71,3 +71,59 @@
         }
     }
 }
+
+.arrow_wrapper {
+    display: none;
+    opacity: 1;
+    position: fixed;
+    background: transparent;
+    z-index: 99990;
+    bottom: 20px;
+    right: 40px;
+
+    .arrow {
+        cursor: pointer;
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        animation-name: arrow_wrapper__zoom;
+        animation-duration: 500ms;
+        animation-fill-mode: both;
+        background: #303549;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.20);
+        border-radius: 50%
+    }
+
+    .arrow svg rect, .arrow svg path {
+        transition: 200ms ease-in
+    }
+
+    .arrow:hover {
+        background: #1c59ff;
+        opacity: 1;
+    }
+
+    @keyframes arrow_wrapper__zoom {
+        0% {
+            opacity: 0;
+            transform: scale(.1)
+        }
+
+        100% {
+            opacity: 1
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .arrow {
+            transform: scale(.8)
+        }
+    }
+}
+
+
+
+
+
+
+
