@@ -1,16 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ConnectFormComponent } from './connect-form.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ConnectFormComponent} from './connect-form.component';
 import {NgxMaskModule} from 'ngx-mask';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AngularSvgIconModule} from 'angular-svg-icon';
 
 
-
 @NgModule({
-  declarations: [
-    ConnectFormComponent
-  ],
+    declarations: [
+        ConnectFormComponent
+    ],
     imports: [
         CommonModule,
         NgxMaskModule,
@@ -18,4 +17,5 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
         AngularSvgIconModule,
     ]
 })
-export class ConnectFormModule { }
+export class ConnectFormModule {
+}

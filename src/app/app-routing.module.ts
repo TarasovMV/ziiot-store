@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/news/news.module').then(x => x.NewsModule),
     },
     {
+        path: AppRoutes.Contacts,
+        loadChildren: () => import('./pages/contacts/contacts.module').then(x => x.ContactsModule),
+    },
+    {
         path: `${AppRoutes.Product}/:path`,
         loadChildren: () => import('./pages/product/product.module').then(x => x.ProductModule),
     },

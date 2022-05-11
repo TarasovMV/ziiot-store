@@ -5,6 +5,7 @@ export enum AppRoutes {
     Partners = 'partners',
     Tasks = 'tasks',
     News = 'news',
+    Contacts = 'contacts',
 
     Policy = 'policy',
     Product = 'product',

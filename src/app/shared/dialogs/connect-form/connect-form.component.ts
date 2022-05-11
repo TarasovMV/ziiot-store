@@ -42,9 +42,7 @@ export class ConnectFormComponent implements OnInit {
         const type = this.dialog.data.type;
         const body: IFormDto = {
             type: type ?? '1',
-            description: !!product
-                ? 'Форма по продукту'
-                : 'Форма по каталогу',
+            description: type === '2' ? 'Форма по продукту' : (type === '3' ? 'Разместить решение' : 'Запрос на решение'),
             formData: [
                 {
                     name: 'fio',

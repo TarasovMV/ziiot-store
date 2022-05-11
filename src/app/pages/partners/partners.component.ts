@@ -4,7 +4,7 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
     selector: 'app-partners',
     templateUrl: './partners.component.html',
     styleUrls: ['./partners.component.scss'],
-    // changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PartnersComponent implements OnInit {
 

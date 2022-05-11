@@ -25,23 +25,28 @@ export class HeaderComponent implements OnInit {
             active: false,
         },
         {
-            route: AppRoutes.Startups,
-            title: 'Стартапы',
-            active: false,
-        },
-        {
             route: AppRoutes.Partners,
             title: 'Партнерам',
             active: false,
         },
         {
-            route: AppRoutes.Tasks,
-            title: 'Задачи для партнеров',
+            route: AppRoutes.Startups,
+            title: 'Стартапам',
             active: false,
         },
+        // {
+        //     route: AppRoutes.Tasks,
+        //     title: 'Задачи для партнеров',
+        //     active: false,
+        // },
         {
             route: AppRoutes.News,
             title: 'Новости',
+            active: false,
+        },
+        {
+            route: AppRoutes.Contacts,
+            title: 'Контакты',
             active: false,
         },
     ]);
