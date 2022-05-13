@@ -4,6 +4,7 @@ import {DataService} from '../../core/services/data.service';
 import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
 import {ConnectFormComponent} from '../../shared/dialogs/connect-form/connect-form.component';
 import {DialogService} from '../../core/services/dialog.service';
+import {SeoService} from "../../core/services/seo.service";
 
 @Component({
     selector: 'app-catalog',
@@ -22,10 +23,15 @@ export class CatalogComponent implements OnInit {
         private readonly dataService: DataService,
         private readonly platformService: PlatformService,
         private readonly dialog: DialogService,
+        private readonly seoService: SeoService
     ) {
     }
 
     ngOnInit() {
+        this.seoService.setTitle("Каталог");
+        this.seoService.setDescription("Первая торговая площадка для цифровизации нефтехимической и нефтеперерабатывающей промышленности");
+        this.seoService.setKeywords("Цифровой маркетплейс, цифровизация, IoT решения, нефтепереработка, нефтехимия, управление предприятием, управление производством, нефть, надежность, переработка, производство, цифровой двойник, управление ремонтами, управление надежностью");
+        this.seoService.setFrontEndImage("assets/images/og/catalog.png");
         this.dataService.getInitialData();
     }
 

@@ -9,6 +9,7 @@ import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
 import {ActivatedRoute} from '@angular/router';
 import {DialogService} from '../../core/services/dialog.service';
 import {ConnectFormComponent} from '../../shared/dialogs/connect-form/connect-form.component';
+import {SeoService} from "../../core/services/seo.service";
 
 const DEFAULT_PATH = '1cnad';
 
@@ -36,6 +37,7 @@ export class ProductComponent implements OnInit, DoCheck {
         private readonly frameMessage: FrameMessageService,
         private readonly imageUrlPipe: ImageUrlPipe,
         private readonly api: ApiService,
+        private readonly seoService: SeoService
     ) {
     }
 
@@ -46,7 +48,16 @@ export class ProductComponent implements OnInit, DoCheck {
                 .getProducts()
                 .pipe(map((products) => products.filter(({url}) => !!url).find(({url}) => url.search(productUrl) !== -1)?.id ?? 6))),
             switchMap((productId) => this.getProduct(productId))
-        ).subscribe((x: any) => this.product$.next(x));
+        ).subscribe((x: any) => {
+            console.log(x);
+            this.seoService.setTitle(x.name);
+            this.seoService.setDescription(x.description);
+            this.seoService.setKeywords(x.keyWords);
+            if (x.gallery.length > 0) {
+                this.seoService.setBackEndImage(x.gallery[0]);
+            }
+            this.product$.next(x);
+        });
     }
 
     ngDoCheck() {
