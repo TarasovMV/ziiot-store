@@ -6,6 +6,8 @@ import {environment} from "../../../environments/environment";
     providedIn: 'root'
 })
 export class SeoService {
+    private frontEndHostName = "https://ziiotstore.ru"
+
     constructor(private meta: Meta, private title: Title) {}
 
     public setTitle(title: string) {
@@ -23,7 +25,7 @@ export class SeoService {
     }
 
     public setFrontEndImage(url: string) {
-    this.meta.updateTag({ property: 'og:image', content: `${window.location.protocol}//${window.location.hostname}/${url}`});
+    this.meta.updateTag({ property: 'og:image', content: `${this.frontEndHostName}/${url}`});
     }
 
     public setBackEndImage(url: string) {
