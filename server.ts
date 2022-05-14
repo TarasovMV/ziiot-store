@@ -17,7 +17,7 @@ const mock = new MockBrowser();
 global['document'] = mock.getDocument();
 global['window'] = mock.getWindow();
 
-const prod = false;
+const prod = true;
 const sslPort = 443;
 const port = process.env['PORT'] || (prod ? 80 : 4000);
 

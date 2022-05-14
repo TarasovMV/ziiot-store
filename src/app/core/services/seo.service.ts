@@ -23,7 +23,7 @@ export class SeoService {
     }
 
     public setFrontEndImage(url: string) {
-    this.meta.updateTag({ property: 'og:image', content: `${window.location.protocol}//${window.location.hostname}:${window.location.port}/${url}`});
+    this.meta.updateTag({ property: 'og:image', content: `${window.location.protocol}//${window.location.hostname}/${url}`});
     }
 
     public setBackEndImage(url: string) {
