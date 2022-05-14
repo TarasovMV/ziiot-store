@@ -28,7 +28,7 @@ export class CatalogComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.seoService.setTitle("Каталог");
+        this.seoService.setTitle("Цифровой индустриальный маркетплейс");
         this.seoService.setDescription("Первая торговая площадка для цифровизации нефтехимической и нефтеперерабатывающей промышленности");
         this.seoService.setKeywords("Цифровой маркетплейс, цифровизация, IoT решения, нефтепереработка, нефтехимия, управление предприятием, управление производством, нефть, надежность, переработка, производство, цифровой двойник, управление ремонтами, управление надежностью");
         this.seoService.setFrontEndImage("assets/images/og/catalog.png");
