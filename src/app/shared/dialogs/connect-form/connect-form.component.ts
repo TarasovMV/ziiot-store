@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
-import {DIALOG} from '../../../core/tokens';
-import {Dialog} from '../../../core/interfaces/dialog.interface';
+import {DIALOG} from '@core/tokens';
+import {Dialog} from '@core/interfaces/dialog.interface';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ApiService} from '../../../core/services/api.service';
-import {IFormDto} from '../../../core/interfaces/form-dto.interface';
+import {ApiService} from '@core/services/api.service';
+import {IFormDto} from '@core/interfaces/form-dto.interface';
 
 @Component({
     selector: 'app-connect-form',

@@ -1,14 +1,14 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {ProductDirection, ProductType} from '../../core/enums';
-import {DataService} from '../../core/services/data.service';
-import {IProductCard} from '../../core/interfaces/product-card.interface';
+import {ProductDirection, ProductType} from '@core/enums';
+import {DataService} from '@core/services/data.service';
+import {IProductCard} from '@core/interfaces/product-card.interface';
 import {BehaviorSubject, combineLatest, filter, map, takeUntil, tap} from 'rxjs';
-import {FrameMessageService} from '../../core/services/frame-message.service';
-import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
-import {DialogService} from '../../core/services/dialog.service';
-import {ConnectFormComponent} from '../../shared/dialogs/connect-form/connect-form.component';
-import {DestroyService} from '../../core/services/destroy.service';
-import {PlatformService} from '../../core/services/platform.service';
+import {FrameMessageService} from '@core/services/frame-message.service';
+import {ImageUrlPipe} from '@shared/pipes/image-url.pipe';
+import {DialogService} from '@core/services/dialog.service';
+import {ConnectFormComponent} from '@shared/dialogs/connect-form/connect-form.component';
+import {DestroyService} from '@core/services/destroy.service';
+import {PlatformService} from '@core/services/platform.service';
 
 
 @Component({

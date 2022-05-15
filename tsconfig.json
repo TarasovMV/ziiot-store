@@ -23,7 +23,8 @@
       "dom"
     ],
     "paths": {
-      "@core/*": ["src/core", "src/core/*"]
+      "@core/*": ["src/app/core", "src/app/core/*"],
+      "@shared/*": ["src/app/shared", "src/app/shared/*"]
     }
   },
   "angularCompilerOptions": {

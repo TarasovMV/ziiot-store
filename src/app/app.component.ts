@@ -1,5 +1,5 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
-import {PlatformService} from './core/services/platform.service';
+import {PlatformService} from '@core/services/platform.service';
 import {isPlatformServer} from "@angular/common";
 
 @Component({

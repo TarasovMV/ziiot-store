@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {inOutAnimation} from '../../animations/in-out.animation';
 import {BehaviorSubject, delay, filter, from} from 'rxjs';
-import {AppRoutes} from '../../../core/enums';
+import {AppRoutes} from '@core/enums';
 import {NavigationEnd, Router} from '@angular/router';
 
 @Component({

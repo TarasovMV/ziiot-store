@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
-import {PlatformService} from '../../../../core/services/platform.service';
+import {PlatformService} from '@core/services/platform.service';
 
 @Component({
     selector: 'app-product-control',

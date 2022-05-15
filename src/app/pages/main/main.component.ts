@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {ViewDetectorService} from '../../core/services/view-detector.service';
-import {FrameMessageService} from '../../core/services/frame-message.service';
-import {IProductCard} from '../../core/interfaces/product-card.interface';
-import {PlatformService} from '../../core/services/platform.service';
-import {DataService} from '../../core/services/data.service';
-import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
+import {ViewDetectorService} from '@core/services/view-detector.service';
+import {FrameMessageService} from '@core/services/frame-message.service';
+import {IProductCard} from '@core/interfaces/product-card.interface';
+import {PlatformService} from '@core/services/platform.service';
+import {DataService} from '@core/services/data.service';
+import {ImageUrlPipe} from '@shared/pipes/image-url.pipe';
 
 @Component({
     selector: 'app-main',

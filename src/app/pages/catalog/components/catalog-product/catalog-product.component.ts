@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {IProductCard} from '../../../../core/interfaces/product-card.interface';
-import {ImageUrlPipe} from '../../../../shared/pipes/image-url.pipe';
+import {IProductCard} from '@core/interfaces/product-card.interface';
+import {ImageUrlPipe} from '@shared/pipes/image-url.pipe';
 
 @Component({
     selector: 'app-catalog-product',

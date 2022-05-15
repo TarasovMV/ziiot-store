@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {DataService} from '../../../core/services/data.service';
+import {DataService} from '@core/services/data.service';
 import {map, take} from 'rxjs';
-import {IFilter} from '../../../core/interfaces/filter.interface';
-import {ViewDetectorService} from '../../../core/services/view-detector.service';
+import {IFilter} from '@core/interfaces/filter.interface';
+import {ViewDetectorService} from '@core/services/view-detector.service';
 
 
 @Component({

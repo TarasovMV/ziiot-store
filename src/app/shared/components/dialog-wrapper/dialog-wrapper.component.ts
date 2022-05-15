@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
-import {IFRAME_DIALOG} from '../../../core/tokens/iframe-dialog.token';
-import {IFrameDialogStrategy} from '../../../core/interfaces/iframe-dialog.interface';
-import {FrameMessageService} from '../../../core/services/frame-message.service';
+import {IFRAME_DIALOG} from '@core/tokens/iframe-dialog.token';
+import {IFrameDialogStrategy} from '@core/interfaces/iframe-dialog.interface';
+import {FrameMessageService} from '@core/services/frame-message.service';
 import {filter} from 'rxjs';
-import {DIALOG} from '../../../core/tokens';
-import {Dialog} from '../../../core/interfaces/dialog.interface';
+import {DIALOG} from '@core/tokens';
+import {Dialog} from '@core/interfaces/dialog.interface';
 
 @Component({
     selector: 'app-dialog-wrapper',

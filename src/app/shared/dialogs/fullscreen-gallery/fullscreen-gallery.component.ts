@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import SwiperCore, {Navigation, Pagination} from "swiper";
 import {BehaviorSubject} from 'rxjs';
-import {DIALOG} from '../../../core/tokens';
-import {Dialog} from '../../../core/interfaces/dialog.interface';
+import {DIALOG} from '@core/tokens';
+import {Dialog} from '@core/interfaces/dialog.interface';
 
 SwiperCore.use([Navigation, Pagination]);
 

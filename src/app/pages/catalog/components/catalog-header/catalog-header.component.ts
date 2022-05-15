@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
-import {ProductType} from '../../../../core/enums';
-import {inOutAnimation} from '../../../../shared/animations/in-out.animation';
+import {ProductType} from '@core/enums';
+import {inOutAnimation} from '@shared/animations/in-out.animation';
 import {PlatformService} from "../../../../core/services/platform.service";
 
 @Component({

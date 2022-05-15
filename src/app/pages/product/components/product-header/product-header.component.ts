@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {IProduct} from '../../../../core/interfaces/product.inteface';
-import {PlatformService} from '../../../../core/services/platform.service';
+import {IProduct} from '@core/interfaces/product.inteface';
+import {PlatformService} from '@core/services/platform.service';
 
 @Component({
     selector: 'app-product-header',

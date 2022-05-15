@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {IFilter} from '../../../../core/interfaces/filter.interface';
-import {DataService} from '../../../../core/services/data.service';
+import {IFilter} from '@core/interfaces/filter.interface';
+import {DataService} from '@core/services/data.service';
 import {map} from 'rxjs';
-import {PlatformService} from '../../../../core/services/platform.service';
+import {PlatformService} from '@core/services/platform.service';
 
 
 type CategoryCardType = 'default' | 'all';

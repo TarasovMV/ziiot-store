@@ -7,11 +7,11 @@ import { GanttMapBlockComponent } from './components/gantt-map-block/gantt-map-b
 import { GanttMapLevelsComponent } from './components/gantt-map-levels/gantt-map-levels.component';
 import { GanttMapButtonComponent } from './components/gantt-map-button/gantt-map-button.component';
 import {AngularSvgIconModule} from 'angular-svg-icon';
-import {StickyPolifillModule} from '../../core/directives/sticky-polifill.module';
+import {StickyPolifillModule} from '@core/directives/sticky-polifill.module';
 import { GanttMapHeaderComponent } from './components/gantt-map-header/gantt-map-header.component';
-import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
-import {FooterModule} from '../../shared/components/footer/footer.module';
-import {ConnectFormModule} from '../../shared/dialogs/connect-form/connect-form.module';
+import {ImageUrlPipeModule} from '@shared/pipes/image-url.module';
+import {FooterModule} from '@shared/components/footer/footer.module';
+import {ConnectFormModule} from '@shared/dialogs/connect-form/connect-form.module';
 
 
 @NgModule({

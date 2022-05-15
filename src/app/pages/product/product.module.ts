@@ -9,13 +9,13 @@ import {ProductBulletComponent} from './components/product-bullet/product-bullet
 import {RouterModule} from '@angular/router';
 import { ProductContactsComponent } from './components/product-contacts/product-contacts.component';
 import {AngularSvgIconModule} from 'angular-svg-icon';
-import {ImageUrlPipeModule} from '../../shared/pipes/image-url.module';
+import {ImageUrlPipeModule} from '@shared/pipes/image-url.module';
 import {SwiperModule} from 'swiper/angular';
 import { ProductControlComponent } from './components/product-control/product-control.component';
 import {NgDompurifyModule} from '@tinkoff/ng-dompurify';
-import {FooterModule} from '../../shared/components/footer/footer.module';
-import {ConnectFormModule} from '../../shared/dialogs/connect-form/connect-form.module';
-import {FullscreenGalleryModule} from '../../shared/dialogs/fullscreen-gallery/fullscreen-gallery.module';
+import {FooterModule} from '@shared/components/footer/footer.module';
+import {ConnectFormModule} from '@shared/dialogs/connect-form/connect-form.module';
+import {FullscreenGalleryModule} from '@shared/dialogs/fullscreen-gallery/fullscreen-gallery.module';
 
 
 @NgModule({

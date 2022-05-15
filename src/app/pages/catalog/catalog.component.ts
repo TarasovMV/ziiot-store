@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {PlatformService} from '../../core/services/platform.service';
-import {DataService} from '../../core/services/data.service';
-import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
-import {ConnectFormComponent} from '../../shared/dialogs/connect-form/connect-form.component';
-import {DialogService} from '../../core/services/dialog.service';
+import {PlatformService} from '@core/services/platform.service';
+import {DataService} from '@core/services/data.service';
+import {ImageUrlPipe} from '@shared/pipes/image-url.pipe';
+import {ConnectFormComponent} from '@shared/dialogs/connect-form/connect-form.component';
+import {DialogService} from '@core/services/dialog.service';
 import {SeoService} from "../../core/services/seo.service";
 
 @Component({

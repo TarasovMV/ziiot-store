@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {FrameMessageService} from '../../../../core/services/frame-message.service';
+import {FrameMessageService} from '@core/services/frame-message.service';
 
 enum Buttons {
     Default,

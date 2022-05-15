@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {IProductCard} from '../../../../core/interfaces/product-card.interface';
-import {ImageUrlPipe} from '../../../../shared/pipes/image-url.pipe';
-import {PlatformService} from '../../../../core/services/platform.service';
+import {IProductCard} from '@core/interfaces/product-card.interface';
+import {ImageUrlPipe} from '@shared/pipes/image-url.pipe';
+import {PlatformService} from '@core/services/platform.service';
 
 @Component({
     selector: 'app-gantt-map-block',

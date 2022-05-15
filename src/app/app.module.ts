@@ -4,7 +4,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AngularSvgIconModule} from 'angular-svg-icon';
-import {HeaderModule} from './shared/components/header/header.module';
+import {HeaderModule} from '@shared/components/header/header.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TransferHttpCacheModule} from '@nguniversal/common';
 import {NgxMaskModule} from 'ngx-mask';

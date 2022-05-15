@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {DataService} from '../../../../core/services/data.service';
+import {DataService} from '@core/services/data.service';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs';
-import {PlatformService} from '../../../../core/services/platform.service';
+import {PlatformService} from '@core/services/platform.service';
 import {FormControl} from '@angular/forms';
 
 @Component({

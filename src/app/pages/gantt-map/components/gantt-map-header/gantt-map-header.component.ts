@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ProductType} from '../../../../core/enums';
-import {inOutAnimation} from '../../../../shared/animations/in-out.animation';
+import {ProductType} from '@core/enums';
+import {inOutAnimation} from '@shared/animations/in-out.animation';
 
 @Component({
     selector: 'app-gantt-map-header',

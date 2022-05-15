@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {AppRoutes} from '../../../../core/enums';
+import {AppRoutes} from '@core/enums';
 
 
 @Component({

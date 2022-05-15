@@ -1,14 +1,14 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {IProduct} from '../../core/interfaces/product.inteface';
+import {IProduct} from '@core/interfaces/product.inteface';
 import {BehaviorSubject, map, Observable, switchMap} from 'rxjs';
-import {ApiService} from '../../core/services/api.service';
-import {PlatformService} from '../../core/services/platform.service';
-import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
+import {ApiService} from '@core/services/api.service';
+import {PlatformService} from '@core/services/platform.service';
+import {ImageUrlPipe} from '@shared/pipes/image-url.pipe';
 import {ActivatedRoute} from '@angular/router';
-import {DialogService} from '../../core/services/dialog.service';
-import {ConnectFormComponent} from '../../shared/dialogs/connect-form/connect-form.component';
-import {SeoService} from "../../core/services/seo.service";
-import {FullscreenGalleryComponent} from '../../shared/dialogs/fullscreen-gallery/fullscreen-gallery.component';
+import {DialogService} from '@core/services/dialog.service';
+import {ConnectFormComponent} from '@shared/dialogs/connect-form/connect-form.component';
+import {SeoService} from "@core/services/seo.service";
+import {FullscreenGalleryComponent} from '@shared/dialogs/fullscreen-gallery/fullscreen-gallery.component';
 
 const DEFAULT_PATH = '1cnad';
 
