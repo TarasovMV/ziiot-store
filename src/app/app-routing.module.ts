@@ -40,10 +40,6 @@ const routes: Routes = [
         loadChildren: () => import('./pages/personal-policy/personal-policy.module').then(x => x.PersonalPolicyModule),
     },
     {
-        path: 'fullscreen-gallery',
-        loadChildren: () => import('./pages/fullscreen-gallery/fullscreen-gallery.module').then(x => x.FullscreenGalleryModule),
-    },
-    {
         path: '**',
         redirectTo: AppRoutes.Catalog
     }

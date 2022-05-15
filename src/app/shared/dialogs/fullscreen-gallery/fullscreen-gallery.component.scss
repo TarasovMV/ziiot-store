@@ -1,4 +1,4 @@
-@import "src/styles/media-variables";
+@import "../../../../styles/media-variables";
 
 .swiper-wrapper {
     width: 100%;
@@ -14,11 +14,16 @@
 img {
     width: 100%;
     height: auto;
-    object-fit: scale-down;
+    object-fit: fill;
+}
+
+.slider__fullscreen {
+    height: max-content;
+    margin: auto;
 }
 
 @media (max-width: $media-s) {
-    ::ng-deep.slider {
+    ::ng-deep.slider__fullscreen {
         --swiper-navigation-size: 24px;
     }
 }

@@ -1,15 +1,14 @@
-import {ChangeDetectionStrategy, Component, DoCheck, OnInit} from '@angular/core';
-import {FrameMessageService} from '../../core/services/frame-message.service';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {IProduct} from '../../core/interfaces/product.inteface';
 import {BehaviorSubject, map, Observable, switchMap} from 'rxjs';
 import {ApiService} from '../../core/services/api.service';
 import {PlatformService} from '../../core/services/platform.service';
-import {ViewDetectorService} from '../../core/services/view-detector.service';
 import {ImageUrlPipe} from '../../shared/pipes/image-url.pipe';
 import {ActivatedRoute} from '@angular/router';
 import {DialogService} from '../../core/services/dialog.service';
 import {ConnectFormComponent} from '../../shared/dialogs/connect-form/connect-form.component';
 import {SeoService} from "../../core/services/seo.service";
+import {FullscreenGalleryComponent} from '../../shared/dialogs/fullscreen-gallery/fullscreen-gallery.component';
 
 const DEFAULT_PATH = '1cnad';
 
@@ -20,7 +19,7 @@ const DEFAULT_PATH = '1cnad';
     providers: [ImageUrlPipe],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductComponent implements OnInit, DoCheck {
+export class ProductComponent implements OnInit {
     readonly product$ = new BehaviorSubject<IProduct | null>(null);
     readonly pageSize$ = this.platformService.pageProductSize$;
 
@@ -33,8 +32,6 @@ export class ProductComponent implements OnInit, DoCheck {
         private readonly dialog: DialogService,
         private readonly activatedRoute: ActivatedRoute,
         private readonly platformService: PlatformService,
-        private readonly viewDetector: ViewDetectorService,
-        private readonly frameMessage: FrameMessageService,
         private readonly imageUrlPipe: ImageUrlPipe,
         private readonly api: ApiService,
         private readonly seoService: SeoService
@@ -60,19 +57,13 @@ export class ProductComponent implements OnInit, DoCheck {
         });
     }
 
-    ngDoCheck() {
-        this.viewDetector.setView();
-    }
-
-    // TODO: use dialog
     openGallery(idx: number) {
-        const dialogUrl = 'https://ziotstore.web.app/fullscreen-gallery';
         const data = {
             idx,
             images: this.product$.getValue()?.gallery?.map(x => this.imageUrlPipe.transform(x)) ?? [],
         }
 
-        this.frameMessage.sendDialog(dialogUrl, data);
+        this.dialog.open(FullscreenGalleryComponent, data).subscribe();
     }
 
     loadPresentation() {

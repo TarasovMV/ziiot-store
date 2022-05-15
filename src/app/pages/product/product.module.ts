@@ -15,6 +15,7 @@ import { ProductControlComponent } from './components/product-control/product-co
 import {NgDompurifyModule} from '@tinkoff/ng-dompurify';
 import {FooterModule} from '../../shared/components/footer/footer.module';
 import {ConnectFormModule} from '../../shared/dialogs/connect-form/connect-form.module';
+import {FullscreenGalleryModule} from '../../shared/dialogs/fullscreen-gallery/fullscreen-gallery.module';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {ConnectFormModule} from '../../shared/dialogs/connect-form/connect-form.
         NgDompurifyModule,
         FooterModule,
         ConnectFormModule,
+        FullscreenGalleryModule
     ]
 })
 export class ProductModule {

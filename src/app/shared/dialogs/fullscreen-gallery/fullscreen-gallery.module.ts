@@ -2,9 +2,9 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FullscreenGalleryComponent} from './fullscreen-gallery.component';
 import {RouterModule} from '@angular/router';
-import {DialogWrapperModule} from '../../shared/components/dialog-wrapper/dialog-wrapper.module';
+import {DialogWrapperModule} from '../../components/dialog-wrapper/dialog-wrapper.module';
 import {SwiperModule} from 'swiper/angular';
-import {IframeModule} from '../../shared/components/iframe/iframe.module';
+import {IframeModule} from '../../components/iframe/iframe.module';
 
 
 @NgModule({
@@ -13,10 +13,6 @@ import {IframeModule} from '../../shared/components/iframe/iframe.module';
     ],
     imports: [
         CommonModule,
-        RouterModule.forChild([{
-            path: '',
-            component: FullscreenGalleryComponent,
-        }]),
         DialogWrapperModule,
         SwiperModule,
         IframeModule,

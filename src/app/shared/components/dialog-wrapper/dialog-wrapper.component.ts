@@ -3,6 +3,8 @@ import {IFRAME_DIALOG} from '../../../core/tokens/iframe-dialog.token';
 import {IFrameDialogStrategy} from '../../../core/interfaces/iframe-dialog.interface';
 import {FrameMessageService} from '../../../core/services/frame-message.service';
 import {filter} from 'rxjs';
+import {DIALOG} from '../../../core/tokens';
+import {Dialog} from '../../../core/interfaces/dialog.interface';
 
 @Component({
     selector: 'app-dialog-wrapper',
@@ -15,6 +17,7 @@ export class DialogWrapperComponent implements OnInit {
 
     constructor(
         @Inject(IFRAME_DIALOG) private readonly dialogStrategy: IFrameDialogStrategy,
+        @Inject(DIALOG) private readonly dialog: Dialog<unknown, unknown>,
         private readonly frameMessage: FrameMessageService,
     ) {
     }
@@ -25,6 +28,6 @@ export class DialogWrapperComponent implements OnInit {
     }
 
     close() {
-        this.dialogStrategy.close();
+        this.dialog.close();
     }
 }
