@@ -24,7 +24,7 @@ export class FiltersComponent {
     readonly restFilters$ = this.dataService.restFilters$;
 
     constructor(
-        private readonly dataService: DataService,
+        public readonly dataService: DataService,
         private readonly viewDetector: ViewDetectorService,
         private readonly cdRef: ChangeDetectorRef,
     ) {}

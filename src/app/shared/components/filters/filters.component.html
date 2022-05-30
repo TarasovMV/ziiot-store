@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="header">
         <div class="title">Категории</div>
-        <div class="reset" (click)="reset()">
+        <div *ngIf="dataService.chosenFilters$.value.length > 0" class="reset" (click)="reset()">
             <span>Сбросить все</span>
             <svg-icon src="assets/icons/close.svg"></svg-icon>
         </div>
