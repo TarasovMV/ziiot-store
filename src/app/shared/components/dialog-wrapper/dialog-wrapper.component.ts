@@ -14,6 +14,8 @@ import {Dialog} from '@core/interfaces/dialog.interface';
 })
 export class DialogWrapperComponent implements OnInit {
     @Output() load = new EventEmitter();
+    // @ts-ignore
+    private pageWrapper: HTMLElement = document.getElementsByClassName("page-wrapper")[0];
 
     constructor(
         @Inject(IFRAME_DIALOG) private readonly dialogStrategy: IFrameDialogStrategy,
@@ -25,9 +27,12 @@ export class DialogWrapperComponent implements OnInit {
     public ngOnInit() {
         this.frameMessage.requestDialog();
         this.frameMessage.data$.pipe(filter((x: any) => x.type === 'dialog')).subscribe((x: any) => this.load.emit(x.data));
+        this.pageWrapper.style.overflowY = "hidden";
     }
 
     close() {
+        console.log("Close")
+        this.pageWrapper.style.overflowY = "auto";
         this.dialog.close();
     }
 }
