@@ -1,1 +1,4 @@
+UserAgent: *
+Host: ziiotstore.ru
+
 Sitemap: https://ziiotstore.ru/sitemap.xml
