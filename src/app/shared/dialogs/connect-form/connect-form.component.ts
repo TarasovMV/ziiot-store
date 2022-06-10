@@ -4,6 +4,7 @@ import {Dialog} from '@core/interfaces/dialog.interface';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from '@core/services/api.service';
 import {IFormDto} from '@core/interfaces/form-dto.interface';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-connect-form',
@@ -12,6 +13,7 @@ import {IFormDto} from '@core/interfaces/form-dto.interface';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConnectFormComponent implements OnInit {
+    isRussian = false;
     readonly form = new FormGroup({
         fio: new FormControl('', [Validators.required]),
         phone: new FormControl('7'),
@@ -24,10 +26,12 @@ export class ConnectFormComponent implements OnInit {
     constructor(
         @Inject(DIALOG) private readonly dialog: Dialog<{ product: string | undefined, type: '1' | '2' | '3' }, any>,
         private readonly api: ApiService,
+        private router: Router
     ) {
     }
 
     ngOnInit() {
+        this.isRussian = !this.router.url.startsWith("/en");
         console.log('dialog.data', this.dialog.data);
     }
 

@@ -4,199 +4,382 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
   <loc>https://ziiotstore.ru/</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://ziiotstore.ru/catalog</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ziiotstore.ru/partners</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ziiotstore.ru/startups</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ziiotstore.ru/news</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ziiotstore.ru/contacts</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11cyp</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11kopp</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/1cneftsbyt</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/1neftpro</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/1neftservis</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11ekontr</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11z</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11kopo</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11opp</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11kdgpn</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/kipkpcpn</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/1intkpl</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11cd</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11MMPK</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11opyc</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11ejko</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/1cneftotc</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/platformaZiiot</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11glabpdm</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11mmsyytp</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11mrltk</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/11ysona</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/2MKS</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ziiotstore.ru/product/1cnef</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ziiotstore.ru/product/ASVDP</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ziiotstore.ru/product/11dinopt</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <loc>https://ziiotstore.ru/en/product/ASVDP</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ziiotstore.ru/product/11kapitan</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <loc>https://ziiotstore.ru/product/11opyc</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11opyc</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/1neftpro</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/1neftpro</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11kopp</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11kopp</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11opp</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11opp</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11z</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11z</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11glabpdm</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11glabpdm</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11cyp</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11cyp</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ziiotstore.ru/product/11omkpe</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ziiotstore.ru/product/11smartsupplier</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <loc>https://ziiotstore.ru/en/product/11omkpe</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ziiotstore.ru/product/3MPOS</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <loc>https://ziiotstore.ru/product/1neftservis</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ziiotstore.ru/product/11glabpa</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <loc>https://ziiotstore.ru/en/product/1neftservis</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11MMPK</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11MMPK</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11mmsyytp</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11mmsyytp</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11kdgpn</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11kdgpn</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11ejko</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11ejko</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/1cnef</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/1cnef</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ziiotstore.ru/product/1cnad</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/1cnad</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11glabpa</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11glabpa</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11dinopt</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11dinopt</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/kipkpcpn</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/kipkpcpn</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/2MKS</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/2MKS</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11kopo</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11kopo</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/sem</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/sem</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11ysona</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11ysona</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11mrltk</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11mrltk</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/1cneftsbyt</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/1cneftsbyt</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/smba</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/smba</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11ekontr</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11ekontr</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11cd</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11cd</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/1intkpl</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/1intkpl</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11smartsupplier</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11smartsupplier</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/platformaZiiot</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/platformaZiiot</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/3MPOS</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/3MPOS</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/1cneftotc</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/1cneftotc</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/product/11kapitan</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziiotstore.ru/en/product/11kapitan</loc>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ziiotstore.ru/policy</loc>
-  <lastmod>2022-05-15T17:28:02+00:00</lastmod>
+  <lastmod>2022-06-08T18:08:52+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 

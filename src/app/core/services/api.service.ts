@@ -15,23 +15,23 @@ export class ApiService {
 
     constructor(private readonly http: HttpClient) {}
 
-    getProducts(): Observable<IProductCard[]> {
+    getProducts(language: string): Observable<IProductCard[]> {
         // return this.http.get<IProductCard[]>(`assets/mock/products.json`).pipe(
-        return this.http.get<IProductCard[]>(`${this.apiUrl}/api/products/all`).pipe(
+        return this.http.get<IProductCard[]>(`${this.apiUrl}/api/products/all/${language}`).pipe(
             catchError(() => [])
         );
     }
 
-    getFilters(): Observable<IFilter[]> {
+    getFilters(language: string): Observable<IFilter[]> {
         // return this.http.get<IFilter[]>(`assets/mock/filters.json`).pipe(
-        return this.http.get<IFilter[]>(`${this.apiUrl}/api/StoreFilters/all`).pipe(
+        return this.http.get<IFilter[]>(`${this.apiUrl}/api/StoreFilters/all/${language}`).pipe(
             catchError(() => [])
         );
     }
 
-    getProduct(id: number): Observable<IProduct | null> {
+    getProduct(id: number, language: string): Observable<IProduct | null> {
         // return this.http.get<IProduct>(`assets/mock/product.json`).pipe(
-        return this.http.get<IProduct>(`${this.apiUrl}/api/products/${id}`).pipe(
+        return this.http.get<IProduct>(`${this.apiUrl}/api/products/${id}/${language}`).pipe(
             catchError(() => of(null))
 
         );

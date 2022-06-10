@@ -2,12 +2,14 @@
     <div class="left">
         <span>2022 © ZIIOTSTORE</span>
         <span class="stick">|</span>
-        <a href="/policy" target="_blank">Политика обработки персональных данных</a>
+        <a *ngIf="isRussian" href="/policy" target="_blank">Политика обработки персональных данных</a>
+        <a *ngIf="!isRussian" href="/en/policy" target="_blank">Personal data processing policy</a>
     </div>
     <div class="right">
         <a class="tel" href="tel:+74959681654">+7 (495) 968-16-54</a>
         <a class="mail" href="mailto:general@idp.zyfra.com">general@idp.zyfra.com</a>
-        <span>г. Санкт-Петербург, ул. Кропоткина, д. 1, лит А</span>
+        <span *ngIf="isRussian">г. Санкт-Петербург, ул. Кропоткина, д. 1, лит А</span>
+        <span *ngIf="!isRussian">St. Petersburg, st. Kropotkina, d. 1, lit A</span>
     </div>
 </div>
 <div class="arrow_wrapper no-selectable" (click)="scrollTop()" #arrowWrapper>

@@ -63,7 +63,7 @@ export class GanttMapComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.dataService.getInitialData();
+        this.dataService.getInitialData("ru");
 
         this.platform.pageMapSize$
             .pipe(takeUntil(this.destroy$))

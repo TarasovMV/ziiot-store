@@ -4,7 +4,7 @@ import {BehaviorSubject, map, Observable, switchMap} from 'rxjs';
 import {ApiService} from '@core/services/api.service';
 import {PlatformService} from '@core/services/platform.service';
 import {ImageUrlPipe} from '@shared/pipes/image-url.pipe';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DialogService} from '@core/services/dialog.service';
 import {ConnectFormComponent} from '@shared/dialogs/connect-form/connect-form.component';
 import {SeoService} from "@core/services/seo.service";
@@ -22,6 +22,7 @@ const DEFAULT_PATH = '1cnad';
 export class ProductComponent implements OnInit {
     readonly product$ = new BehaviorSubject<IProduct | null>(null);
     readonly pageSize$ = this.platformService.pageProductSize$;
+    isRussian = false;
 
     private get presentationUrl(): string | undefined {
         const product = this.product$.getValue();
@@ -34,27 +35,32 @@ export class ProductComponent implements OnInit {
         private readonly platformService: PlatformService,
         private readonly imageUrlPipe: ImageUrlPipe,
         private readonly api: ApiService,
-        private readonly seoService: SeoService
+        private readonly seoService: SeoService,
+        private router: Router
     ) {
     }
 
     ngOnInit() {
-        this.activatedRoute.paramMap.pipe(
-            map(x => x.get('path') ?? DEFAULT_PATH),
-            switchMap((productUrl: string) => this.api
-                .getProducts()
-                .pipe(map((products) => products.filter(({url}) => !!url).find(({url}) => url.search(productUrl) !== -1)?.id ?? 6))),
-            switchMap((productId) => this.getProduct(productId))
-        ).subscribe((x: any) => {
-            console.log(x);
-            this.seoService.setTitle(x.name);
-            this.seoService.setDescription(x.description);
-            this.seoService.setKeywords(x.keyWords);
-            if (x.gallery.length > 0) {
-                this.seoService.setBackEndImage(x.gallery[0]);
-            }
-            this.product$.next(x);
+        this.isRussian = !this.router.url.startsWith("/en");
+        this.activatedRoute.data.subscribe(data => {
+            this.activatedRoute.paramMap.pipe(
+                map(x => x.get('path') ?? DEFAULT_PATH),
+                switchMap((productUrl: string) => this.api
+                    .getProducts(data['language'])
+                    .pipe(map((products) => products.filter(({url}) => !!url).find(({url}) => url.search(productUrl) !== -1)?.id ?? 6))),
+                switchMap((productId) => this.getProduct(productId, data['language']))
+            ).subscribe((x: any) => {
+                console.log(x);
+                this.seoService.setTitle(x.name);
+                this.seoService.setDescription(x.description);
+                this.seoService.setKeywords(x.keyWords);
+                if (x.gallery.length > 0) {
+                    this.seoService.setBackEndImage(x.gallery[0]);
+                }
+                this.product$.next(x);
+            });
         });
+
     }
 
     openGallery(idx: number) {
@@ -81,9 +87,9 @@ export class ProductComponent implements OnInit {
         history.back();
     }
 
-    private getProduct(id: number): Observable<IProduct> {
-        return this.api.getFilters().pipe(
-            switchMap(filters => this.api.getProduct(id).pipe(
+    private getProduct(id: number, language: string): Observable<IProduct> {
+        return this.api.getFilters(language).pipe(
+            switchMap(filters => this.api.getProduct(id, language).pipe(
                 map(product => ({
                     ...product,
                     gallery: product?.files?.filter(x => x.fileType === 2)?.map(x => x.path) ?? [],

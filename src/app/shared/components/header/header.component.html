@@ -2,32 +2,55 @@
     <a class="logo" [routerLink]="'/'">
         <img src="assets/images/logo.svg">
     </a>
-    <ul class="menu">
+    <ul *ngIf="isRussian" class="menu">
         <li
             *ngFor="let item of menu$ | async"
             class="item"
             [class.item_active]="item.active"
         >
-            <a [routerLink]="'/' + item.route">{{item.title}}</a>
+            <a *ngIf="isRussian" [routerLink]="'/' + item.route">{{item.title}}</a>
         </li>
     </ul>
-<!--    <button class="auth">Войти</button>-->
+    <ul *ngIf="!isRussian" class="menu">
+        <li
+            *ngFor="let item of menu$ | async"
+            class="item"
+            [class.item_active]="item.active"
+        >
+            <a [routerLink]="'/' + item.routeEn">{{item.titleEn}}</a>
+        </li>
+    </ul>
 
-    <div
-        class="mobile-menu-btn"
-        [class.mobile-menu-btn_open]="isMenu"
-        (click)="isMenu = !isMenu"
-    >
-        <span></span>
-        <span></span>
-        <span></span>
+    <div>
+        <div class="languages-wrapper" style="display: flex; column-gap: 11px; align-items: center; color: #8C99B2; font-size: 16px; font-weight: bold; align-items: center; margin-top: 9px; float: right;">
+            <div class="no-selectable" style="cursor: pointer; opacity: 0.5;" [class.language-button-active]="isRussian" (click)="switchRussian()">RU</div>
+            <div class="no-selectable" style="cursor: pointer; opacity: 0.5;" [class.language-button-active]="!isRussian" (click)="switchEnglish()">EN</div>
+        </div>
+        <div
+            class="mobile-menu-btn"
+            [class.mobile-menu-btn_open]="isMenu"
+            (click)="isMenu = !isMenu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
+
 </div>
 
-<div *ngIf="isMenu" class="mobile-menu" @inOutAnimation>
+<div *ngIf="isMenu && isRussian" class="mobile-menu" @inOutAnimation>
     <div
         *ngFor="let item of menu$ | async"
         class="item"
         (click)="mobileLink(item.route)"
     >{{item.title}}</div>
+</div>
+
+<div *ngIf="isMenu && !isRussian" class="mobile-menu" @inOutAnimation>
+    <div
+        *ngFor="let item of menu$ | async"
+        class="item"
+        (click)="mobileLink(item.routeEn)"
+    >{{item.titleEn}}</div>
 </div>

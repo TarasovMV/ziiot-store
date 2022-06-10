@@ -56,11 +56,11 @@ export class DataService {
     constructor(private readonly apiService: ApiService) {
     }
 
-    getInitialData() {
-        this.apiService.getFilters()
+    getInitialData(language: string) {
+        this.apiService.getFilters(language)
             .pipe(
                 tap(filters => this.filters$.next(filters)),
-                mergeMap(filters => this.apiService.getProducts().pipe(
+                mergeMap(filters => this.apiService.getProducts(language).pipe(
                     map(products => {
                         products.forEach(p => p.filters.forEach(x => x.name = filters.find(f => f.id === x.filterId && f.filterType === x.filterType)?.name));
                         return products;

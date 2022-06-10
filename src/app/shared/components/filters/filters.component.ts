@@ -3,6 +3,7 @@ import {DataService} from '@core/services/data.service';
 import {map, take} from 'rxjs';
 import {IFilter} from '@core/interfaces/filter.interface';
 import {ViewDetectorService} from '@core/services/view-detector.service';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -12,6 +13,7 @@ import {ViewDetectorService} from '@core/services/view-detector.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FiltersComponent {
+    isRussian = false;
     isAsutpOpen = false;
     isRestOpen = false;
 
@@ -27,7 +29,12 @@ export class FiltersComponent {
         public readonly dataService: DataService,
         private readonly viewDetector: ViewDetectorService,
         private readonly cdRef: ChangeDetectorRef,
+        private router: Router
     ) {}
+
+    ngOnInit() {
+        this.isRussian = !this.router.url.startsWith("/en");
+    }
 
     ngDoCheck() {
         this.viewDetector.setView();

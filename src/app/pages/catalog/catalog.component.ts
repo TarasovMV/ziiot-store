@@ -5,6 +5,7 @@ import {ImageUrlPipe} from '@shared/pipes/image-url.pipe';
 import {ConnectFormComponent} from '@shared/dialogs/connect-form/connect-form.component';
 import {DialogService} from '@core/services/dialog.service';
 import {SeoService} from "../../core/services/seo.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'app-catalog',
@@ -15,6 +16,7 @@ import {SeoService} from "../../core/services/seo.service";
 })
 export class CatalogComponent implements OnInit {
     isMobileFilter = false;
+    isRussian = false;
     readonly products$ = this.dataService.filteredProducts$;
     readonly categories$ = this.dataService.categories$;
     readonly isMobile$ = this.platformService.isMobile$;
@@ -23,16 +25,30 @@ export class CatalogComponent implements OnInit {
         private readonly dataService: DataService,
         private readonly platformService: PlatformService,
         private readonly dialog: DialogService,
-        private readonly seoService: SeoService
+        private readonly seoService: SeoService,
+        private readonly activatedRoute: ActivatedRoute
     ) {
     }
 
     ngOnInit() {
-        this.seoService.setTitle("Цифровой индустриальный маркетплейс");
-        this.seoService.setDescription("Первая торговая площадка для цифровизации нефтехимической и нефтеперерабатывающей промышленности");
-        this.seoService.setKeywords("Цифровой маркетплейс, цифровизация, IoT решения, нефтепереработка, нефтехимия, управление предприятием, управление производством, нефть, надежность, переработка, производство, цифровой двойник, управление ремонтами, управление надежностью");
-        this.seoService.setBackEndImage("og/catalog.png");
-        this.dataService.getInitialData();
+        this.activatedRoute.data.subscribe(data => {
+            console.log(data['language']);
+            this.isRussian = data['language'] === "ru";
+            this.dataService.getInitialData(data['language']);
+
+            if (data['language'] === "ru") {
+                this.seoService.setTitle("Цифровой индустриальный маркетплейс");
+                this.seoService.setDescription("Первая торговая площадка для цифровизации нефтехимической и нефтеперерабатывающей промышленности");
+                this.seoService.setKeywords("Цифровой маркетплейс, цифровизация, IoT решения, нефтепереработка, нефтехимия, управление предприятием, управление производством, нефть, надежность, переработка, производство, цифровой двойник, управление ремонтами, управление надежностью");
+                this.seoService.setBackEndImage("og/catalog.png");
+            }
+            else {
+                this.seoService.setTitle("Digital industrial marketplace");
+                this.seoService.setDescription("The first marketplace for the digitalization of the petrochemical and oil refining industries");
+                this.seoService.setKeywords("Digital marketplace, digitalization, IoT solutions, oil refining, petrochemicals, enterprise management, production management, oil, reliability, refining, production, digital twin, repair management, reliability management");
+                this.seoService.setBackEndImage("og/catalog.png");
+            }
+        });
     }
 
     openForm(type: string) {

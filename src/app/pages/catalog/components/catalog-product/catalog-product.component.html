@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div *ngIf="!!product.document" class="container asutp">
+    <div *ngIf="product.document" class="container asutp">
         <svg-icon class="background" src="assets/icons/plant-back.svg"></svg-icon>
         <div class="header">
             <div class="title">
@@ -26,7 +26,8 @@
         </div>
         <div class="content">{{product.description}}</div>
         <div class="button">
-            <span>Скачать каталог</span>
+            <span *ngIf="isRussian">Скачать каталог</span>
+            <span *ngIf="!isRussian">Download catalog</span>
             <svg-icon src="assets/icons/download.svg"></svg-icon>
         </div>
     </div>

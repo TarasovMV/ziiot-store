@@ -1,4 +1,5 @@
-<div class="title">Контактная информация</div>
+<div *ngIf="isRussian" class="title">Контактная информация</div>
+<div *ngIf="!isRussian" class="title">Contacts</div>
 <div class="info">
     <div *ngIf="tel" class="item">
         <svg-icon src="assets/icons/phone.svg"></svg-icon>

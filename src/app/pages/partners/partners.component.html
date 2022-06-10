@@ -1,1 +1,2 @@
-<app-iframe [url]="'https://project5359954.tilda.ws/partnersandtasks'"></app-iframe>
+<app-iframe *ngIf="isRussian" [url]="'https://project5359954.tilda.ws/partnersandtasks'"></app-iframe>
+<app-iframe *ngIf="!isRussian" [url]="'https://iotmarketplace.ru/page28256201.html'"></app-iframe>

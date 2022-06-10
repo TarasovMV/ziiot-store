@@ -12,6 +12,7 @@ import {NavigationEnd, Router} from '@angular/router';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
+    isRussian = false;
     isMenu = false;
     menu$ = new BehaviorSubject([
         // {
@@ -21,17 +22,23 @@ export class HeaderComponent implements OnInit {
         // },
         {
             route: AppRoutes.Catalog,
+            routeEn: `en/${AppRoutes.Catalog}`,
             title: 'Каталог решений',
+            titleEn: 'Solution catalog',
             active: false,
         },
         {
             route: AppRoutes.Partners,
+            routeEn: `en/${AppRoutes.Partners}`,
             title: 'Партнерам',
+            titleEn: 'For partners',
             active: false,
         },
         {
             route: AppRoutes.Startups,
+            routeEn: `en/${AppRoutes.Startups}`,
             title: 'Стартапам',
+            titleEn: 'For startups',
             active: false,
         },
         // {
@@ -41,12 +48,16 @@ export class HeaderComponent implements OnInit {
         // },
         {
             route: AppRoutes.News,
+            routeEn: `en/${AppRoutes.News}`,
             title: 'Новости',
+            titleEn: 'News',
             active: false,
         },
         {
             route: AppRoutes.Contacts,
+            routeEn: `en/${AppRoutes.Contacts}`,
             title: 'Контакты',
+            titleEn: 'Contacts',
             active: false,
         },
     ]);
@@ -58,10 +69,16 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
+        console.log(this.isRussian);
         this.router.events.pipe(
             filter(event => event instanceof NavigationEnd)
         ).subscribe((event) => {
             const menu = this.menu$.getValue();
+
+            if (!this.router.url.startsWith('/en')) {
+                this.isRussian = true;
+            }
 
             menu.forEach(x => x.active = false);
             const url = (event as NavigationEnd).urlAfterRedirects.split('/').slice(-1)[0];
@@ -80,5 +97,23 @@ export class HeaderComponent implements OnInit {
             this.isMenu = false;
             this.cdRef.markForCheck();
         });
+    }
+
+    async switchRussian() {
+        if (this.router.url.startsWith("/en")) {
+            console.log(this.router.url);
+            const newRoute = this.router.url.replace("/en", "");
+            await this.router.navigate([newRoute]);
+            this.isRussian = true;
+        }
+    }
+
+    async switchEnglish() {
+        if (this.isRussian) {
+            console.log(this.router.url);
+            const newRoute = "/en" +  this.router.url;
+            await this.router.navigate([newRoute]);
+            this.isRussian = false;
+        }
     }
 }

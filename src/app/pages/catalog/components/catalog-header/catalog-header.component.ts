@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular
 import {ProductType} from '@core/enums';
 import {inOutAnimation} from '@shared/animations/in-out.animation';
 import {PlatformService} from "../../../../core/services/platform.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'app-catalog-header',
@@ -11,6 +12,7 @@ import {PlatformService} from "../../../../core/services/platform.service";
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CatalogHeaderComponent {
+    isRussian = false;
     @Output() connect = new EventEmitter<string>();
     readonly productType = ProductType;
     readonly isMobile$ = this.platformService.isMobile$;
@@ -18,7 +20,7 @@ export class CatalogHeaderComponent {
     private content?: Element;
     private contentY?: number;
 
-    constructor(private readonly platformService: PlatformService) {
+    constructor(private readonly platformService: PlatformService, private router: Router) {
         this.pageWrapper = document.getElementById("page-wrapper");
         setTimeout(() => {
             this.content = document.getElementsByClassName("content")[0];
@@ -28,6 +30,10 @@ export class CatalogHeaderComponent {
             this.contentY = offset;
             console.log(offset);
         }, 350);
+    }
+
+    ngOnInit() {
+        this.isRussian = !this.router.url.startsWith('/en');
     }
 
     scrollToCatalog() {

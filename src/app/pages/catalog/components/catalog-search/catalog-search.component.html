@@ -1,10 +1,15 @@
 <div *ngIf="!(isMobile$ | async)" class="wrapper">
-    <div class="stats">
+    <div *ngIf="isRussian" class="stats">
         <span style="color: #777B92;">Найдено: </span>
         <span>{{ filteredCount$ | async }} проект(ов)</span>
     </div>
+    <div *ngIf="!isRussian" class="stats">
+        <span style="color: #777B92;">Founded: </span>
+        <span>{{ filteredCount$ | async }} products</span>
+    </div>
     <div class="input-wrapper">
-        <input [formControl]="search" placeholder="Поиск" />
+        <input *ngIf="isRussian" [formControl]="search" placeholder="Поиск" />
+        <input *ngIf="!isRussian" [formControl]="search" placeholder="Search" />
         <svg-icon class="icon" src="assets/icons/search.svg"></svg-icon>
     </div>
 </div>
@@ -15,7 +20,8 @@
         <div class="counter" *ngIf="filtersCount$ | async"><span>{{filtersCount$ | async}}</span></div>
     </div>
     <div class="input-wrapper">
-        <input [formControl]="search" placeholder="Поиск" />
+        <input *ngIf="isRussian" [formControl]="search" placeholder="Поиск" />
+        <input *ngIf="!isRussian" [formControl]="search" placeholder="Search" />
         <svg-icon class="icon" src="assets/icons/search.svg"></svg-icon>
     </div>
 </div>

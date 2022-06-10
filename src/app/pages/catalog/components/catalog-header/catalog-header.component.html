@@ -1,18 +1,27 @@
 <div class="wrapper">
     <div class="content">
-        <div class="title">
+        <div *ngIf="isRussian" class="title">
             Предлагаем и ищем <span style="color: #46FF77;">проверенные<br/>решения</span> для автоматизации<br/>нефтехимической и<br/>нефтеперерабатывающей<br/>промышленности
         </div>
-        <div class="description"><span style="color: #46FF77;">55+ отечественных продуктов</span> для всех<br/>уровней управления предприятием</div>
+        <div *ngIf="!isRussian" class="title">
+            WE OFFER AND LOOK FOR  <span style="color: #46FF77;">PROVEN<br/>AUTOMATION SOLUTIONS</span><br/> PETROCHEMICAL AND<br/>OIL REFINING INDUSTRY
+        </div>
+        <div *ngIf="isRussian" class="description"><span style="color: #46FF77;">55+ отечественных продуктов</span> для всех<br/>уровней управления предприятием</div>
+        <div *ngIf="!isRussian" class="description"><span style="color: #46FF77;">55+ domestic products</span> for every<br/>enterprise management level</div>
         <div class="buttons">
-            <button (click)="connect.emit('request')">Оставить запрос на решение</button>
-            <button (click)="connect.emit('set')" class="border-button">Разместить свое решение</button>
+            <button *ngIf="isRussian" (click)="connect.emit('request')">Оставить запрос на решение</button>
+            <button *ngIf="!isRussian" (click)="connect.emit('request')">Leave a request for a solution</button>
+            <button *ngIf="isRussian" (click)="connect.emit('set')" class="border-button">Разместить свое решение</button>
+            <button *ngIf="!isRussian" (click)="connect.emit('set')" class="border-button">Submit your product</button>
            <div class="no-selectable" (click)="scrollToCatalog()" style="display: flex; align-items: center; width: 100%; gap: 10px; cursor: pointer"
                 [ngStyle]="{'justify-content': (isMobile$ | async) ? 'center' : 'start'}">
                 <img [src]="(isMobile$ | async) ? 'assets/icons/arrow-down-mobile.svg' : 'assets/icons/arrow-down.svg'" />
-                <div style="text-transform: none; font-size: 12px; color: #A1A5B7;">
+                <div *ngIf="isRussian" style="text-transform: none; font-size: 12px; color: #A1A5B7;">
                     В каталог продуктов
                 </div>
+               <div *ngIf="!isRussian" style="text-transform: none; font-size: 12px; color: #A1A5B7;">
+                   To product catalog
+               </div>
             </div>
         </div>
     </div>

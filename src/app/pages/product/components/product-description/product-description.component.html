@@ -1,4 +1,5 @@
-<div class="title">О продукте</div>
+<div *ngIf="isRussian" class="title">О продукте</div>
+<div *ngIf="!isRussian" class="title">Product description</div>
 <div class="description">
     {{description}}
 </div>

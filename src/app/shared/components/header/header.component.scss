@@ -19,6 +19,10 @@ a {
     transition: .3s;
 }
 
+.header-right-menu {
+    margin-right: 20px !important;
+}
+
 .menu {
     display: flex;
     list-style-type: none;
@@ -199,7 +203,18 @@ button {
         }
     }
 
+    .languages-wrapper {
+        position: absolute !important;
+        right: 60px !important;
+        top: 14px !important;
+    }
+
     .mobile-menu-btn {
         visibility: visible;
     }
+}
+
+.language-button-active {
+    color: #1C76FE;
+    opacity: 1 !important;
 }

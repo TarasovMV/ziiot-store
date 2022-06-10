@@ -1,11 +1,13 @@
 <div *ngIf="(pageSize$ | async) === 'l'" class="wrapper">
     <button class="presentation" (click)="presentation.emit()">
         <svg-icon src="assets/icons/file.svg"></svg-icon>
-        <span>Презентация продукта</span>
+        <span *ngIf="isRussian">Презентация продукта</span>
+        <span *ngIf="!isRussian">Presentation</span>
     </button>
     <button class="cost" (click)="cost.emit()">
         <svg-icon src="assets/icons/arrow-right-circle.svg"></svg-icon>
-        <span>Запросить стоимость</span>
+        <span *ngIf="isRussian">Запросить стоимость</span>
+        <span *ngIf="!isRussian">Request a price</span>
     </button>
 </div>
 
@@ -14,6 +16,7 @@
         <svg-icon src="assets/icons/arrow-simple.svg"></svg-icon>
     </button>
     <button class="cost" (click)="cost.emit()">
-        <span>Запросить стоимость</span>
+        <span *ngIf="isRussian">Запросить стоимость</span>
+        <span *ngIf="!isRussian">Request a price</span>
     </button>
 </div>

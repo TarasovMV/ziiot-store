@@ -22,31 +22,59 @@
             <div class="column column_right">
                 <app-product-description [description]="product.description"></app-product-description>
                 <app-product-bullet
-                    *ngIf="!!product.functions"
+                    *ngIf="!!product.functions && isRussian"
                     type="digit"
                     name="Функции"
                     [data]="product.functions"
                 ></app-product-bullet>
                 <app-product-bullet
-                    *ngIf="!!product.effects"
+                    *ngIf="!!product.functions && !isRussian"
+                    type="digit"
+                    name="Functions"
+                    [data]="product.functions"
+                ></app-product-bullet>
+                <app-product-bullet
+                    *ngIf="!!product.effects && isRussian"
                     type="check"
                     name="Эффекты"
                     [data]="product.effects"
                 ></app-product-bullet>
                 <app-product-bullet
-                    *ngIf="!!product.principles"
+                    *ngIf="!!product.effects && !isRussian"
+                    type="check"
+                    name="Effects"
+                    [data]="product.effects"
+                ></app-product-bullet>
+                <app-product-bullet
+                    *ngIf="!!product.principles && isRussian"
                     name="Принцип работы"
                     [data]="product.principles"
                 ></app-product-bullet>
                 <app-product-bullet
-                    *ngIf="!!product.industries?.trim()"
+                    *ngIf="!!product.principles && !isRussian"
+                    name="Principle of operation"
+                    [data]="product.principles"
+                ></app-product-bullet>
+                <app-product-bullet
+                    *ngIf="!!product.industries?.trim() && isRussian"
                     type="digit"
                     name="Отрасли"
                     [data]="product.industries"
                 ></app-product-bullet>
                 <app-product-bullet
-                    *ngIf="!!product.reference"
+                    *ngIf="!!product.industries?.trim() && !isRussian"
+                    type="digit"
+                    name="Industries"
+                    [data]="product.industries"
+                ></app-product-bullet>
+                <app-product-bullet
+                    *ngIf="!!product.reference && isRussian"
                     name="Пример внедрения"
+                    [data]="product.reference"
+                ></app-product-bullet>
+                <app-product-bullet
+                    *ngIf="!!product.reference && !isRussian"
+                    name="Implementations"
                     [data]="product.reference"
                 ></app-product-bullet>
             </div>
@@ -62,7 +90,8 @@
         <app-product-header [data]="product"></app-product-header>
         <button class="presentation" (click)="loadPresentation()">
             <svg-icon src="assets/icons/file.svg"></svg-icon>
-            <span>Скачать презентацию</span>
+            <span *ngIf="isRussian">Скачать презентацию</span>
+            <span *ngIf="!isRussian">Download presentation</span>
         </button>
         <app-product-description [description]="product.description"></app-product-description>
         <app-product-gallery [gallery]="product.gallery" (click)="openGallery(0)"></app-product-gallery>

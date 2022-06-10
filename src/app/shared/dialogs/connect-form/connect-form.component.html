@@ -4,38 +4,51 @@
         src="assets/icons/close.svg"
         (click)="close()"
     ></svg-icon>
-    <div class="title">
+    <div *ngIf="isRussian" class="title">
         Оставьте, пожалуйста, контакты и мы с Вами свяжемся!
+    </div>
+    <div *ngIf="!isRussian" class="title">
+        Please leave your contacts and we will contact you!
     </div>
     <div
         class="text-input field"
         [class.field__error]="!form.controls['fio'].valid && isChecked"
     >
-        <div class="description">Как к Вам обращаться?</div>
-        <input formControlName="fio" placeholder="ФИО*"/>
-        <div class="error">Пожалуйста, заполните ФИО</div>
+        <div *ngIf="isRussian" class="description">Как к Вам обращаться?</div>
+        <div *ngIf="!isRussian" class="description">What is your name?</div>
+        <input *ngIf="isRussian" formControlName="fio" placeholder="ФИО*"/>
+        <input *ngIf="!isRussian" formControlName="fio" placeholder="FullName*"/>
+        <div *ngIf="isRussian" class="error">Пожалуйста, заполните ФИО</div>
+        <div *ngIf="!isRussian" class="error">Please fill in your full name</div>
     </div>
     <div
         class="text-input field"
         [class.field__error]="!form.controls['phone'].valid && isChecked"
     >
-        <div class="description">Как Вам позвонить?</div>
+        <div *ngIf="isRussian" class="description">Как Вам позвонить?</div>
+        <div *ngIf="!isRussian" class="description">How to call you?</div>
         <input formControlName="phone" mask='+0(000) 000-0000' [validation]="true"/>
-        <div class="error">Пожалуйста, напишите номер телефона</div>
+        <div *ngIf="isRussian" class="error">Пожалуйста, напишите номер телефона</div>
+        <div *ngIf="!isRussian" class="error">Please write a phone number</div>
     </div>
     <div
         class="text-input field"
     >
-        <div class="description">Можно ли Вам написать?</div>
-        <input formControlName="email" placeholder="Почта"/>
+        <div *ngIf="isRussian" class="description">Можно ли Вам написать?</div>
+        <div *ngIf="!isRussian" class="description">Can we write to you by E-mail?</div>
+        <input *ngIf="isRussian" formControlName="email" placeholder="Почта"/>
+        <input *ngIf="!isRussian" formControlName="email" placeholder="E-mail"/>
     </div>
     <div
         class="field"
         [class.field__error]="!form.controls['agreement'].valid && isChecked"
     >
         <input class="checkbox" formControlName="agreement" type="checkbox" id="agreement"/>
-        <label for="agreement">Я согласен с политикой конфиденциальности</label>
-        <div class="error">Пожалуйста, подтвердите согласие</div>
+        <label *ngIf="isRussian" for="agreement">Я согласен с политикой конфиденциальности</label>
+        <label *ngIf="!isRussian" for="agreement">I agree with the privacy policy</label>
+        <div *ngIf="isRussian" class="error">Пожалуйста, подтвердите согласие</div>
+        <div *ngIf="!isRussian" class="error">Please confirm consent</div>
     </div>
-    <button (click)="sendData()">Отправить</button>
+    <button *ngIf="isRussian" (click)="sendData()">Отправить</button>
+    <button *ngIf="!isRussian" (click)="sendData()">Send</button>
 </div>

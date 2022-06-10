@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {IProductCard} from '@core/interfaces/product-card.interface';
 import {ImageUrlPipe} from '@shared/pipes/image-url.pipe';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-catalog-product',
@@ -10,10 +11,17 @@ import {ImageUrlPipe} from '@shared/pipes/image-url.pipe';
 })
 export class CatalogProductComponent {
     @Input() product!: IProductCard;
+    isRussian = false;
 
     get link(): string {
         if (this.product.url) {
-            return '/product/' + this.product.url.split('/').slice(-1)[0];
+            if (this.isRussian) {
+                return '/product/' + this.product.url.split('/').slice(-1)[0];
+            }
+            else {
+                return '/en/product/' + this.product.url.split('/').slice(-1)[0];
+            }
+
         }
 
         if (this.product.document) {
@@ -23,5 +31,9 @@ export class CatalogProductComponent {
         return '';
     }
 
-    constructor(private readonly imageUrlPipe: ImageUrlPipe) {}
+    constructor(private readonly imageUrlPipe: ImageUrlPipe, private router: Router) {}
+
+    ngOnInit() {
+        this.isRussian = !this.router.url.startsWith("/en");
+    }
 }

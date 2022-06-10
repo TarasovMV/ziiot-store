@@ -33,7 +33,8 @@
                 </div>
                 <div class="close-wrapper">
                     <div class="close" (click)="toggleFilter()">
-                        <span>Закрыть</span>
+                        <span *ngIf="isRussian">Закрыть</span>
+                        <span *ngIf="!isRussian">Close</span>
                     </div>
                 </div>
             </div>

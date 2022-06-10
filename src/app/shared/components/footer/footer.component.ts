@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-footer',
@@ -7,10 +8,11 @@ import {ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild}
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
-
+    isRussian = false;
     @ViewChild("arrowWrapper") arrowWrapper : ElementRef | undefined;
     private pageWrapper: HTMLElement | null;
-    constructor() {
+    constructor(private router: Router) {
+        this.isRussian = !this.router.url.startsWith("/en");
         this.pageWrapper = document.getElementById("page-wrapper");
         this.pageWrapper?.addEventListener("scroll", () => {
             if (!this.arrowWrapper) return;
