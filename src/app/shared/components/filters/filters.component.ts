@@ -10,9 +10,9 @@ import {Router} from "@angular/router";
     selector: 'app-filters',
     templateUrl: './filters.component.html',
     styleUrls: ['./filters.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FiltersComponent {
+    showResetButton = false;
     isRussian = false;
     isAsutpOpen = false;
     isRestOpen = false;
@@ -28,7 +28,7 @@ export class FiltersComponent {
     constructor(
         public readonly dataService: DataService,
         private readonly viewDetector: ViewDetectorService,
-        private readonly cdRef: ChangeDetectorRef,
+        public readonly cdRef: ChangeDetectorRef,
         private router: Router
     ) {}
 
@@ -80,6 +80,8 @@ export class FiltersComponent {
     reset() {
         this.dataService.resetLeftFilters();
         this.dataService.resetRestFilters();
+        this.dataService.chosenFilters$.next([]);
+        this.showResetButton = false;
     }
 
     private checkLeft(id: number, value: boolean) {

@@ -6,6 +6,7 @@ import {ConnectFormComponent} from '@shared/dialogs/connect-form/connect-form.co
 import {DialogService} from '@core/services/dialog.service';
 import {SeoService} from "../../core/services/seo.service";
 import {ActivatedRoute} from "@angular/router";
+import {FiltersComponent} from "@shared/components/filters/filters.component";
 
 @Component({
     selector: 'app-catalog',
@@ -26,7 +27,8 @@ export class CatalogComponent implements OnInit {
         private readonly platformService: PlatformService,
         private readonly dialog: DialogService,
         private readonly seoService: SeoService,
-        private readonly activatedRoute: ActivatedRoute
+        private readonly activatedRoute: ActivatedRoute,
+        private filtersComponent: FiltersComponent
     ) {
     }
 
@@ -58,16 +60,19 @@ export class CatalogComponent implements OnInit {
 
     categoryClick(id: number | undefined) {
         this.dataService.categoryFilter(id);
+        this.filtersComponent.showResetButton = true;
+        this.filtersComponent.cdRef.detectChanges();
     }
 
     isActiveCategory(id: number | undefined): boolean {
         const FILTER_TYPE = 1;
 
-        const filters = this.dataService.chosenFilters$.getValue();
+        const filters = this.dataService.chosenFilters$.getValue().filter(x => x.filterType === 1);
 
         if (!id) {
             return !filters.find(x => x.filterType === FILTER_TYPE);
         }
+
         return !!filters.find(x => x.filterType === FILTER_TYPE && x.id === id);
     }
 

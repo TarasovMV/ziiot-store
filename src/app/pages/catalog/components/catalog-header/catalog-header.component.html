@@ -6,8 +6,8 @@
         <div *ngIf="!isRussian" class="title">
             WE OFFER AND LOOK FOR  <span style="color: #46FF77;">PROVEN<br/>AUTOMATION SOLUTIONS</span><br/> PETROCHEMICAL AND<br/>OIL REFINING INDUSTRY
         </div>
-        <div *ngIf="isRussian" class="description"><span style="color: #46FF77;">55+ отечественных продуктов</span> для всех<br/>уровней управления предприятием</div>
-        <div *ngIf="!isRussian" class="description"><span style="color: #46FF77;">55+ domestic products</span> for every<br/>enterprise management level</div>
+        <div *ngIf="isRussian" class="description"><span style="color: #46FF77;">{{(dataService.products$ | async)?.length}} отечественных продуктов</span> для всех<br/>уровней управления предприятием</div>
+        <div *ngIf="!isRussian" class="description"><span style="color: #46FF77;">{{(dataService.products$ | async)?.length}} domestic products</span> for every<br/>enterprise management level</div>
         <div class="buttons">
             <button *ngIf="isRussian" (click)="connect.emit('request')">Оставить запрос на решение</button>
             <button *ngIf="!isRussian" (click)="connect.emit('request')">Leave a request for a solution</button>

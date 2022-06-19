@@ -3,6 +3,7 @@ import {ProductType} from '@core/enums';
 import {inOutAnimation} from '@shared/animations/in-out.animation';
 import {PlatformService} from "../../../../core/services/platform.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {DataService} from "@core/services/data.service";
 
 @Component({
     selector: 'app-catalog-header',
@@ -20,7 +21,7 @@ export class CatalogHeaderComponent {
     private content?: Element;
     private contentY?: number;
 
-    constructor(private readonly platformService: PlatformService, private router: Router) {
+    constructor(private readonly platformService: PlatformService, private router: Router, public dataService: DataService) {
         this.pageWrapper = document.getElementById("page-wrapper");
         setTimeout(() => {
             this.content = document.getElementsByClassName("content")[0];

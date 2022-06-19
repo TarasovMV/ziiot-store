@@ -12,6 +12,7 @@ import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CatalogHeaderComponent} from './components/catalog-header/catalog-header.component';
 import {ConnectFormModule} from '@shared/dialogs/connect-form/connect-form.module';
+import {FiltersComponent} from "@shared/components/filters/filters.component";
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {ConnectFormModule} from '@shared/dialogs/connect-form/connect-form.modul
         ImageUrlPipeModule,
         ReactiveFormsModule,
         ConnectFormModule,
-    ]
+    ],
+    providers: [FiltersComponent]
 })
 export class CatalogModule {
 }
