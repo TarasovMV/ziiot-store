@@ -24,6 +24,7 @@ export class CatalogCategoryComponent {
     readonly imageMap: {[key: string]: string} = {
         ['Нефть']: 'assets/images/neft.png',
         ['Oil']: 'assets/images/neft.png',
+        ['Petroleum']: 'assets/images/neft.png',
         ['Переработка']: 'assets/images/pererabotka.png',
         ['Refining']: 'assets/images/pererabotka.png',
         ['Логистика']: 'assets/images/logistika.png',
