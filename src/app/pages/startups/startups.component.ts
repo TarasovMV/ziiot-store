@@ -24,7 +24,7 @@ export class StartupsComponent implements OnInit {
                 this.seoService.setBackEndImage("og/catalog.png");
             }
             else {
-                this.seoService.setTitle("For startups");
+                this.seoService.setTitle("To startups");
                 this.seoService.setDescription("We develop digital innovations, commercialize digital products, build long-term partnerships");
                 this.seoService.setKeywords("Startups, grants, startups in the oil and gas industry, digitalization of the oil and gas industry, digital technologies in the oil and gas industry, current problems in the oil and gas industry, oil and gas industry enterprises, development of the oil and gas industry in Russia");
                 this.seoService.setBackEndImage("og/catalog.png");

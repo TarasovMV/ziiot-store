@@ -4,15 +4,15 @@
             Предлагаем и ищем <span style="color: #46FF77;">проверенные<br/>решения</span> для автоматизации<br/>нефтехимической и<br/>нефтеперерабатывающей<br/>промышленности
         </div>
         <div *ngIf="!isRussian" class="title">
-            WE OFFER AND LOOK FOR  <span style="color: #46FF77;">PROVEN<br/>AUTOMATION SOLUTIONS</span><br/> PETROCHEMICAL AND<br/>OIL REFINING INDUSTRY
+            We offer and search <span style="color: #46FF77;">PROVEN<br/> SOLUTIONS</span><br/> for petrochemical and<br/>OIL REFINING industry automation
         </div>
         <div *ngIf="isRussian" class="description"><span style="color: #46FF77;">{{(dataService.products$ | async)?.length}}+ отечественных продуктов</span> для всех<br/>уровней управления предприятием</div>
-        <div *ngIf="!isRussian" class="description"><span style="color: #46FF77;">{{(dataService.products$ | async)?.length}}+ domestic products</span> for every<br/>enterprise management level</div>
+        <div *ngIf="!isRussian" class="description"><span style="color: #46FF77;">{{(dataService.products$ | async)?.length}}+ domestic products</span> for all<br/>business management levels</div>
         <div class="buttons">
             <button *ngIf="isRussian" (click)="connect.emit('request')">Оставить запрос на решение</button>
-            <button *ngIf="!isRussian" (click)="connect.emit('request')">Leave a request for a solution</button>
+            <button *ngIf="!isRussian" (click)="connect.emit('request')">Send your request for solution</button>
             <button *ngIf="isRussian" (click)="connect.emit('set')" class="border-button">Разместить свое решение</button>
-            <button *ngIf="!isRussian" (click)="connect.emit('set')" class="border-button">Submit your product</button>
+            <button *ngIf="!isRussian" (click)="connect.emit('set')" class="border-button">Offer your solution</button>
            <div class="no-selectable" (click)="scrollToCatalog()" style="display: flex; align-items: center; width: 100%; gap: 10px; cursor: pointer"
                 [ngStyle]="{'justify-content': (isMobile$ | async) ? 'center' : 'start'}">
                 <img [src]="(isMobile$ | async) ? 'assets/icons/arrow-down-mobile.svg' : 'assets/icons/arrow-down.svg'" />
@@ -20,35 +20,53 @@
                     В каталог продуктов
                 </div>
                <div *ngIf="!isRussian" style="text-transform: none; font-size: 12px; color: #A1A5B7;">
-                   To product catalog
+                   View product catalogue
                </div>
             </div>
         </div>
     </div>
     <div class="levels-wrapper">
         <div class="levels">
-            <img
+            <img *ngIf="isRussian"
                 style="z-index: 5"
                 src="assets/images/gantt-levels/scm.png"
             >
-            <img
+            <img *ngIf="!isRussian"
+                 style="z-index: 5"
+                 src="assets/images/gantt-levels/en/scm.png"
+            >
+            <img *ngIf="isRussian"
                 style="z-index: 4"
                 src="assets/images/gantt-levels/mes.png"
             >
-            <img
+            <img *ngIf="!isRussian"
+                 style="z-index: 4"
+                 src="assets/images/gantt-levels/en/mes.png"
+            >
+            <img *ngIf="isRussian"
                 style="z-index: 3"
                 class="ziiot"
                 src="assets/images/gantt-levels/ziiot.png"
+            >
+            <img *ngIf="!isRussian"
+                 style="z-index: 3"
+                 class="ziiot"
+                 src="assets/images/gantt-levels/en/ziiot.png"
             >
             <img
                 style="z-index: 1"
                 class="tower"
                 src="assets/images/gantt-levels/green-tower.png"
             >
-            <img
+            <img *ngIf="isRussian"
                 style="z-index: 2"
                 class="kipia"
                 src="assets/images/gantt-levels/kipia.png"
+            >
+            <img *ngIf="!isRussian"
+                 style="z-index: 2"
+                 class="kipia"
+                 src="assets/images/gantt-levels/en/kipia.png"
             >
         </div>
     </div>

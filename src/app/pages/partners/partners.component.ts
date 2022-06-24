@@ -24,7 +24,7 @@ export class PartnersComponent implements OnInit {
                 this.seoService.setBackEndImage("og/catalog.png");
             }
             else {
-                this.seoService.setTitle("For partners");
+                this.seoService.setTitle("To partners");
                 this.seoService.setDescription("Create industry products on the Zyfra platform, integrate your own or participate in solving our problems");
                 this.seoService.setKeywords("Industry, Zyfra, startups, industry developers, petrochemicals, oil, science and technology institutes, R&D, process control systems, industry solutions, grants, oil and gas industry startups, oil and gas industry digitalization, digital technologies in the oil and gas industry, actual problems of the oil and gas industry, oil and gas enterprises , development of the oil and gas industry in Russia");
                 this.seoService.setBackEndImage("og/catalog.png");

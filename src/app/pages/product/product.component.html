@@ -42,7 +42,7 @@
                 <app-product-bullet
                     *ngIf="!!product.effects && !isRussian"
                     type="check"
-                    name="Effects"
+                    name="Results"
                     [data]="product.effects"
                 ></app-product-bullet>
                 <app-product-bullet
@@ -52,7 +52,7 @@
                 ></app-product-bullet>
                 <app-product-bullet
                     *ngIf="!!product.principles && !isRussian"
-                    name="Principle of operation"
+                    name="Operating doctrine"
                     [data]="product.principles"
                 ></app-product-bullet>
                 <app-product-bullet
@@ -74,7 +74,7 @@
                 ></app-product-bullet>
                 <app-product-bullet
                     *ngIf="!!product.reference && !isRussian"
-                    name="Implementations"
+                    name="Reference"
                     [data]="product.reference"
                 ></app-product-bullet>
             </div>

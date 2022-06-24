@@ -2,12 +2,12 @@
     <button class="presentation" (click)="presentation.emit()">
         <svg-icon src="assets/icons/file.svg"></svg-icon>
         <span *ngIf="isRussian">Презентация продукта</span>
-        <span *ngIf="!isRussian">Presentation</span>
+        <span *ngIf="!isRussian">Product presentation</span>
     </button>
     <button class="cost" (click)="cost.emit()">
         <svg-icon src="assets/icons/arrow-right-circle.svg"></svg-icon>
         <span *ngIf="isRussian">Запросить стоимость</span>
-        <span *ngIf="!isRussian">Request a price</span>
+        <span *ngIf="!isRussian">Request price</span>
     </button>
 </div>
 
@@ -17,6 +17,6 @@
     </button>
     <button class="cost" (click)="cost.emit()">
         <span *ngIf="isRussian">Запросить стоимость</span>
-        <span *ngIf="!isRussian">Request a price</span>
+        <span *ngIf="!isRussian">Request price</span>
     </button>
 </div>
