@@ -17,7 +17,7 @@
         <div *ngIf="isRussian" class="description">Как к Вам обращаться?</div>
         <div *ngIf="!isRussian" class="description">What is your name?</div>
         <input *ngIf="isRussian" formControlName="fio" placeholder="ФИО*"/>
-        <input *ngIf="!isRussian" formControlName="fio" placeholder="FullName*"/>
+        <input *ngIf="!isRussian" formControlName="fio" placeholder="Full name*"/>
         <div *ngIf="isRussian" class="error">Пожалуйста, заполните ФИО</div>
         <div *ngIf="!isRussian" class="error">Please fill in your full name</div>
     </div>
@@ -26,7 +26,7 @@
         [class.field__error]="!form.controls['phone'].valid && isChecked"
     >
         <div *ngIf="isRussian" class="description">Как Вам позвонить?</div>
-        <div *ngIf="!isRussian" class="description">How to call you?</div>
+        <div *ngIf="!isRussian" class="description">How do we call you?</div>
         <input formControlName="phone" mask='+0(000) 000-0000' [validation]="true"/>
         <div *ngIf="isRussian" class="error">Пожалуйста, напишите номер телефона</div>
         <div *ngIf="!isRussian" class="error">Please write a phone number</div>
@@ -35,9 +35,9 @@
         class="text-input field"
     >
         <div *ngIf="isRussian" class="description">Можно ли Вам написать?</div>
-        <div *ngIf="!isRussian" class="description">Can we write to you by E-mail?</div>
+        <div *ngIf="!isRussian" class="description">Can we write you an email?</div>
         <input *ngIf="isRussian" formControlName="email" placeholder="Почта"/>
-        <input *ngIf="!isRussian" formControlName="email" placeholder="E-mail"/>
+        <input *ngIf="!isRussian" formControlName="email" placeholder="Email"/>
     </div>
     <div
         class="field"
@@ -50,5 +50,5 @@
         <div *ngIf="!isRussian" class="error">Please confirm consent</div>
     </div>
     <button *ngIf="isRussian" (click)="sendData()">Отправить</button>
-    <button *ngIf="!isRussian" (click)="sendData()">Send</button>
+    <button *ngIf="!isRussian" (click)="sendData()">Submit</button>
 </div>
