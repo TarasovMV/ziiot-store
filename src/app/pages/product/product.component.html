@@ -100,31 +100,59 @@
             <app-product-image *ngIf="product.gallery[2]" (click)="openGallery(2)" [img]="product.gallery[2] | imageUrl"></app-product-image>
         </div>
         <app-product-bullet
-            *ngIf="!!product.functions"
+            *ngIf="!!product.functions && isRussian"
             type="digit"
             name="Функции"
             [data]="product.functions"
         ></app-product-bullet>
         <app-product-bullet
-            *ngIf="!!product.effects"
+            *ngIf="!!product.functions && !isRussian"
+            type="digit"
+            name="Functions"
+            [data]="product.functions"
+        ></app-product-bullet>
+        <app-product-bullet
+            *ngIf="!!product.effects && isRussian"
             type="check"
             name="Эффекты"
             [data]="product.effects"
         ></app-product-bullet>
         <app-product-bullet
-            *ngIf="!!product.principles"
+            *ngIf="!!product.effects && !isRussian"
+            type="check"
+            name="Results"
+            [data]="product.effects"
+        ></app-product-bullet>
+        <app-product-bullet
+            *ngIf="!!product.principles && isRussian"
             name="Принцип работы"
             [data]="product.principles"
         ></app-product-bullet>
         <app-product-bullet
-            *ngIf="!!product.industries?.trim()"
+            *ngIf="!!product.principles && !isRussian"
+            name="Operating doctrine"
+            [data]="product.principles"
+        ></app-product-bullet>
+        <app-product-bullet
+            *ngIf="!!product.industries?.trim() && isRussian"
             type="digit"
             name="Отрасли"
             [data]="product.industries"
         ></app-product-bullet>
         <app-product-bullet
-            *ngIf="!!product.reference"
+            *ngIf="!!product.industries?.trim() && !isRussian"
+            type="digit"
+            name="Industries"
+            [data]="product.industries"
+        ></app-product-bullet>
+        <app-product-bullet
+            *ngIf="!!product.reference && isRussian"
             name="Пример внедрения"
+            [data]="product.reference"
+        ></app-product-bullet>
+        <app-product-bullet
+            *ngIf="!!product.reference && !isRussian"
+            name="Reference"
             [data]="product.reference"
         ></app-product-bullet>
         <app-product-contacts
