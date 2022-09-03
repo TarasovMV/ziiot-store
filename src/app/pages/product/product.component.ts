@@ -54,6 +54,7 @@ export class ProductComponent implements OnInit {
                 this.seoService.setTitle(x.name);
                 this.seoService.setDescription(x.description);
                 this.seoService.setKeywords(x.keyWords);
+                this.seoService.setUrl("https://ziiotstore.ru" + this.router.url);
                 if (x.gallery.length > 0) {
                     this.seoService.setBackEndImage(x.gallery[0]);
                 }

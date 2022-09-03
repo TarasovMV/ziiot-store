@@ -4,7 +4,7 @@
     </div>
 
     <div class="header">
-        <div class="title">{{ data.name }}</div>
+        <h1 style="padding: 0; margin: 0" class="title">{{ data.name }}</h1>
         <div class="underline">{{ data.interlinear }}</div>
         <div class="chips-wrapper">
             <div *ngFor="let filter of data.filters" class="chips">{{filter.name}}</div>

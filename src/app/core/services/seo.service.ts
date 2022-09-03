@@ -11,6 +11,13 @@ export class SeoService {
     public setTitle(title: string) {
         this.title.setTitle(title);
         this.meta.updateTag({ property: 'og:title', content: title });
+        this.meta.updateTag({ property: 'og:type', content: "website" });
+        this.meta.updateTag({ property: 'og:site_name', content: "ZIIoT Store"});
+    }
+
+    public setUrl(url: string) {
+        this.meta.updateTag({ property: 'og:url', content: url });
+        this.meta.updateTag({ property: 'og:url', content: url });
     }
 
     public setDescription(description: string) {

@@ -30,6 +30,7 @@ export class StartupsComponent implements OnInit {
                 this.seoService.setBackEndImage("og/catalog.png");
             }
         });
+        this.seoService.setUrl("https://ziiotstore.ru/startups");
 
     }
 

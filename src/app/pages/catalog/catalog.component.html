@@ -4,6 +4,8 @@
             (connect)="openForm($event)"
         ></app-catalog-header>
     </div>
+    <h1 style="display: none" *ngIf="isRussian">Цифровой индустриальный маркетплейс</h1>
+    <h1 style="display: none" *ngIf="!isRussian">Digital industrial marketplace</h1>
     <div class="content">
         <div *ngIf="!(isMobile$ | async)" class="column column_left">
             <app-filters></app-filters>

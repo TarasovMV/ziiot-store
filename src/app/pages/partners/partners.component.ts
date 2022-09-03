@@ -29,6 +29,7 @@ export class PartnersComponent implements OnInit {
                 this.seoService.setKeywords("Industry, Zyfra, startups, industry developers, petrochemicals, oil, science and technology institutes, R&D, process control systems, industry solutions, grants, oil and gas industry startups, oil and gas industry digitalization, digital technologies in the oil and gas industry, actual problems of the oil and gas industry, oil and gas enterprises , development of the oil and gas industry in Russia");
                 this.seoService.setBackEndImage("og/catalog.png");
             }
+            this.seoService.setUrl("https://ziiotstore.ru/partners");
         });
 
     }

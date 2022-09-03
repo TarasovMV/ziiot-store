@@ -6,7 +6,7 @@
             </div>
             <div class="title">
                 <div *ngIf="!!product.providerName" class="company">{{product.providerName}}</div>
-                <div class="main">{{product.name}}</div>
+                <h2 style="padding: 0; margin: 0" class="main">{{product.name}}</h2>
             </div>
         </div>
         <div class="content">{{product.description}}</div>
@@ -21,7 +21,7 @@
         <svg-icon class="background" src="assets/icons/plant-back.svg"></svg-icon>
         <div class="header">
             <div class="title">
-                <div class="main">{{product.name}}</div>
+                <h2 style="margin: 0; padding: 0" class="main">{{product.name}}</h2>
             </div>
         </div>
         <div class="content">{{product.description}}</div>

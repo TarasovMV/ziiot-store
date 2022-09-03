@@ -29,6 +29,7 @@ export class NewsComponent implements OnInit {
                 this.seoService.setKeywords("Digital marketplace, digitalization, IoT solutions, oil refining, petrochemicals, enterprise management, production management, oil, reliability, refining, production, digital twin, repair management, reliability management");
                 this.seoService.setBackEndImage("og/catalog.png");
             }
+            this.seoService.setUrl("https://ziiotstore.ru/news");
         });
     }
 }
