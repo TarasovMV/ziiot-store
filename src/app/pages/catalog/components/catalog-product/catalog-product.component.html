@@ -2,7 +2,7 @@
     <div *ngIf="!product.document" class="container">
         <div class="header">
             <div class="icon">
-                <img *ngIf="product.icon" [src]="product.icon | imageUrl" />
+                <img [alt]="product.name" *ngIf="product.icon" [src]="product.icon | imageUrl" />
             </div>
             <div class="title">
                 <div *ngIf="!!product.providerName" class="company">{{product.providerName}}</div>
