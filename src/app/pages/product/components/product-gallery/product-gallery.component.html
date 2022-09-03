@@ -1,5 +1,5 @@
 <swiper [navigation]="true" [pagination]="{ clickable: true }" class="slider">
     <ng-container *ngFor="let img of gallery">
-        <ng-template swiperSlide><img alt="{{img.}}" [src]="img | imageUrl"></ng-template>
+        <ng-template swiperSlide><img alt="{{productName}}" [src]="img | imageUrl"></ng-template>
     </ng-container>
 </swiper>
