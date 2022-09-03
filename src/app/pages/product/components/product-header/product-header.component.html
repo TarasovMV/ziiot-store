@@ -1,6 +1,6 @@
 <div *ngIf="!!data" class="wrapper">
     <div class="logo">
-        <img [src]="data.icon | imageUrl" />
+        <img [alt]="data.name" [src]="data.icon | imageUrl" />
     </div>
 
     <div class="header">
