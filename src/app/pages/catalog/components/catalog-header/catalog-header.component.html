@@ -15,7 +15,7 @@
             <button *ngIf="!isRussian" (click)="connect.emit('set')" class="border-button">Offer your solution</button>
            <div class="no-selectable" (click)="scrollToCatalog()" style="display: flex; align-items: center; width: 100%; gap: 10px; cursor: pointer"
                 [ngStyle]="{'justify-content': (isMobile$ | async) ? 'center' : 'start'}">
-                <img [src]="(isMobile$ | async) ? 'assets/icons/arrow-down-mobile.svg' : 'assets/icons/arrow-down.svg'" />
+                <img alt="В каталог продуктов" [src]="(isMobile$ | async) ? 'assets/icons/arrow-down-mobile.svg' : 'assets/icons/arrow-down.svg'" />
                 <div *ngIf="isRussian" style="text-transform: none; font-size: 12px; color: #A1A5B7;">
                     В каталог продуктов
                 </div>
@@ -27,43 +27,43 @@
     </div>
     <div class="levels-wrapper">
         <div class="levels">
-            <img *ngIf="isRussian"
+            <img alt="SCM" *ngIf="isRussian"
                 style="z-index: 5"
                 src="assets/images/gantt-levels/scm.png"
             >
-            <img *ngIf="!isRussian"
+            <img alt="SCM" *ngIf="!isRussian"
                  style="z-index: 5"
                  src="assets/images/gantt-levels/en/scm.png"
             >
-            <img *ngIf="isRussian"
+            <img alt="MES" *ngIf="isRussian"
                 style="z-index: 4"
                 src="assets/images/gantt-levels/mes.png"
             >
-            <img *ngIf="!isRussian"
+            <img alt="MES" *ngIf="!isRussian"
                  style="z-index: 4"
                  src="assets/images/gantt-levels/en/mes.png"
             >
-            <img *ngIf="isRussian"
+            <img alt="ZIIoT" *ngIf="isRussian"
                 style="z-index: 3"
                 class="ziiot"
                 src="assets/images/gantt-levels/ziiot.png"
             >
-            <img *ngIf="!isRussian"
+            <img alt="ZIIot" *ngIf="!isRussian"
                  style="z-index: 3"
                  class="ziiot"
                  src="assets/images/gantt-levels/en/ziiot.png"
             >
-            <img
+            <img alt="Pyramid"
                 style="z-index: 1"
                 class="tower"
                 src="assets/images/gantt-levels/green-tower.png"
             >
-            <img *ngIf="isRussian"
+            <img alt="КИПиА" *ngIf="isRussian"
                 style="z-index: 2"
                 class="kipia"
                 src="assets/images/gantt-levels/kipia.png"
             >
-            <img *ngIf="!isRussian"
+            <img alt="Instrumentation and automation" *ngIf="!isRussian"
                  style="z-index: 2"
                  class="kipia"
                  src="assets/images/gantt-levels/en/kipia.png"

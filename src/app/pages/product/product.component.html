@@ -8,10 +8,10 @@
         <app-product-header [data]="product"></app-product-header>
         <div class="body">
             <div class="column column_left">
-                <app-product-gallery [gallery]="product.gallery" (click)="openGallery(0)"></app-product-gallery>
+                <app-product-gallery [productName]="product.name" [gallery]="product.gallery" (click)="openGallery(0)"></app-product-gallery>
                 <div class="images">
-                    <app-product-image *ngIf="product.gallery[1]" (click)="openGallery(1)" [img]="product.gallery[1] | imageUrl"></app-product-image>
-                    <app-product-image *ngIf="product.gallery[2]" (click)="openGallery(2)" [img]="product.gallery[2] | imageUrl"></app-product-image>
+                    <app-product-image [productName]="product.name" *ngIf="product.gallery[1]" (click)="openGallery(1)" [img]="product.gallery[1] | imageUrl"></app-product-image>
+                    <app-product-image [productName]="product.name" *ngIf="product.gallery[2]" (click)="openGallery(2)" [img]="product.gallery[2] | imageUrl"></app-product-image>
                 </div>
                 <app-product-contacts
                     *ngIf="!!product?.provider?.email || !!product?.provider?.phoneNumber"

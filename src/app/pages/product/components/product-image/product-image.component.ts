@@ -8,4 +8,5 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 })
 export class ProductImageComponent {
     @Input() img: string | undefined;
+    @Input() productName: string | undefined;
 }

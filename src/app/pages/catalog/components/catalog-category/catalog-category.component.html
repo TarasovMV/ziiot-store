@@ -6,7 +6,7 @@
         <div class="count">[{{type === 'all' ? (allCount$ | async) : data?.count}}]</div>
     </div>
     <div class="icon" *ngIf="type !== 'all'">
-        <img [src]="imageMap[data.name]" />
+        <img [alt]="data.name" [src]="imageMap[data.name]" />
     </div>
 </div>
 

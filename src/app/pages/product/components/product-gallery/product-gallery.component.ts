@@ -12,4 +12,5 @@ SwiperCore.use([Navigation, Pagination]);
 })
 export class ProductGalleryComponent {
     @Input() gallery: string[] = [];
+    @Input() productName: string | undefined;
 }
