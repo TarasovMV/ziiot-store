@@ -9,10 +9,10 @@
         <div *ngIf="isRussian" class="description"><span style="color: #46FF77;">{{(dataService.products$ | async)?.length}}+ отечественных продуктов</span> для всех<br/>уровней управления предприятием</div>
         <div *ngIf="!isRussian" class="description"><span style="color: #46FF77;">{{(dataService.products$ | async)?.length}}+ domestic products</span> for all<br/>business management levels</div>
         <div class="buttons">
-            <button *ngIf="isRussian" (click)="connect.emit('request')">Оставить запрос на решение</button>
-            <button *ngIf="!isRussian" (click)="connect.emit('request')">Send your request for solution</button>
-            <button *ngIf="isRussian" (click)="connect.emit('set')" class="border-button">Разместить свое решение</button>
-            <button *ngIf="!isRussian" (click)="connect.emit('set')" class="border-button">Offer your solution</button>
+            <button style="display: none" *ngIf="isRussian" (click)="connect.emit('request')">Оставить запрос на решение</button>
+            <button style="display: none" *ngIf="!isRussian" (click)="connect.emit('request')">Send your request for solution</button>
+            <button style="display: none" *ngIf="isRussian" (click)="connect.emit('set')" class="border-button">Разместить свое решение</button>
+            <button style="display: none" *ngIf="!isRussian" (click)="connect.emit('set')" class="border-button">Offer your solution</button>
            <div class="no-selectable" (click)="scrollToCatalog()" style="display: flex; align-items: center; width: 100%; gap: 10px; cursor: pointer"
                 [ngStyle]="{'justify-content': (isMobile$ | async) ? 'center' : 'start'}">
                 <img alt="В каталог продуктов" [src]="(isMobile$ | async) ? 'assets/icons/arrow-down-mobile.svg' : 'assets/icons/arrow-down.svg'" />

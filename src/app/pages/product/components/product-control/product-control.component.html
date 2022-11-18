@@ -4,19 +4,19 @@
         <span *ngIf="isRussian">Презентация продукта</span>
         <span *ngIf="!isRussian">Product presentation</span>
     </button>
-    <button class="cost" (click)="cost.emit()">
+    <!--<button class="cost" (click)="cost.emit()">
         <svg-icon src="assets/icons/arrow-right-circle.svg"></svg-icon>
         <span *ngIf="isRussian">Запросить стоимость</span>
         <span *ngIf="!isRussian">Request price</span>
-    </button>
+    </button>-->
 </div>
 
 <div *ngIf="(pageSize$ | async) === 'm' || (pageSize$ | async) === 's'" class="wrapper-mobile">
     <button class="back" (click)="back.emit()">
         <svg-icon src="assets/icons/arrow-simple.svg"></svg-icon>
     </button>
-    <button class="cost" (click)="cost.emit()">
+    <!--<button class="cost" (click)="cost.emit()">
         <span *ngIf="isRussian">Запросить стоимость</span>
         <span *ngIf="!isRussian">Request price</span>
-    </button>
+    </button>-->
 </div>
